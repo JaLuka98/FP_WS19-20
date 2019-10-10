@@ -1,0 +1,51 @@
+\section{Fehlerrechnung}
+\label{sec:Fehlerrechnung}
+Der Mittelwert einer Stichprobe von $N$ Werten wird durch
+\begin{equation}
+  \overline{x} = \sum\limits_{i = 1}^N x_i
+  \label{eqn:mean}
+\end{equation}
+
+berechnet.
+Die empirische Standardabweichung dieser Stichprobe ist durch
+\begin{equation}
+  \sigma_x = \sqrt{\frac{1}{N-1}
+    \sum\limits_{i = 1}^N
+    (x_i-\overline{x})^2}
+    \label{eqn:std}
+\end{equation}
+
+gegeben.
+Ist $f$ eine Funktion, die von unsicheren Variablen $x_i$ mit
+Standardabweichungen $\sigma_i$ abhängt, so ist die Unsicherheit von f
+\begin{equation}
+  \sigma_f = \sqrt{
+    \sum\limits_{i = 1}^N
+      \left( \frac{\partial f}{\partial x_i} \sigma_i \right)^{\!\! 2}
+  }\,.
+  \label{eqn:gaussfehler}
+\end{equation}
+
+Diese Formel bezeichnet man als "Gauß'sches Fehlerfortpflanzungsgesetz".
+
+Bei einer linearen Regression folgt eine Ausgleichsgerade
+\begin{equation}
+  y(x) = ax+b\,
+\end{equation}
+mit der Steigung $a$ und dem Ordinatenabschnitt $b$. Liegen Fehler in y-Richtung
+und nur in y-Richtung vor, dann sind die Parameter $a$ und $b$ selbst unsicher
+und ergeben sich zu
+\begin{align}
+  a &= \frac{\overline{xy}-\overline{x} \cdot \overline{y}}{\overline{x^2}-\overline{x}^2}\,,\\
+  b &= \frac{\overline{y}-\overline{x^2}-\overline{xy} \cdot \overline{x}}{\overline{x^2}-\overline{x}^2}\,.
+\end{align}
+
+%Wenn im Folgenden Mittelwerte, Standardabweichungen und Fehler von
+%Funktionen unsicherer Größen berechnet werden, so werden stets die obigen
+%Formeln verwendet.
+Jegliche Rechnungen werden mit IPython 5.3.0 in Python 3.6.1 durchgeführt. Dabei
+werden die Bibliotheken "numpy" \cite{numpy} und "scipy" \cite{scipy} verwendet.
+Letztere dient insbesondere zur Erstellung von Ausgleichsrechnungen.
+Die Ausführung von Fehlerrechnungen geschieht unter Verwendung des Pakets
+"uncertainties" \cite{uncertainties}. Zur Erstellung von Graphen wird die Bibliothek
+"matplotlib" \cite{matplotlib} verwendet.
