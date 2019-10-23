@@ -18,9 +18,10 @@ $I_{vert}=0{,}195\,$A ergibt sich die vertikale Komponente des Erdmagnetfeldes z
 \begin{equation*}
   \SI{2.99e-5}{\tesla}\,.
 \end{equation*}
-Die Theoriewert hierzu ist (WERT + ZITAT).
+Die Theoriewert hierzu liegt bei $\SI{44}{\micro\tesla}$ \cite{erde}. Der gemessene Wert
+weicht hiervon um $-32{,}05\%$ ab.
 
-\subsection{Bestimmung des horizontalen Erdmagnetfeldes und der Landé Faktoren}
+\subsection{Bestimmung des horizontalen Erdmagnetfeldes und der Landé-Faktoren}
 \label{subsec:horizontal}
 
 Zunächst werden mithilfe von Formel \eqref{eqn:Helmholtz} aus den gemessenen Stromstärken
@@ -50,19 +51,20 @@ in Tabelle \ref{tab:werte}.
 	\end{center}
 \end{table}
 
-Anschließend wird für beide Isotope getrennt jeweils die horizontale Magnetfeldstärke $B_hor$
+Anschließend wird für beide Isotope getrennt jeweils die horizontale Magnetfeldstärke $B_{hor}$
 gegen die Frequenz $f$ aufgetragen und es wird eine lineare Ausgleichsrechnung der Form
 \begin{equation*}
   g(f)=af+b
 \end{equation*}
 durchgeführt. Es ergeben sich die Parameter
 \begin{align*}
- a_1&= \SI{}{\tesla\per\Hz}  \,,\\
- b_1&= \SI{}{\tesla} \,,\\
- a_2&= \SI{}{\tesla\per\Hz} \,,\\
- b_2&= \SI{}{\tesla} \,.
+ a_1&= \SI{1.0149(0027)e-10}{\tesla\per\Hz}  \,,\\
+ b_1&= \SI{1.509(016)e-05}{\tesla} \,,\\
+ a_2&= \SI{1.511(012)e-10}{\tesla\per\Hz} \,,\\
+ b_2&= \SI{1.53(07)e-05}{\tesla} \,.
 \end{align*}
 Die zugehörigen Plots sind in den Abbildungen \ref{fig:frequenz1} und \ref{fig:frequenz2} dargestellt.
+Es ist erkennbar, dass die Messwerte sich sehr gut durch eine Gerade anpassen lassen.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{build/frequenz1.pdf}
@@ -78,8 +80,9 @@ Die zugehörigen Plots sind in den Abbildungen \ref{fig:frequenz1} und \ref{fig:
   \label{fig:frequenz2}
 \end{figure}
 Aus den Parametern lassen sich nun die horizontale B-Feldstärke, sowie der Landé-Faktor bestimmen.
-Die horizontale Erdmagnetfeldstärke ist gegeben durch den Parameter $b$. Der Theoriewerte beträgt hier
-(WERT + ZITAT).
+Die horizontale Erdmagnetfeldstärke ist gegeben durch den Parameter $b$. Der Theoriewert beträgt hier
+$\SI{20}{\micro\tesla}$ \cite{erde}. Die Abweichung vom Theoriewert beträgt damit $-24{,}55\%$ für
+$b_1$ und $-23{,}5\%$ für $b_2$.
 
 Der Landé-Faktor kann mithilfe von Formel \ref{eqn:B_M_Theorie} berechnet werden zu
 \begin{equation*}
@@ -87,8 +90,8 @@ Der Landé-Faktor kann mithilfe von Formel \ref{eqn:B_M_Theorie} berechnet werde
 \end{equation*}
 Damit ergeben sich die beiden Werte
 \begin{align*}
-  g_{F,1}&= \,,\\
-  g_{F,2}&= \,.
+  g_{F,1}&= \SI{0.7041(0018)}{}\,,\\
+  g_{F,2}&= \SI{0.473(004)}{}\,.
 \end{align*}
 
 \subsection{Bestimmung des Kernspins}
@@ -102,13 +105,14 @@ Es folgt für Formel \eqref{eqn:g_F_Theorie}
 Der Landé-Faktor $g_J$ kann mithilfe von Formel \ref{eqn:g_J_Theorie} zu $g_J=2{,}0023$ bestimmt
 werden. Für den Kernspin folgt damit
 \begin{align*}
-  I_1&= \,,\\
-  I_2&= \,.
+  I_1&= \SI{0.922(004)}{}\,,\\
+  I_2&= \SI{1.616(017)}{}\,.
 \end{align*}
 Die Theoriewerte betragen hier $I=5/2$ für $\text{Rb}^{85}$ und $I=3/2$ für $\text{Rb}^{87}$.
 
 Mithilfe des Kernspins können die Isotope wie folgt zugeordnet werden: Isotop 1 ist $\text{Rb}^{87}$
-und Isotop 2 ist $\text{Rb}^{85}$.
+und Isotop 2 ist $\text{Rb}^{85}$. Die Abweichungen von den Theoriewerten betragen
+$-35{,}36\%$ für $\text{Rb}^{85}$ und $-38{,}53\%$ für $\text{Rb}^{87}$.
 
 
 \subsection{Bestimmung des Isotopenverhältnisses}
@@ -123,18 +127,20 @@ eine Amplitude von 9 Einheiten
   \frac{\gamma_{85}}{\gamma_{87}}=\frac{9}{4{,}5}= 2 \,.
 \end{equation}
 
-Das in der Natur vorkommende Verhältnis folgt aus den Verhältnissen der beiden Isotope (ZITAT!!!)
+Das in der Natur vorkommende Verhältnis folgt aus den Verhältnissen der beiden Isotope \cite{verhältnis}
 und ergibt
 \begin{equation}
-  \frac{\text{Anteil}~ \ce{^{85}Rb}}{\text{Anteil}~ \ce{^{87}Rb}}=\frac{72,12\%}{27,83\%} \approx 2{,}593 \,.
+  \frac{\text{Anteil}~ \ce{^{85}Rb}}{\text{Anteil}~ \ce{^{87}Rb}}=\frac{72,17\%}{27,83\%} \approx 2{,}593 \,.
 \end{equation}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{data/foto.jpg}
+  \includegraphics[width=0.7\textwidth]{data/foto.jpg}
   \caption{Typischer Verlauf der Transparenz des Rb-Gases in Abhängigkeit von der magnetischen Feldstärke bei einer Frequenz von $f=100\,$kHz.}
   \label{fig:foto}
 \end{figure}
+
+Der Unterschied ist dadurch zu erklären, dass GRÜNDE EINFÜGEN!!!
 
 \subsection{Abschätzung des quadratischen Zeeman-Effekts}
 \label{subsec:zeeman}
@@ -149,15 +155,114 @@ Hyperfeinstrukturaufspaltung des Grundzustandes
 Mit den jeweiligen berechneten Werten $B_i$ für die Horizontalkomponente des Erdmagnetfeldes,
 $g_{F,i}$ für die Landé-Faktoren und $M_F=1$ ergibt sich damit für den quadratischen Zeeman-Effekt
 \begin{align*}
-  \Delta E_{Z,85}&= \,,\\
-  \Delta E_{Z,87}&= \,.
+  \Delta E_{Z,85}&=\SI{6.7(4)e-29}{\joule}\,,\\
+  \Delta E_{Z,87}&=\SI{9.85(13)e-29}{\joule}\,.
 \end{align*}
-Die zusätzlich durch den quadratischen Term herbeigeführte Aufspaltung beträgt dabei lediglich
+Die zusätzlich zum linearen Zeeman-Effekt durch den quadratischen Term herbeigeführte Aufspaltung beträgt dabei lediglich
 \begin{align*}
-  \Delta E_{quadratisch,85}&= \,,\\
-  \Delta E_{quadratisch,87}&= \,.
+  \Delta E_{quadratisch,85}&=\SI{-2.24(25)e-33}{\joule}\,,\\
+  \Delta E_{quadratisch,87}&=\SI{-2.14(06)e-33}{\joule}\,.
 \end{align*}
 Somit ist der quadratische Zeeman-Effekt in diesem Versuch vernachlässigbar.
+
+\subsection{Anpassung der ansteigenden Flanken an eine Exponentialfunktion}
+\label{subsec:flanken}
+
+In diesem Kapitel sollen die ansteigenden Flanken aus dem letzten Versuchsteil an
+Exponentialfunktionen angepasst werden. Dafür werden zunächst Werte aus den angefertigten
+Bildern abgelesen. Die Aufnahmen des Oszilloskops befinden sich in den Abbildungen
+\ref{fig:flanke1} und \ref{fig:flanke2}. Die daraus abgelesenen Werte befinden sich in
+Tabelle \ref{tab:flanke}.
+
+\begin{table}[htp]
+	\begin{center}
+    \caption{Aus den Bildern abgelesene und auf 1 normierte Werte für die Transparenz in Abhängigkeit von der Zeit.}
+    \label{tab:flanke}
+		\begin{tabular}{cccc}
+		\toprule
+			{$t_1$/ms} & {$\text{Transparenz}_1$} & {$t_2$/ms} & {$\text{Transparenz}_2$}\\
+			\midrule
+			22,5 & 0.09 & 15,0 & 0,00\\
+			25,0 & 0.23 & 20,0 & 0,18\\
+			30,0 & 0.34 & 25,0 & 0,29\\
+			35,0 & 0.51 & 30,0 & 0,40\\
+			40,0 & 0.57 & 35,0 & 0,49\\
+			45,0 & 0.66 & 40,0 & 0,56\\
+			50,0 & 0.69 & 45,0 & 0,62\\
+			55,0 & 0.74 & 50,0 & 0,67\\
+			60,0 & 0.77 & 55,0 & 0,71\\
+			65,0 & 0,80 & 60,0 & 0,73\\
+			70,0 & 0,86 & 65,0 & 0,76\\
+			75,0 & 0,91 & 70,0 & 0,78\\
+			80,0 & 0,91 & 75,0 & 0,80\\
+			85,0 & 0,94 & 80,0 & 0,82\\
+			90,0 & 0,94 & 85,0 & 0,84\\
+			95,0 & 0,97 & 90,0 & 0,87\\
+			100 & 0,97 & 95,0 & 0,89\\
+			105 & 0,97 & 100 & 0,91\\
+			110 & 0,97 & 105 & 0,91\\
+			115 & 0,97 & 110 & 0,93\\
+			120 & 0,97 & 115 & 0,93\\
+			125 & 0,97 & 120 & 0,96\\
+			130 & 0,97 & 125 & 0,96\\
+			135 & 1,00 & 130 & 0,96\\
+			140 & 1,00 & 135 & 0,96\\
+			145 & 1,00 & 140 & 0,98\\
+			150 & 1,00 & 145 & 0,98\\
+			- & - & 150 & 0,98\\
+			- & - & 155 & 1,00\\
+			- & - & 160 & 1,00\\
+			- & - & 165 & 1,00\\
+			- & - & 170 & 1,00\\
+			- & - & 175 & 1,00\\
+			- & - & 180 & 1,00\\
+			- & - & 185 & 1,00\\
+			- & - & 190 & 1,00\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{data/Dip1.jpg}
+  \caption{Ansteigende Flanke für den ersten Dip.}
+  \label{fig:flanke1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{data/Dip2.jpg}
+  \caption{Ansteigende Flanke für den zweiten Dip.}
+  \label{fig:flanke2}
+\end{figure}
+
+Die Werte werden auf 1 normiert. Anschließend wird eine Ausgleichsrechnung der Form
+\begin{equation*}
+  f(t)=1-\exp(-a(t-b))
+\end{equation*}
+durchgeführt. Es ergeben sich die Parameter
+\begin{align*}
+  a_1&=\SI{0.0398(0010)}{\per\milli\second} \,,\\
+  b_1&=\SI{19.2(4)}{\milli\second} \,,\\
+  a_2&=\SI{0.0285(0005)}{\per\milli\second}\,,\\
+  b_2&=\SI{13.3(5)}{\milli\second} \,.
+\end{align*}
+In den Abbildungen \ref{fig:flankefit1} und \ref{fig:flankefit2} sind die Messwerte und die
+Ausgleichsrechnungen grafisch dargestellt. Es ist erkennbar, dass sich die Messwerte gut
+durch eine Exponentialfunktion annähern lassen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/flanke1.pdf}
+  \caption{Messwerte und Ausgleichsfunktion für den ersten Dip.}
+  \label{fig:flankefit1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/flanke2.pdf}
+  \caption{Messwerte und Ausgleichsfunktion für den zweiten Dip.}
+  \label{fig:flankefit2}
+\end{figure}
 
 \subsection{Bestimmung des Verhältnisses der Landé-Faktoren mithilfe der Rabi-Oszillationen}
 \label{subsec:oszillationen}
@@ -194,29 +299,29 @@ Außerdem wird eine Ausgleichsrechnung der Form
 durchgeführt. Dies in in den Abbildungen \ref{fig:oszi1} und \ref{fig:oszi2} grafisch dargestellt.
 Es ergeben sich die Parameter
 \begin{align*}
-  a_1&=\SI{}{\second} \,,\\
-  b_1&=\SI{}{\volt} \,,\\
-  c_1&=\SI{}{\volt} \,,\\
-  a_2&=\SI{}{\second} \,,\\
-  b_2&=\SI{}{\volt} \,,\\
-  c_2&=\SI{}{\volt} \,.
+  a_1&=\SI{-0.00014(00004)}{\second} \,,\\
+  b_1&=\SI{0.0055(0005)}{\volt} \,,\\
+  c_1&=\SI{-1.34(24)}{\volt} \,,\\
+  a_2&=\SI{-7(8)e-05}{\second} \,,\\
+  b_2&=\SI{0.0062(0007)}{\volt} \,,\\
+  c_2&=\SI{-0.39(22)}{\volt} \,.
 \end{align*}
-Das Verhältnis aus $b_1$ und $b_2$ beträgt damit
+Das Verhältnis der Parameter $b_i$ für $\text{Rb}^{85}$ und $\text{Rb}^{87}$ beträgt damit:
 \begin{equation*}
-  \frac{b_1}{b_2}= \,.
+  \frac{b_2}{b_1}\approx1{,}127\,.
 \end{equation*}
-
+Dieser Wert weicht um $-24{,}87\%$ vom Theoriewert 1{,}5 ab. 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{build/oszi1.pdf}
   \caption{Messwerte und Ausgleichsrechnung zur Bestimmung des Verhältnisses der Landé-Faktoren mithilfe der
-  Rabi-Oszillationen für $\text{Rb}^{85}$.}
+  Rabi-Oszillationen für $\text{Rb}^{87}$.}
   \label{fig:oszi1}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{build/oszi2.pdf}
   \caption{Messwerte und Ausgleichsrechnung zur Bestimmung des Verhältnisses der Landé-Faktoren mithilfe der
-  Rabi-Oszillationen für $\text{Rb}^{87}$.}
+  Rabi-Oszillationen für $\text{Rb}^{85}$.}
   \label{fig:oszi2}
 \end{figure}

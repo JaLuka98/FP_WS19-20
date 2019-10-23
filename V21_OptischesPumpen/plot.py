@@ -15,6 +15,9 @@ def linfit(x, a, b):
 def hyperbelfit(x,a,b,c):
     return a + b/(x-c)
 
+def expfit(x, a, b):
+    return 1-np.exp(-a*(x-b))
+
 #Daten fuer die Helmholtz-Spulenpaare:
 
 r_sweep=0.1639
@@ -112,6 +115,7 @@ print('Kernspin Isotop 1:', I1)
 print('Kernspin Isotop 2:', I2)
 
 #Quadratischer Zeeman
+print('QUADRATISCHER ZEEMAN')
 E1=g1*muB*B_1
 E2=g2*muB*B_2
 
@@ -125,8 +129,65 @@ print('Quadratischer Zeeman zusätzlich 87:', E1)
 print('Quadratischer Zeeman zusätzlich 85:', E2)
 
 #Ansteigende Flanke
+print('ANSTEIGENDE FLANKE')
+x1, y1, x2, y2=np.genfromtxt('data/flanken.txt', unpack=True)
+
+#x1*=1e-3
+#x2*=1e-3
+#y-Werte sollten auf 1 normiert werden!!!!!
+y1*=1/np.max(y1)
+y2*=1/np.max(y2)
+
+hr = ['$t_1$/ms', '$\text{Transparenz}_1$','$t_2$/ms', '$\text{Transparenz}_2$']
+m = np.zeros((36, 4))
+m[:,0] = x1
+m[:,1] = y1
+m[:,2] = x2
+m[:,3] = y2
+t=matrix2latex(m, headerRow=hr, format='%.2f')
+print(t)
+
+
+params, covariance_matrix = optimize.curve_fit(expfit, x1[:27], y1[:27], p0=[0.5, 0])
+a, b = correlated_values(params, covariance_matrix)
+print('Fit zu Isotop 1:')
+print('a=', a)
+print('b=', b)
+
+linspace=np.linspace(20, 155, 1000)
+plt.plot(linspace, expfit(linspace, *params), 'b-', label='Ausgleichsrechnung', linewidth=0.5)
+plt.plot(x1, y1, 'rx', mew=0.5, label='Messwerte')
+plt.xlabel(r'$t/$ms')
+plt.ylabel(r'Transparenz')
+plt.xlim(20, 155)
+plt.tight_layout()
+plt.legend()
+plt.grid()
+plt.savefig('build/flanke1.pdf')
+plt.clf()
+
+
+
+params, covariance_matrix = optimize.curve_fit(expfit, x2, y2,p0=[1, 0])
+a, b = correlated_values(params, covariance_matrix)
+print('Fit zu Isotop 2:')
+print('a=', a)
+print('b=', b)
+
+linspace=np.linspace(20, 200, 1000)
+plt.plot(linspace, expfit(linspace, *params), 'b-', label='Ausgleichsrechnung', linewidth=0.5)
+plt.plot(x2, y2, 'rx', mew=0.5, label='Messwerte')
+plt.xlabel(r'$t/$ms')
+plt.ylabel(r'Transparenz')
+plt.xlim(20, 200)
+plt.tight_layout()
+plt.legend()
+plt.grid()
+plt.savefig('build/flanke2.pdf')
+plt.clf()
 
 #Oszillationen
+print('OSZILLATIONEN')
 U, T_1, T_2 = np.genfromtxt('data/amplitude.txt', unpack=True)
 
 T_1*=1e-3 #T in s
@@ -143,7 +204,7 @@ print(t)
 params, covariance_matrix = optimize.curve_fit(hyperbelfit, U, T_1)
 a, b, c = correlated_values(params, covariance_matrix)
 print('Fit zu Isotop 1:')
-print('a=', a) #a entspricht B/f
+print('a=', a)
 print('b=', b)
 print('c=', c)
 
@@ -162,7 +223,7 @@ plt.clf()
 params, covariance_matrix = optimize.curve_fit(hyperbelfit, U, T_2)
 a, b, c = correlated_values(params, covariance_matrix)
 print('Fit zu Isotop 2:')
-print('a=', a) #a entspricht B/f
+print('a=', a)
 print('b=', b)
 print('c=', c)
 
