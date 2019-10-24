@@ -6,21 +6,19 @@
   \subsection{Beschreibung der Energieniveaus in Rubidium}
   \label{subsec:energieniveaus}
   Bei Rubidium handelt es sich um ein Erdalkalimetall, das nur über ein ungepaartes Elektron in der fünften Schale verfügt, sodass nur dieses zu den Quantenzahlen der Elektronenhülle beiträgt.
-  Ohne Betrachtung von Korrekturen befindet es sich als Spin-1/2-Teilchen in dem Zustand mit $n=5$, $l=0$ und $m_l=0$, wobei $n$ die Hauptquantenzahl, $l$ die Neben- oder auch Drehimpulsquantenzahl und $m_l$ die zu ihr gehörige magnetische Quantenzahl bezeichnet. In niedrigster Ordnung verfügt das Niveau mit $l=1$ und $m_l=0,\pm1$ über die gleiche Energie wie der besetzte Zustand, sie sind entartet.
+  Ohne Betrachtung von Korrekturen befindet es sich als Spin-1/2-Teilchen in dem Zustand mit $n=5$, $L=0$ und $M_L=0$, wobei $n$ die Hauptquantenzahl, $L$ die Neben- oder auch Drehimpulsquantenzahl und $M_L$ die zu ihr gehörige magnetische Quantenzahl bezeichnet. In niedrigster Ordnung verfügt das Niveau mit $L=1$ und $M_L=0,\pm1$ über die gleiche Energie wie der besetzte Zustand, sie sind entartet.
 
-  Die Berücksichtigung der Spin-Bahn-Kopplung zeigt allerdings, dass dies nicht der Fall ist: Der Bahndrehimpuls $\vec{L}$ und der Spin $\vec{S}$ des Elektrons addieren sich vektoriell zu einem Gesamtdrehimpuls $\vec{J}=\vec{L}+\vec{S}$, sodass dieser eine Erhaltungsgröße darstellt. Die Quantenzahlen $j$ und $m_j$ definieren nun statt $l$ und $m_l$ einen gegebeben Zustand, wobei $j$ von $\lvert L - S \rvert$ bis $\lvert L + S \rvert$ reicht. Zustände mit verschiedenem $j$ sind in dieser Feinstruktur nicht mehr energetisch entartet, während Zustände mit gleichem $j$ und verschiedenem $m_j$ ohne äußeres Magnetfeld energetisch entartet bleiben.
+  Die Berücksichtigung der Spin-Bahn-Kopplung zeigt allerdings, dass dies nicht der Fall ist: Der Bahndrehimpuls $\vec{L}$ und der Spin $\vec{S}$ des Elektrons addieren sich vektoriell zu einem Gesamtdrehimpuls $\vec{J}=\vec{L}+\vec{S}$, sodass dieser eine Erhaltungsgröße darstellt. Die Quantenzahlen $J$ und $M_J$ definieren nun statt $L$ und $M_L$ einen gegebeben Zustand, wobei $J$ von $\lvert L - S \rvert$ bis $\lvert L + S \rvert$ reicht. Zustände mit verschiedenem $J$ sind in dieser Feinstruktur nicht mehr energetisch entartet, während Zustände mit gleichem $J$ und verschiedenem $M_J$ ohne äußeres Magnetfeld energetisch entartet bleiben.
   Die Feinstruktur ist als gröbste Aufspaltung links in Abbildung \ref{fig:energieniveaus} zu sehen.
 
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{pictures/energieniveaus.png}
-    \caption{Energieniveaus in \ce{^{87}Rb} mit $I=3/2$ (nicht maßstäblich) \cite{stehendeWelle}.}
+    \caption{Energieniveaus in \ce{^{87}Rb} mit $I=3/2$ (nicht maßstäblich) \cite{VersuchsanleitungAlt}.}
     \label{fig:energieniveaus}
   \end{figure}
 
-  Die Feinstrukturniveaus spalten in weiterer Korrektur auf, wenn die Spin-Spin-Kopplung des Kernspins an den Gesamtdrehimpuls der Elektronenhüllen berücksichtigt wird. Dazu wird der Gesamtdrehimpuls $\vec{F}$ des Atoms wieder durch Vektoraddition gebildet: $\vec{F} = \vec{J} + \vec{I}$. Zu diesem gehört die Quantenzahl $F$, die Werte von $\lvert J - I \rvert$ bis $\lvert J + I \rvert$ annimmt, mit der magnetischen Quantenzahl $m_F$. Im Beispiel in Abbildung \ref{fig:energieniveaus} werden die Feinstrukturniveaus dementsprechend jeweils in zwei Niveaus aufgespalten, wobei wieder Zustände mit gleichem $F$ und verschiedenem $m_F$ ohne äußeres Magnetfeld energetisch entartet bleiben.
-
-  \cite{Kernspins von Rubidium erwähnen?}
+  Die Feinstrukturniveaus spalten in weiterer Korrektur auf, wenn die Spin-Spin-Kopplung des Kernspins an den Gesamtdrehimpuls der Elektronenhüllen berücksichtigt wird. Dazu wird der Gesamtdrehimpuls $\vec{F}$ des Atoms wieder durch Vektoraddition gebildet: $\vec{F} = \vec{J} + \vec{I}$. Zu diesem gehört die Quantenzahl $F$, die Werte von $\lvert J - I \rvert$ bis $\lvert J + I \rvert$ annimmt, mit der magnetischen Quantenzahl $M_F$. Im Beispiel in Abbildung \ref{fig:energieniveaus} werden die Feinstrukturniveaus dementsprechend jeweils in zwei Niveaus aufgespalten, wobei wieder Zustände mit gleichem $F$ und verschiedenem $M_F$ ohne äußeres Magnetfeld energetisch entartet bleiben.
 
   Die Aufhebung der Entartung dieser Zustände durch ein Magnetfeld geschieht durch den sogenannten Zeeman-Effekt. Dieser spaltet einen $F$-Zustand wiederum in $2F$+1-Zustände auf. Die Energiedifferenz zweier benachbarter Zeeman-Niveaus beträgt
   \begin{equation}
@@ -46,20 +44,16 @@
 
   Für das optische Pumpen an Rubidium ist die Aufspaltung der Hyperfeinstrukturniveaus durch den Zeeman-Effekt nötig. Ohne äußere, zeitabhängige Störung folgt die Besetzung dann näherungsweise einer thermischen Boltzmann-Verteilung, sodass die Elektronen größtenteils im Grundzustand mit niedrigstem $m_F$ angereichert sind.
 
-  Es wird nun rechtszirkular polarisiertes Licht der Frequenz des $D_1$-Übergangs eingestrahlt, dessen Energie dem Übergang von ${}^{2}P_{1/2}$ nach ${}^{2}S_{1/2}$ entspricht. Übergänge, die durch Absorption dieser Photonen entstehen, gehorchen der Auswahlregel $m_F=+1$, während die spontane Emission keine bestimmten Übergänge bevorzugt. Es gelingt also, durch dieses Prinzip den niedrigsten Zustand nahezu leer zu pumpen und den S-Zustand mit $F=2$, $m_F=2$ anzureichern und eine Besetzungsinversion herbeizuführen. Eine schematische Darstellung der Übergänge findet sich in Abbildung \ref{fig:pumpschema}
+  Es wird nun rechtszirkular polarisiertes Licht der Frequenz des $D_1$-Übergangs eingestrahlt, dessen Energie dem Übergang von ${}^{2}P_{1/2}$ nach ${}^{2}S_{1/2}$ entspricht. Übergänge, die durch Absorption dieser Photonen entstehen, gehorchen der Auswahlregel $M_F=+1$, während die spontane Emission keine bestimmten Übergänge bevorzugt. Es gelingt also, durch dieses Prinzip den niedrigsten Zustand nahezu leer zu pumpen und den S-Zustand mit $F=2$, $M_F=2$ anzureichern und eine Besetzungsinversion herbeizuführen. Eine schematische Darstellung der Übergänge findet sich in Abbildung \ref{fig:pumpschema}
 
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{pictures/pumpschema.png}
-    \caption{insert description \cite{stehendeWelle}.}
+    \caption{Pumpschema für \ce{^{87}Rb} ($I=3/2$) zur Herstellung einer Besetzungsinversion, die dazu führt, dass die Elektronen sich im $M_F=2$-Niveau des Grundzustands anreichern. \cite{caltech}.}
     \label{fig:pumpschema}
   \end{figure}
 
   Ein geeignetes Maß für die Besetzungsinversion stellt die Transparenz der Dampfzelle gegenüber dem einstrahlenden $D_1$-Licht dar. Diese wird mit einer ansteigenden Exponentialfunktion parametrisiert, welche sich bei vollständiger Inversion sättigt, da das Licht dann aufgrund der Auswahlregel keinen Übergang anregen kann.
-
-  \cite{insert Bild?}
-
-  \cite{FRAGE: EINFACH IMMER GROßBUCHSTABEN FÜR DIE QUANTENZAHLEN, SO WIE IN DER ALTEN ANLEITUNG?}
 
   Obwohl die Zeeman-Aufspaltung das Phänomen des optischen Pumpens erst möglich macht, wird Letzteres oft als spektroskopisches Verfahren eingesetzt, um die aufgespaltenen Energieniveaus mit hoher Genauigkeit zu vermessen. Dieses Messverfahren bedient sich eines zweiten, hochfrequenten magnetischen Feldes (RF-Feld), welches stimulierte Emission aus dem angereicherten Niveau heraus anregt. Für die dafür benötigte Flussdichte $B_m$ gilt die Beziehung
   \begin{equation}
@@ -72,7 +66,7 @@
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{pictures/transparenz.png}
-    \caption{insert description \cite{stehendeWelle}.}
+    \caption{Transparenz der Dampfzelle in Abhängigkeit eines äußeren Magnetfelds. Der ausgedehnte Dip um Null herum ist dem Erdmagnetfeld zuzuschreiben, während der $B_m$-Dip durch das resonante RF-Field bewirkt wird \cite{VersuchsanleitungAlt}.}
     \label{fig:transparenz}
   \end{figure}
 
@@ -87,14 +81,14 @@
 
   \begin{equation}
     \Delta E_Z = g_F \, \mu_B B + g_F^2 \, \mu_B^2 B^2 \frac{1-2M_F}{\Delta E_{\text{Hy}}}
-    \label{eqn:zeemanDifferenz}
+    \label{eqn:zeemanDifferenzQuadratisch}
   \end{equation}
 
   korrigiert wird, wobei $E_\text{Hy}$ die Hyperfeinstrukturaufspaltung zwischen den Niveaus zwischen $F$ und $F+1$ bezeichnet.
 
   \subsection{Transiente Effekte}
   \label{subsec:transient}
-  Beim schnellen Ein- und Ausschalten des RF-Feldes zeigt sich, dass der Spin $\vec{F}$ im rotierenden Koordinatensystem um die Achse des RF-Feldes präzediert, wenn das statische Magnetfeld resonant eingestellt ist. Die Lamor-Frequenz beträgt dabei $\gamma B_{\text{RF}}$ mit dem gyromagnetischen Verhältnis $\gamma = \frac{g_F \mu_B}{\hbar}$, sodass die Periodendauer der Oszillation $T=\frac{1}{\gamma B_\text{RF}}$ amplitudenabhängig ist.
+  Beim schnellen Ein- und Ausschalten des RF-Feldes zeigt sich, dass der Spin $\vec{F}$ im rotierenden Koordinatensystem um die Achse des RF-Feldes präzediert, wenn das statische Magnetfeld resonant eingestellt ist. Die Lamor-Frequenz beträgt dabei $\gamma B_{\text{RF}}$ mit dem gyromagnetischen Verhältnis $\gamma = \frac{g_F \mu_B}{\hbar}$, sodass die Periodendauer der sogenannten Rabi-Oszillation $T=\frac{1}{\gamma B_\text{RF}}$ amplitudenabhängig ist.
 
   Dieser Ansatz lässt sich zur Untersuchung der verschiedenen Isotope im Gas mit der Relation
   \begin{equation}
