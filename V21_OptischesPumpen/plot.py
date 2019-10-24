@@ -207,6 +207,7 @@ print('Fit zu Isotop 1:')
 print('a=', a)
 print('b=', b)
 print('c=', c)
+b1=b
 
 linspace=np.linspace(1, 11, 1000)
 plt.plot(linspace, hyperbelfit(linspace, *params)*1e3, 'b-', label='Ausgleichsrechnung', linewidth=0.5)
@@ -226,6 +227,7 @@ print('Fit zu Isotop 2:')
 print('a=', a)
 print('b=', b)
 print('c=', c)
+b2=b
 
 linspace=np.linspace(1, 11, 1000)
 plt.plot(linspace, hyperbelfit(linspace, *params)*1e3, 'b-', label='Ausgleichsrechnung', linewidth=0.5)
@@ -238,3 +240,5 @@ plt.legend()
 plt.grid()
 plt.savefig('build/oszi2.pdf')
 plt.clf()
+
+print('Verhältnis: ', b2/b1)
