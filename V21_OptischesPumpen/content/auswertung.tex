@@ -84,7 +84,7 @@ Die horizontale Erdmagnetfeldstärke ist gegeben durch den Parameter $b$. Der Th
 $\SI{20}{\micro\tesla}$ \cite{erde}. Die Abweichung vom Theoriewert beträgt damit $-24{,}55\%$ für
 $b_1$ und $-23{,}5\%$ für $b_2$.
 
-Der Landé-Faktor kann mithilfe von Formel \ref{eqn:B_M_Theorie} berechnet werden zu
+Der Landé-Faktor kann mithilfe von Formel \eqref{eqn:B_M_Theorie} berechnet werden zu
 \begin{equation*}
   g_F=\frac{4\pi m_e}{e a} \,.
 \end{equation*}
@@ -181,6 +181,19 @@ Bildern abgelesen. Die Aufnahmen des Oszilloskops befinden sich in den Abbildung
 \ref{fig:flanke1} und \ref{fig:flanke2}. Die daraus abgelesenen Werte befinden sich in
 Tabelle \ref{tab:flanke}.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{data/Dip1.jpg}
+  \caption{Ansteigende Flanke für den ersten Dip.}
+  \label{fig:flanke1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{data/Dip2.jpg}
+  \caption{Ansteigende Flanke für den zweiten Dip.}
+  \label{fig:flanke2}
+\end{figure}
+
 \begin{table}[htp]
 	\begin{center}
     \caption{Aus den Bildern abgelesene und auf 1 normierte Werte für die Transparenz in Abhängigkeit von der Zeit.}
@@ -230,19 +243,6 @@ Tabelle \ref{tab:flanke}.
 	\end{center}
 \end{table}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{data/Dip1.jpg}
-  \caption{Ansteigende Flanke für den ersten Dip.}
-  \label{fig:flanke1}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{data/Dip2.jpg}
-  \caption{Ansteigende Flanke für den zweiten Dip.}
-  \label{fig:flanke2}
-\end{figure}
-
 Die Werte werden auf 1 normiert. Anschließend wird eine Ausgleichsrechnung der Form
 \begin{equation*}
   f(t)=1-\exp(-a(t-b))
@@ -271,6 +271,7 @@ durch eine Exponentialfunktion annähern lassen.
   \label{fig:flankefit2}
 \end{figure}
 
+\newpage
 \subsection{Bestimmung des Verhältnisses der Landé-Faktoren mithilfe der Rabi-Oszillationen}
 \label{subsec:oszillationen}
 Zur Bestimmung des Verhältnisses der Landé-Faktoren mithilfe der Rabi-Oszillationen werden
@@ -306,11 +307,11 @@ Außerdem wird eine Ausgleichsrechnung der Form
 durchgeführt. Dies in in den Abbildungen \ref{fig:oszi1} und \ref{fig:oszi2} grafisch dargestellt.
 Es ergeben sich die Parameter
 \begin{align*}
-  a_1&=\SI{-0.00014(00004)}{\second} \,,\\
-  b_1&=\SI{0.0055(0005)}{\volt} \,,\\
+  a_1&=\SI{-0.14e-3(04)}{\second} \,,\\
+  b_1&=\SI{5.5e-3(5)}{\volt} \,,\\
   c_1&=\SI{-1.34(24)}{\volt} \,,\\
   a_2&=\SI{-7(8)e-05}{\second} \,,\\
-  b_2&=\SI{0.0062(0007)}{\volt} \,,\\
+  b_2&=\SI{6.2e-3(7)}{\volt} \,,\\
   c_2&=\SI{-0.39(22)}{\volt} \,.
 \end{align*}
 Das Verhältnis der Parameter $b_i$ für $\text{Rb}^{85}$ und $\text{Rb}^{87}$ beträgt damit:
