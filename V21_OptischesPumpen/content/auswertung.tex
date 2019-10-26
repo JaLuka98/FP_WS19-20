@@ -96,6 +96,21 @@ Damit ergeben sich die beiden Werte
   g_{F,1}&= \SI{0.7041(0018)}{}\,,\\
   g_{F,2}&= \SI{0.473(004)}{}\,.
 \end{align*}
+Die Unsicherheiten der $g_{F,i}$ lässt sich durch
+\begin{equation}
+  \sigma_{g_{F,i}} = \frac{4\pi m_e}{e a_i^2} \sigma_{a_i}
+  \label{eqn:sigma_g_F}
+\end{equation}
+bestimmen \footnote{Ist $f$ eine Funktion, die von unsicheren Variablen $x_i$ mit
+Standardabweichungen $\sigma_i$ abhängt, so ist die Unsicherheit von f
+\begin{equation}
+  \sigma_f = \sqrt{
+    \sum\limits_{i = 1}^N
+      \left( \frac{\partial f}{\partial x_i} \sigma_i \right)^{\!\! 2}
+  }\,.
+  \label{eqn:gaussfehler}
+\end{equation}
+Diese Formel wird auch "Gauß'sches Fehlerfortpflanzungsgesetz" gennant.}.
 
 \subsection{Bestimmung des Kernspins}
 \label{subsec:Kernspin}
@@ -112,6 +127,11 @@ werden. Für den Kernspin folgt damit
   I_2&= \SI{1.616(017)}{}\,.
 \end{align*}
 Die Theoriewerte betragen hier $I=5/2$ für $\text{Rb}^{85}$ und $I=3/2$ für $\text{Rb}^{87}$.
+Die Unsicherheiten der $I_i$ sind
+\begin{equation}
+  \sigma_{I_i} = \frac{g_J}{2 g_{F_i}^2} \sigma_{g_{F,i}}\,.
+\end{equation}
+%mit $\sigma_{g_{F,i}}$ aus Gleichung \eqref{eqn:sigma_g_F}.
 
 Mithilfe des Kernspins können die Isotope wie folgt zugeordnet werden: Isotop 1 ist $\text{Rb}^{87}$
 und Isotop 2 ist $\text{Rb}^{85}$. Die Abweichungen von den Theoriewerten betragen
@@ -161,11 +181,18 @@ $g_{F,i}$ für die Landé-Faktoren und $M_F=1$ ergibt sich damit für den quadra
   \Delta E_{Z,85}&=\SI{6.7(4)e-29}{\joule}\,,\\
   \Delta E_{Z,87}&=\SI{9.85(13)e-29}{\joule}\,.
 \end{align*}
+Die Unsicherheiten der $\Delta E_{Z,i}$ betragen
+\begin{equation}
+  \sigma_{\Delta E_{Z,i}} = \left( \mu_{\text{B}} B + 2 g_{F,i} \mu_{\text{B}}^2 B^2 \frac{1 - 2 M_F}{\Delta E_{\text{Hy}}} \right) \sigma_{g_{F,i}}\,.
+  \label{eqn:sigma_Delta_E_Z}
+\end{equation}
+
 Die zusätzlich zum linearen Zeeman-Effekt durch den quadratischen Term herbeigeführte Aufspaltung beträgt dabei lediglich
 \begin{align*}
   \Delta E_{\text{quadratisch},85}&=\SI{-2.24(25)e-33}{\joule}\,,\\
-  \Delta E_{\text{quadratisch},87}&=\SI{-2.14(06)e-33}{\joule}\,.
+  \Delta E_{\text{quadratisch},87}&=\SI{-2.14(06)e-33}{\joule}\,,
 \end{align*}
+wobei die Unsicherheiten durch den zweiten Term in \eqref{eqn:sigma_Delta_E_Z} beschrieben werden.
 Somit ist der quadratische Zeeman-Effekt in diesem Versuch vernachlässigbar.
 
 \subsection{Anpassung der ansteigenden Flanken an eine Exponentialfunktion}
@@ -312,8 +339,12 @@ Es ergeben sich die Parameter
 \end{align*}
 Das Verhältnis der Parameter $b_i$ für $\text{Rb}^{85}$ und $\text{Rb}^{87}$ beträgt damit:
 \begin{equation*}
-  \frac{b_2}{b_1}\approx\SI{1.13(17)}{}\,.
+  \frac{b_2}{b_1}\approx\SI{1.13(17)}{}\,
 \end{equation*}
+mit der Unsicherheit
+\begin{equation}
+  \sigma_{b_2/b_1} = \sqrt{\left( \frac{1}{b_1}\sigma_{b_2} \right)^2 + \left( \frac{b_2}{b_1^2} \sigma_{b_1} \right)^2}
+\end{equation}
 Dieser Wert weicht um $-24{,}67\%$ vom Theoriewert 1{,}5 ab.
 \begin{figure}
   \centering
