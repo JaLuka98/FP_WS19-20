@@ -27,7 +27,7 @@ weicht hiervon um $-32{,}05\%$ ab.
 \subsection{Bestimmung des horizontalen Erdmagnetfeldes und der Landé-Faktoren}
 \label{subsec:horizontal}
 
-Zunächst werden mithilfe von Formel \eqref{eqn:Helmholtz} aus den gemessenen Stromstärken
+Zunächst werden mithilfe von Gleichung \eqref{eqn:Helmholtz} aus den gemessenen Stromstärken
 die horizontalen Magnetfeldstärken berechnet. Die gemessenen und die daraus berechneten Werte befinden sich
 in Tabelle \ref{tab:werte}.
 
@@ -82,12 +82,13 @@ Es ist erkennbar, dass die Messwerte sich sehr gut durch eine Gerade anpassen la
   das zweite Isotop.}
   \label{fig:frequenz2}
 \end{figure}
+
 Aus den Parametern lassen sich nun die horizontale B-Feldstärke, sowie der Landé-Faktor bestimmen.
 Die horizontale Erdmagnetfeldstärke ist gegeben durch den Parameter $b$. Der Theoriewert beträgt hier
 $\SI{20}{\micro\tesla}$ \cite{erde}. Die Abweichung vom Theoriewert beträgt damit $-24{,}55\%$ für
 $b_1$ und $-23{,}5\%$ für $b_2$.
 
-Der Landé-Faktor kann mithilfe von Formel \eqref{eqn:B_M_Theorie} berechnet werden zu
+Der Landé-Faktor kann mithilfe von Gleichung \eqref{eqn:B_M_Theorie} berechnet werden zu
 \begin{equation*}
   g_F=\frac{4\pi m_e}{e a} \,.
 \end{equation*}
@@ -116,11 +117,11 @@ Diese Formel wird auch "Gauß'sches Fehlerfortpflanzungsgesetz" gennant.}.
 \label{subsec:Kernspin}
 
 Für die beiden Rb Isotope gilt $L=0$, $S=\frac{1}{2}$ und $J=\frac{1}{2}$.
-Es folgt für Formel \eqref{eqn:g_F_Theorie}
+Es folgt für Gleichung \eqref{eqn:g_F_Theorie}
 \begin{equation*}
   I=\frac{1}{2}\left(\frac{g_J}{g_F}-1\right) \,.
 \end{equation*}
-Der Landé-Faktor $g_J$ kann mithilfe von Formel \ref{eqn:g_J_Theorie} zu $g_J=2{,}0023$ bestimmt
+Der Landé-Faktor $g_J$ kann mithilfe von Gleichung \eqref{eqn:g_J_Theorie} zu $g_J=2{,}0023$ bestimmt
 werden. Für den Kernspin folgt damit
 \begin{align*}
   I_1&= \SI{0.922(004)}{}\,,\\
@@ -143,18 +144,18 @@ $-35{,}36\%$ für $\text{Rb}^{85}$ und $-38{,}53\%$ für $\text{Rb}^{87}$.
 In Abbildung \ref{fig:foto} ist ein typischer Verlauf der Transparenz des Rb-Gases in Abhängigkeit
 von der magnetischen Feldstärke bei einer Frequenz von $f=100\,$kHz dargestellt.
 Aus dem Verhältnis der Tiefen der Dips der beiden
-Isotope lässt sich mithilfe von Formel \ref{eqn:transient} das Isotopenverhältnis bestimmen.
+Isotope lässt sich mithilfe von Gleichung \eqref{eqn:transient} das Isotopenverhältnis bestimmen.
 Für den ersten Dip ergibt sich eine Amplitude von 4{,}5 Einheiten und für den zweiten
 eine Amplitude von 9 Einheiten
-\begin{equation}
+\begin{equation*}
   \frac{\gamma_{85}}{\gamma_{87}}=\frac{9}{4{,}5}= 2 \,.
-\end{equation}
+\end{equation*}
 
 Das in der Natur vorkommende Verhältnis folgt aus den Verhältnissen der beiden Isotope \cite{verhältnis}
 und ergibt
-\begin{equation}
+\begin{equation*}
   \frac{\text{Anteil}~ \ce{^{85}Rb}}{\text{Anteil}~ \ce{^{87}Rb}}=\frac{72,17\%}{27,83\%} \approx 2{,}593 \,.
-\end{equation}
+\end{equation*}
 Der aus den Messwerten berechnete Wert weicht davon um $-22{,}87\%$ ab.
 
 \begin{figure}
@@ -192,7 +193,7 @@ Die zusätzlich zum linearen Zeeman-Effekt durch den quadratischen Term herbeige
   \Delta E_{\text{quadratisch},85}&=\SI{-2.24(25)e-33}{\joule}\,,\\
   \Delta E_{\text{quadratisch},87}&=\SI{-2.14(06)e-33}{\joule}\,,
 \end{align*}
-wobei die Unsicherheiten durch den zweiten Term in \eqref{eqn:sigma_Delta_E_Z} beschrieben werden.
+wobei die Unsicherheiten durch den zweiten Term in Gleichung \eqref{eqn:sigma_Delta_E_Z} beschrieben werden.
 Somit ist der quadratische Zeeman-Effekt in diesem Versuch vernachlässigbar.
 
 \subsection{Anpassung der ansteigenden Flanken an eine Exponentialfunktion}
@@ -309,15 +310,15 @@ Die zugehörigen Messwerte befinden sich in Tabelle \ref{tab:oszi}.
 		\toprule
 			{$U$/V} & {$T_1$/ms} & {$T_2$/ms}\\
 			\midrule
-			2,00 & 1,50 & 2,52\\
-			3,00 & 1,16 & 1,84\\
-			4,00 & 0,89 & 1,29\\
-			5,00 & 0,71 & 1,07\\
-			6,00 & 0,61 & 0,90\\
-			7,00 & 0,51 & 0,77\\
-			8,00 & 0,45 & 0,67\\
-			9,00 & 0,40 & 0,60\\
-			10,00 & 0,36 & 0,54\\
+			2 & 1,50 & 2,52\\
+			3 & 1,16 & 1,84\\
+			4 & 0,89 & 1,29\\
+			5 & 0,71 & 1,07\\
+			6 & 0,61 & 0,90\\
+			7 & 0,51 & 0,77\\
+			8 & 0,45 & 0,67\\
+			9 & 0,40 & 0,60\\
+			10& 0,36 & 0,54\\
 		\bottomrule
 		\end{tabular}
 	\end{center}
