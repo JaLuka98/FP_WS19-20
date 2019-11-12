@@ -21,19 +21,22 @@ def mittel(x, deltadof=1):
 ### Our helper functions (fits, etc) ###
 ########################################
 
-def linfit(a, b, x):
+def linfit(x,a,b):
     return a*x+b
+
+def hyp(x,a,b):
+    return a/x+b
 
 def lin(x,a,offset=0):
     return a*x + offset
 
-def exp(a,b,c,x):
+def exp(x,a,b,c):
     return a*np.exp(b*x)+c
 
-def lnint(T,yt,hr):
+def lnint(T,current,heatingRate):
 	array = np.array([])
 	for t in T:
-		array = np.append(array,[np.trapz(yt[T>=t],T[T>=t])/(yt[T == t]*hr)])
+		array = np.append(array,[np.trapz(current[T>=t],T[T>=t])/(current[T == t]*heatingRate)])
 	return array
 
 ########################
@@ -66,6 +69,7 @@ for i in (0,1):
         print('Heating rate b in K/s:',p)
         print('Heating rate b in K/min:',p*60)
         b.append(p) # Store the heating rates with error in K/s in the array b
+        heatRate = b
 
 ###############################
 ### Plot the interpolations ###
@@ -77,7 +81,7 @@ names = ['build/interpol_1_2.pdf', 'build/interpol_2']
 for i in (0,1):
     xlin = np.linspace(times[i][0], times[i][-1], 5000)
     plt.plot(times[i]/60, temps[i], 'b.', alpha=0.5, label = labels[i])
-    plt.plot(xlin/60, lin(xlin, noms(b[i]), offset=temps[i][0]), 'r-', label='Ausgleichsfunktion')
+    plt.plot(xlin/60, lin(xlin, noms(heatRate[i]), offset=temps[i][0]), 'r-', label='Ausgleichsfunktion')
     #plt.ylim(-10,45)
     #plt.xlim(-75,55)
     plt.grid()
@@ -126,6 +130,7 @@ for i in (0,1):
     plt.plot(temps[i], currents[i], 'bx', alpha=0.75, label = labels[i])
     plt.plot(expfitx[i], expfity[i], 'rx', label = 'Werte für den Fit')
     plt.plot(x, exp(x, *params[i]),'g-', label='Ausgleichsrechnung', linewidth=0.5)
+    plt.plot(temps[i], currents[i]-exp(temps[i],*params[i]), 'gx', label='Messwerte mit Untergrundkorrektur')
     #plt.ylim(-10,45)
     #plt.xlim(-75,55)
     plt.grid()
@@ -145,26 +150,32 @@ current2-=exp(temp2, *params2)
 for i in (0,1):
     temps[i] += 273.15
 
-temp1_2+=273.15
-temp2+=273.15
+# Warum doppelt? ;)
+#temp1_2+=273.15
+#temp2+=273.15
+
 #current1_2*=1e12  #Umrechnung in A. Vielleicht besser wegen Einheiten?
 #current2*=1e12
 ###############################
 ### Fit des Anfangsbereichs ###
 ###############################
 
-#params, covariance_matrix = optimize.curve_fit(linfit, np.log(current1_2[12:41]), 1/temp1_2[12:41])
-#a, b = correlated_values(params, covariance_matrix)
-#print('Fit für die langsame Heizrate:')
-#print('a=', a)
-#print('b=', b)
+print(current1_2[12:41]) # Wie man sieht sind hier negative Werte am Anfang drin.
+# Das ist ein Problem. Ich nehme sie raus mit dem Argument, dass es am Anfang nur "Rauschen ist" (?)
+params, covariance_matrix = optimize.curve_fit(linfit, np.log(current1_2[16:41]), 1/temp1_2[16:41])
+a, b = correlated_values(params, covariance_matrix)
+print('Fit für die langsame Heizrate:')
+print('a=', a)
+print('b=', b)
 
-plt.plot(np.log(current1_2[12:41]), 1/temp1_2[12:41],  'bx', alpha=0.75, label = 'Messwerte')
+xlin = np.linspace(0.00188,0.002)
+plt.plot(1/temp1_2[12:41], np.log(current1_2[12:41]),  'bx', alpha=0.75, label = 'Messwerte')
+plt.plot(xlin, linfit(xlin,*params))
 #plt.ylim(-10,45)
 #plt.xlim(-75,55)
 plt.grid()
-plt.xlabel(r'$T/$°C')
-plt.ylabel(r'$I/$pA')
+plt.xlabel(r'$1/T mal $°C')
+plt.ylabel(r'$Log I$')
 plt.legend(loc='best')
 plt.savefig('build/fit1.pdf')
 plt.clf()
@@ -183,6 +194,45 @@ plt.xlabel(r'$(1/T)/$(1/K)')
 plt.ylabel(r'$ln(I)/$pA')
 plt.legend(loc='best')
 plt.savefig('build/fit2.pdf')
+plt.clf()
+
+#####################
+### Second method ###
+#####################
+
+#lnint1_2 = lnint(current1_2[16:41], temp1_2[16:41], noms(heatRate[0]))
+#print(lnint1_2)
+#ln1_2 = np.log(lnint1_2)
+#params, covariance_matrix = optimize.curve_fit(hyp, ln1_2, 1/temp1_2[16:41])
+#a, b = correlated_values(params, covariance_matrix)
+#print('Fit für die langsame Heizrate:')
+#print('a=', a)
+#print('b=', b)
+
+T1 = temp1_2[16:41]
+yT1 = current1_2[16:41]
+hr1 = 1.1
+
+m2y1 = lnint(T1,yT1,hr1)
+print(T1)
+print(yT1)
+m2x1 = T1[m2y1>0]
+m2y1 = m2y1[m2y1>0]
+m2y1 = np.log(m2y1)
+m2x1 = 1/m2x1
+plt.plot(m2x1, m2y1, 'rx')
+plt.savefig('test.pdf')
+plt.clf()
+
+#plt.plot(1/temp1_2[16:41], ln1_2,'bx', alpha=0.75, label = 'Messwerte')
+#plt.ylim(-10,45)
+#plt.xlim(-75,55)
+plt.plot(1)
+plt.grid()
+plt.xlabel(r'$(1/T)/$(1/K)')
+plt.ylabel(r'$Log von dem großen Scheißintegral$')
+plt.legend(loc='best')
+plt.savefig('testFuerIntfit.pdf')
 plt.clf()
 
 
