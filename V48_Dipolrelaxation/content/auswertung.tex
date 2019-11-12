@@ -1,2 +1,57 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Bestimmung der tatsächlichen Heizraten}
+Zunächst sollen die tatsächlichen Heizraten bestimmt werden. Die angestrebten
+Heizraten waren $1{,}2\,$K/min und 2\,K/min. Die tatsächlichen Heizraten lassen
+sich mithilfe einer Ausgleichsrechnung der Form
+\begin{equation*}
+  f(T)=aT+n
+\end{equation*}
+berechnen. Dabei wird der bei der niedrigstn Temperatur gemessene Wert als bekannter
+Punkt festgelegt. Die Heizrate ergibt sich aus der Steigung der Geraden. Sie beträgt
+\begin{align*}
+  b_1&=\SI{1.1339(0024)}{\Kelvin \per \minute}= \,, \\
+  b_2&=\SI{1.7587(0033)}{\Kelvin \per \minute}= \,.
+\end{align*}
+Die Messwerte und die Ausgleichsfunktionen sind in den Abbildungen \ref{fig:heiz1}
+und \ref{fig:heiz2} zu sehen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/interpol_1_2.pdf}
+  \caption{Messwerte und lineare Ausgleichsrechnung zur Bestimmung der tatsächlichen
+  Heizrate für die Messreihe mit niedrigerer Heizrate.}
+  \label{fig:heiz1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/interpol_2.pdf}
+  \caption{Messwerte und lineare Ausgleichsrechnung zur Bestimmung der tatsächlichen
+  Heizrate für die Messreihe mit höherer Heizrate.}
+  \label{fig:heiz2}
+\end{figure}
+
+
+\subsection{Bestimmung und Abzug des Untergrundes}
+
+Zur Bestimmung des Untergrundes müssen zunächst die Minima des Stroms gefunden
+werden. Für die gefundenen Werte wird anschließend eine Ausgleichsrechnung der
+Form
+\begin{equation*}
+  f(T)=a e^{bT} +c
+\end{equation*}
+durchgeführt. Es ergeben sich die Parameter
+\begin{align*}
+  WERTE EINFUEGEN!
+\end{align*}
+
+Die Ausgleichsfunktionen für den Untergrund, sowie die für die Ausgleichsrechnungen
+verwendeten Werte sind in den Abbildungen (REFERENZ) und (REFERENZ) zu sehen.
+
+
+Der Untergrund wird anschließend von den Daten subtrahiert.
+
+\subsection{Bestimung der Aktivierungsenergie über die Stromdichte}
+
+\subsection{Bestimmung der Aktivierungsenergie aus dem Polarisationsansatz}
