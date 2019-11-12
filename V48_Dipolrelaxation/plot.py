@@ -88,23 +88,23 @@ for i in (0,1):
 ### Untergrund bestimmen ###
 ############################
 
-expfitx1=np.append(temp1_2[10:19],temp1_2[54:57])
-expfity1=np.append(current1_2[10:19], current1_2[54:57])
+expfitx1=np.append(temp1_2[10:19],temp1_2[55:58])
+expfity1=np.append(current1_2[10:19], current1_2[55:58])
 
 print(expfitx1)
 print(expfity1)
 
-params1, covariance_matrix = optimize.curve_fit(exp, expfitx1, expfity1)
+params1, covariance_matrix = optimize.curve_fit(exp, expfitx1, expfity1, p0=[0.01,0.01,0])
 a, b, c = correlated_values(params1, covariance_matrix)
 print('Fit für 1.2K/min:')
 print('a=', a)
 print('b=', b)
 print('c=', c)
 
-expfitx2=np.append(temp2[20:23],temp2[45:49])
-expfity2=np.append(current2[20:23], current2[45:49])
+expfitx2=np.append(temp2[12:15],temp2[37:41])
+expfity2=np.append(current2[12:15], current2[37:41])
 
-params2, covariance_matrix = optimize.curve_fit(exp, expfitx2, expfity2)
+params2, covariance_matrix = optimize.curve_fit(exp, expfitx2, expfity2, p0=[0.01,0.01,0])
 a, b, c = correlated_values(params2, covariance_matrix)
 print('Fit für 2K/min:')
 print('a=', a)
@@ -113,7 +113,7 @@ print('c=', c)
 
 expfitx=[expfitx1, expfitx2]
 expfity=[expfity1, expfity2]
-params=[params1, prams2]
+params=[params1, params2]
 ############################
 ### Plot the actual data ###
 ############################
@@ -125,7 +125,7 @@ x=np.linspace(-70,65,1000)
 for i in (0,1):
     plt.plot(temps[i], currents[i], 'bx', alpha=0.75, label = labels[i])
     plt.plot(expfitx[i], expfity[i], 'rx', label = 'Werte für den Fit')
-    plt.plot(x, exp(linspace, *params[i]),'g-', label='Ausgleichsrechnung', linewidth=0.5)
+    plt.plot(x, exp(x, *params[i]),'g-', label='Ausgleichsrechnung', linewidth=0.5)
     #plt.ylim(-10,45)
     #plt.xlim(-75,55)
     plt.grid()
