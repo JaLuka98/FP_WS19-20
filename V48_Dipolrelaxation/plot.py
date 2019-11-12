@@ -21,6 +21,9 @@ def mittel(x, deltadof=1):
 ### Our helper functions (fits, etc) ###
 ########################################
 
+def linfit(a, b, x):
+    return a*x+b
+
 def lin(x,a,offset=0):
     return a*x + offset
 
@@ -85,14 +88,11 @@ for i in (0,1):
     plt.clf()
 
 ############################
-### Untergrund bestimmen ###
+### Untergrund bestimmen ###   Vielleicht sind hier die Werte für i einfach so klein dass er da nichts findet... ist mir erst zu spät eingefallen....
 ############################
 
 expfitx1=np.append(temp1_2[10:19],temp1_2[55:58])
 expfity1=np.append(current1_2[10:19], current1_2[55:58])
-
-print(expfitx1)
-print(expfity1)
 
 params1, covariance_matrix = optimize.curve_fit(exp, expfitx1, expfity1, p0=[0.01,0.01,0])
 a, b, c = correlated_values(params1, covariance_matrix)
@@ -136,16 +136,55 @@ for i in (0,1):
     plt.clf()
 
 
-
-
-
+current1_2-=exp(temp1_2, *params1)    #Untergrund Abziehen
+current2-=exp(temp2, *params2)
 
 ###########################################################################
 ### Celsius in Kelvin, um alle Probleme bei den Rechnungen zu vermeiden ###
 ###########################################################################
-
 for i in (0,1):
     temps[i] += 273.15
+
+temp1_2+=273.15
+temp2+=273.15
+#current1_2*=1e12  #Umrechnung in A. Vielleicht besser wegen Einheiten?
+#current2*=1e12
+###############################
+### Fit des Anfangsbereichs ###
+###############################
+
+#params, covariance_matrix = optimize.curve_fit(linfit, np.log(current1_2[12:41]), 1/temp1_2[12:41])
+#a, b = correlated_values(params, covariance_matrix)
+#print('Fit für die langsame Heizrate:')
+#print('a=', a)
+#print('b=', b)
+
+plt.plot(np.log(current1_2[12:41]), 1/temp1_2[12:41],  'bx', alpha=0.75, label = 'Messwerte')
+#plt.ylim(-10,45)
+#plt.xlim(-75,55)
+plt.grid()
+plt.xlabel(r'$T/$°C')
+plt.ylabel(r'$I/$pA')
+plt.legend(loc='best')
+plt.savefig('build/fit1.pdf')
+plt.clf()
+
+#params, covariance_matrix = optimize.curve_fit(linfit, np.log(current2[12:30]), 1/temp2[12:30])
+#a, b = correlated_values(params, covariance_matrix)
+#print('Fit für die schnelle Heizrate:')
+#print('a=', a)
+#print('b=', b)
+
+plt.plot(np.log(current2[12:30]), 1/temp2[12:30] ,'bx', alpha=0.75, label = 'Messwerte')
+#plt.ylim(-10,45)
+#plt.xlim(-75,55)
+plt.grid()
+plt.xlabel(r'$(1/T)/$(1/K)')
+plt.ylabel(r'$ln(I)/$pA')
+plt.legend(loc='best')
+plt.savefig('build/fit2.pdf')
+plt.clf()
+
 
 ##############################################
 ### Extract tau_0 from the maximum of I(T) ###
@@ -158,11 +197,12 @@ for i in (0,1):
 # Hier als Test: W ist 1eV
 W = 1.602e-19
 
-for i in (0,1):
-    ### Die untenstehende Taktik ist statt argmax nötig, weil argmax
-    ### nur den ersten index gibt, wo das erste mal der maximale wert kommt
-    indices_Imax = np.argwhere(currents[i] == np.amax(currents[i])) # amax means maximum of array
-    T_max = temps[i][indices_Imax]
-    print('T_max beträgt', mittel(T_max, deltadof=0)) # Welche ddof sollen wir nehmen?
-    tau_0 = kboltzmann*T_max**2/(W*b[i]) * unp.exp(-W/(kboltzmann*T_max))
-    print(tau_0)
+#for i in (0,1):
+#    ### Die untenstehende Taktik ist statt argmax nötig, weil argmax
+#    ### nur den ersten index gibt, wo das erste mal der maximale wert kommt
+#    indices_Imax = np.argwhere(currents[i] == np.amax(currents[i])) # amax means maximum of array
+#    T_max = temps[i][indices_Imax]
+#    print('T_max beträgt', mittel(T_max, deltadof=0)) # Welche ddof sollen wir nehmen?
+#    tau_0 = kboltzmann*T_max**2/(W*b[i]) * unp.exp(-W/(kboltzmann*T_max))
+#    print(tau_0)
+#

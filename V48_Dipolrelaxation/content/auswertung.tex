@@ -8,11 +8,11 @@ sich mithilfe einer Ausgleichsrechnung der Form
 \begin{equation*}
   f(T)=aT+n
 \end{equation*}
-berechnen. Dabei wird der bei der niedrigstn Temperatur gemessene Wert als bekannter
+berechnen. Dabei wird der bei der niedrigsten Temperatur gemessene Wert als bekannter
 Punkt festgelegt. Die Heizrate ergibt sich aus der Steigung der Geraden. Sie beträgt
 \begin{align*}
-  b_1&=\SI{1.1339(0024)}{\Kelvin \per \minute}= \,, \\
-  b_2&=\SI{1.7587(0033)}{\Kelvin \per \minute}= \,.
+  b_1&=\SI{1.1339(0024)}{\kelvin\per\minute}= \,, \\
+  b_2&=\SI{1.7587(0033)}{\kelvin\per\minute}= \,.
 \end{align*}
 Die Messwerte und die Ausgleichsfunktionen sind in den Abbildungen \ref{fig:heiz1}
 und \ref{fig:heiz2} zu sehen.
@@ -52,6 +52,29 @@ verwendeten Werte sind in den Abbildungen (REFERENZ) und (REFERENZ) zu sehen.
 
 Der Untergrund wird anschließend von den Daten subtrahiert.
 
-\subsection{Bestimung der Aktivierungsenergie über die Stromdichte}
+\subsection{Bestimmung der Aktivierungsenergie über die Stromdichte}
+
+Es wird die Näherung aus Gleichung \eqref{eqn:naeherung} verwendet. Wenn nun $i(T)$
+logarithmiert wird, erhält man
+\begin{equation*}
+  \ln(i(T))=-\frac{W}{k_B T} + const =a\cdot \frac{1}{T} +b  \,.
+\end{equation*}
+Es wird nun $\ln(i(T))$ gegen $1/T$ aufgetragen und es wird eine lineare Ausgleichsrechnung
+durchgeführt. Dabei werden nur die Werte vom ersten Minimum bis zum erstem Maximum
+des Depolarisationsstroms verwendet, da die oben genannte Näherung nur bei geringen
+Temperaturen gültig ist. Die Parameter
+der Ausgleichsrechnungen ergeben sich zu
+\begin{align*}
+  WERTE
+\end{align*}
+Die Aktivierungsenergien können damit über $W=-ak$ zu
+\begin{align*}
+ WERTE
+\end{align*}
+bestimmt werden.
+
+Die Werte und die Ausgleichsrechnung sind in den Abbildungen (REFERENZ) und (REFERENZ)
+dargestellt.
+
 
 \subsection{Bestimmung der Aktivierungsenergie aus dem Polarisationsansatz}
