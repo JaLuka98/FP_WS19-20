@@ -74,6 +74,7 @@ for i in (0,1):
         print('Heating rate b in K/min:',p*60)
         b.append(p) # Store the heating rates with error in K/s in the array b
         heatRate = b
+        print('Heatrate', heatRate)
 
 ###############################
 ### Plot the interpolations ###
@@ -177,7 +178,7 @@ for i in (0,1):
 ### Fit des Anfangsbereichs ###
 ###############################
 
-print(current1_2[12:41]) # Wie man sieht sind hier negative Werte am Anfang drin.
+#print(current1_2[12:41]) # Wie man sieht sind hier negative Werte am Anfang drin.
 # Das ist ein Problem. Ich nehme sie raus mit dem Argument, dass es am Anfang nur "Rauschen ist" (?)
 params, covariance_matrix = optimize.curve_fit(linfit, 1/temp1_2[23:41], np.log(current1_2[23:41]))
 a, b = correlated_values(params, covariance_matrix)
@@ -200,7 +201,7 @@ plt.legend(loc='best')
 plt.savefig('build/fit1.pdf')
 plt.clf()
 
-print(current2[12:30])#Hier müssen auch noch ein paar Werte rausgenommen werden!
+#print(current2[12:30])#Hier müssen auch noch ein paar Werte rausgenommen werden!
 
 params, covariance_matrix = optimize.curve_fit(linfit, 1/temp2[17:30], np.log(current2[17:30]))
 a, b = correlated_values(params, covariance_matrix)
@@ -226,23 +227,17 @@ plt.clf()
 #####################
 ### Second method ###
 #####################
+W=[]
 
-#lnint1_2 = lnint(current1_2[16:41], temp1_2[16:41], noms(heatRate[0]))
-#print(lnint1_2)
-#ln1_2 = np.log(lnint1_2)
-#params, covariance_matrix = optimize.curve_fit(hyp, ln1_2, 1/temp1_2[16:41])
-#a, b = correlated_values(params, covariance_matrix)
-#print('Fit für die langsame Heizrate:')
-#print('a=', a)
-#print('b=', b)
+# Kleinere Heizrate
 
 T1 = temp1_2[16:41]
 yT1 = current1_2[16:41]
-hr1 = 1.1
+hr1 = noms(heatRate[0])
 
 m2y1 = lnint(T1,yT1,hr1)
-print(T1)
-print(yT1)
+#print(T1)
+#print(yT1)
 m2x1 = T1[m2y1>0]
 m2y1 = m2y1[m2y1>0]
 m2y1 = np.log(m2y1)
@@ -251,15 +246,66 @@ plt.plot(m2x1, m2y1, 'rx')
 plt.savefig('build/test.pdf')
 plt.clf()
 
-#plt.plot(1/temp1_2[16:41], ln1_2,'bx', alpha=0.75, label = 'Messwerte')
+params , cov = optimize.curve_fit(linfit, m2x1[3:],m2y1[3:]) # Letzten Drei Werte auslassen und begründen
+A, B = correlated_values(params, cov)
+print('Parameter Methode 2 Kleinere Heizrate')
+
+print('A=', A)
+print('B=', B)
+print('W=', A*k_B)
+print('W in eV:', A*k_B/e)
+W.append(A*k_B)
+
+print(m2x1)
+print(m2y1)
+
+xlin = np.linspace(0.0037, 0.0044, 1000)
+plt.plot(m2x1[3:], m2y1[3:],'bx', alpha=0.75, label = 'Messwerte')
+plt.plot(m2x1[0:3], m2y1[0:3],'gx', alpha=0.75, label = 'Messwerte')
+plt.plot(xlin, linfit(xlin,*params), 'r-', label='Ausgleichsfunktion')
 #plt.ylim(-10,45)
 #plt.xlim(-75,55)
-plt.plot(1)
+plt.grid()
+plt.xlabel(r'$(1/T)/$(1/K)')
+plt.ylabel(r'$\; \mathrm{ln} \left( \int_T ^{T*} I(T^{\prime})dT^{\prime}\; / \; I(T)\cdot b \right) \; $')
+plt.legend(loc='best')
+plt.savefig('build/testFuerIntfit.pdf')
+plt.clf()
+
+
+# Größere Heizrate
+
+T2 = temp2[15:30]
+yT2 = current2[15:30]
+hr2 = noms(heatRate[1])
+
+m2y2 = lnint(T2,yT2,hr2)
+m2x2 = T2[m2y2>0]
+m2y2 = m2y2[m2y2>0]
+m2y2 = np.log(m2y2)
+m2x2 = 1/m2x2
+
+params , cov = optimize.curve_fit(linfit, m2x2[1:] ,m2y2[1:]) # Letzten Wert rauslassen, Ausreißer
+A, B = correlated_values(params, cov)
+print('Parameter Methode 2 Kleinere Heizrate')
+
+print('A=', A)
+print('B=', B)
+print('W=', A*k_B)
+W.append(A*k_B)
+print('W in eV:', A*k_B/e)
+
+xlin = np.linspace(0.0037, 0.0044, 1000)
+plt.plot(m2x2[1:], m2y2[1:],'bx', alpha=0.75, label = 'Messwerte')
+plt.plot(m2x1[0], m2y1[0],'gx', alpha=0.75, label = 'Messwerte')
+plt.plot(xlin, linfit(xlin,*params), 'r-', label='Ausgleichsfunktion')
+#plt.ylim(-10,45)
+#plt.xlim(-75,55)
 plt.grid()
 plt.xlabel(r'$(1/T)/$(1/K)')
 plt.ylabel(r'$Log von dem großen Scheißintegral$')
 plt.legend(loc='best')
-plt.savefig('build/testFuerIntfit.pdf')
+plt.savefig('build/testFuerIntfit2.pdf')
 plt.clf()
 
 
@@ -271,15 +317,13 @@ plt.clf()
 # W aus der zweiten Methode zu verwenden.
 # Bitte so coden, dass das W aus der zweiten Methode verwendet wird! Danke!
 
-# Hier als Test: W ist 1eV
-W = 1.602e-19
-
-#for i in (0,1):
-#    ### Die untenstehende Taktik ist statt argmax nötig, weil argmax
-#    ### nur den ersten index gibt, wo das erste mal der maximale wert kommt
-#    indices_Imax = np.argwhere(currents[i] == np.amax(currents[i])) # amax means maximum of array
-#    T_max = temps[i][indices_Imax]
-#    print('T_max beträgt', mittel(T_max, deltadof=0)) # Welche ddof sollen wir nehmen?
-#    tau_0 = kboltzmann*T_max**2/(W*b[i]) * unp.exp(-W/(kboltzmann*T_max))
-#    print(tau_0)
-#
+for i in (0,1):
+    ### Die untenstehende Taktik ist statt argmax nötig, weil argmax
+    ### nur den ersten index gibt, wo das erste mal der maximale wert kommt
+    indices_Imax = np.argwhere(currents[i] == np.amax(currents[i])) # amax means maximum of array
+    T_max = temps[i][indices_Imax]
+    print('T_max beträgt', mittel(T_max, deltadof=0)) # Welche ddof sollen wir nehmen?
+    print('W', W[i])
+    print('heatrate', heatRate[i])
+    tau_0 = kboltzmann*T_max**2/(W[i]*heatRate[i]) * unp.exp(-W[i]/(kboltzmann*T_max))
+    print(tau_0)
