@@ -153,7 +153,9 @@ höheren Heizrate.
 	\end{center}
 \end{table}
 
+\newpage
 \subsection{Bestimmung der tatsächlichen Heizraten}
+\label{sec:heiz}
 Zunächst sollen die tatsächlichen Heizraten bestimmt werden. Die angestrebten
 Heizraten waren $1{,}2\,$K/min und 2\,K/min. Die tatsächlichen Heizraten lassen
 sich mithilfe einer Ausgleichsrechnung der Form
@@ -184,7 +186,7 @@ und \ref{fig:heiz2} zu sehen.
   \label{fig:heiz2}
 \end{figure}
 
-
+\newpage
 \subsection{Bestimmung und Abzug des Untergrundes}
 \label{sec:untergrund}
 
@@ -226,6 +228,7 @@ im Folgenden weitergerechnet wird.
   \label{fig:depol2}
 \end{figure}
 
+\newpage
 \subsection{Bestimmung der Aktivierungsenergie über die Stromdichte}
 
 Es wird die Näherung aus Gleichung \eqref{eqn:naeherung} verwendet. Wenn nun $i(T)$
@@ -253,7 +256,9 @@ Die Aktivierungsenergien können damit über $W=-ak_B$ zu
  W_1&=\SI{1.04(06)e-19}{\joule}= \SI{0.652(034)}{\eV}  \,, \\
  W_2&=\SI{1.24(10)e-19}{\joule}=\SI{0.77(06)}{\eV} \,.
 \end{align*}
-bestimmt werden.
+bestimmt werden. Der Literaturwert hierzu beträgt $W_{lit}=0{,}66\,$eV \cite{lit}. Davon weichen
+die aus den Messwerten berechneten Werte um $57{,}6\%$ für $W_1$ und $87,9\%$ für
+$W_2$ ab.
 
 Die Werte und die Ausgleichsrechnung sind in den Abbildungen \ref{fig:fit1} und
 \ref{fig:fit2} dargestellt.
@@ -273,4 +278,49 @@ Die Werte und die Ausgleichsrechnung sind in den Abbildungen \ref{fig:fit1} und
   \label{fig:fit2}
 \end{figure}
 
+\newpage
 \subsection{Bestimmung der Aktivierungsenergie aus dem Polarisationsansatz}
+
+Zur Bestimmung der Aktivierungsenergie und der Relaxationszeit aus dem Polarisationsansatz wird
+\begin{equation*}
+	\ln\left(\frac{\int_T^{T^*}i(T') \symup{d}T'}{i(T) b_i}\right)
+\end{equation*}
+gegen $1/T$ aufgetragen. Dabei sind die $b_i$ die in Kapitel \ref{sec:heiz}
+berechneten Heizraten. Die Integration geschieht mithilfe der Trapezregel. Dabei sollte $j(T^*)\appox 0$ gelten. Es werden daher die Temperaturen
+\begin{align*}
+	T_1^*=\SI{}{\kelvin} \,, \\
+	T_2^*=\SI{}{\kelvin}
+\end{align*}
+verwendet. Anschließend wird eine Ausgleichsrechnung der Form
+\begin{equation*}
+	\ln\left(\frac{\int_T^{T^*}i(T') \symup{d}T'}{i(T) b_i}\right) =\frac{W}{k_B T}+\ln(\tau_0)=\frac{W}{k_b T}+d
+\end{equation*}
+durchgeführt.
+
+Die Aktivierungsenergie folgt dann aus dem Anstieg der
+Ausgleichsgeraden über $W=ak_B$ zu
+\begin{align*}
+	W_1=\SI{}{\joule}=\SI{}{\eV} \,, \\
+	W_2=\SI{}{\joule}=\SI{}{\eV} \,.
+\end{align*}
+Die Abweichungen vom oben genannten Theoriewert betragen hier
+$WERT$ für $W_1$ und $WERT$ für $W_2$. Die Ausgleichsrechnungen sind in den
+Abbildungen (REFERENZ) und (REFERENZ) grafisch dargestellt.
+
+\subsection{Bestimmung der Relaxationszeit}
+
+Die charakteristische Relaxationszeit $\tau_0$ folgt aus der Lage des gemessenen Strommaximums.
+Zwischen $T_{max}$ und $\tau$ gilt der Zusammenhang
+\begin{equation*}
+	\tau=\frac{k_B T_{max}^2}{W b} \,.
+\end{equation*}
+Durch Einsetzen in Gleichung \eqref{eqn:relaxtime} folgt daraus dann die
+gesuchte Relaxationszeit
+\begin{equation*}
+	\tau_0=\frac{k_B T_{max}^2}{W b} e^{\left(-\frac{W}{k_B T_{max}}\right)} \,.
+\end{equation*}
+Es ergeben sich die Werte
+\begin{align}
+	\tau_{0,1}=\SI{}{\second} \,, \\
+	\tau_{0,2}=\SI{}{\second} \,.
+\end{align}

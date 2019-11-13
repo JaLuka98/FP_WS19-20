@@ -5,6 +5,13 @@
 Ein Ionenkristall ist eine räumlich periodische Anordnung aus Anionen und Kationen, die durch ionische Bindungen zusammengehalten werden. Bei Caesiumiodid (CsI) sind die Caesiumionen \ce{Cs^+} Kationen, während die Iodidionen \ce{I^+} die Anionen sind.
 Durch die Dotierung von solchen Alkalimetallsalzen mit zweiwertigen Kationen wie zum Beispiel Stromtiumionen \ce{Sr^{2+}} können permanente elektrische Dipole erzeugt werden, da der gesamte Kristall ladungsneutral bleiben muss und sich eine Leerstelle bildet. Dies ist in Abbildung \ref{fig:dipolIonenkristall} zu sehen.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{data/kristall.png}
+  \caption{Skizze zur Entstehung eines Dipols in einem Ionenkristall bei Dotierung \cite{anleitungalt}.}
+  \label{fig:dipolIonenkristall}
+\end{figure}
+
 Es ist auch ersichtlich, dass es nur diskrete Ausrichtungen des Dipols $\vec{P}$ im Festkörper gibt, da dieser vollständig durch die Lage von Leerstelle und Fremdion bestimmt ist. Durch Diffusion der Leerstelle kann der Dipol seine Orientierung ändern. Dazu ist eine materialspezifische Aktivierungsenergie $W$ nötig, da das gitterperiodische Potenzial überwunden werden muss. Die mittlere Zeit zwischen zwei Umorientierungen des Dipols wird Relaxationszeit $\tau$ gennant und beträgt
 \begin{equation}
   \tau(T) = \tau_0 \exp\left(\frac{W}{k_{\text{B}}T}\right)
@@ -37,9 +44,18 @@ Für den ersten Term lässt sich der Ausdruck aus Gleichung \eqref{eqn:yApprox} 
 \begin{equation}
   j(T) = \frac{p^2 E}{3 k_\text{B} T_p} {N_p}{\tau_0}
          \exp \left(- \frac{1}{b \tau_0} \int_{T_0}^{T} \exp(-W/(k_\text{B}T') \symup{d}T' \right) \exp\left(\frac{W}{k_{\text{B}}T}\right)\,.
-  \eqref{eqn:depolKurve}
+  \label{eqn:depolKurve}
 \end{equation}
-ergibt. Der Kurvenverlauf von $j(T)$ ist bereits aus allgemeinen Überlegungen ersichtlich: Für tiefe Temperaturen wird der Depolarisationsstrom steil bis zu einem Maximum ansteigen, da die Relaxationszeit schnell mit der Temperatur abnimmt, um danach wieder exponentiell zu sinken, weil die Anzahl der noch nicht relaxiertne Dipole immer weiter abnimmt. Ein zweites Maximum, das zu einer höheren Aktivierungsenergie gehört, kann möglicherweise im Experiment für noch höhere Temperaturen beobachtet werden.
+ergibt. Der Kurvenverlauf von $j(T)$ ist bereits aus allgemeinen Überlegungen ersichtlich: Für tiefe Temperaturen wird der Depolarisationsstrom steil bis zu einem Maximum ansteigen, da die Relaxationszeit schnell mit der Temperatur abnimmt, um danach wieder exponentiell zu sinken, weil die Anzahl der noch nicht relaxierten Dipole immer weiter abnimmt. Ein zweites Maximum, das zu einer höheren Aktivierungsenergie gehört, kann möglicherweise im Experiment für noch höhere Temperaturen beobachtet werden. Ein typischer
+Kurvenverlauf ist in Abbildung \ref{fig:kurve} zu sehen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{data/kurve.png}
+  \caption{Typischer Kurvenverlauf für den Depolarisationsstrom in Abhängigkeit von der Temperatur \cite{anleitungalt}.}
+  \label{fig:kurve}
+\end{figure}
+
 Für den Anfang dieses Verlaufs bei niedrigen Temperaturen ist das Integral in der Exponentialfunktion näherungsweise null, sodass die Depolarisationskurve im Anfangsbereich zu
 \begin{equation}
   j(T) \approx \frac{p^2 E}{3 k_\text{B} T_p} {N_p}{\tau_0}
