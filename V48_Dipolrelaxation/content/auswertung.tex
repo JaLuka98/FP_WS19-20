@@ -1,11 +1,17 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Die aufgenommenen Werte, sowie die um den Untergrund bereinigten Werte (siehe
+Kapitel \ref{sec:{sec:untergrund}}) sind in den Tabellen \ref{tab:messerte1}
+bis \ref{tab:messerte3} dargestellt. Im Folgenden bezeichnet der Index 1 die
+Messreihe mit der geringeren Heizrate und der Index 2 die Messreihe mit der
+höheren Heizrate.
+
 \begin{table}[htp]
 	\begin{center}
+    \caption{Messwerte mit und ohne Bereinigung um den Untergrund für beide Messreihen.}
+    \label{tab:messwerte1}
 		\begin{tabular}{cccccc}
-      \caption{Messwerte mit und ohne Bereinung um den Untergrund für beide Messreihen.}
-      \label{tab:messwerte}
 		\toprule
 			{$T_1$/°C} & {$I_1$/pA} & {$I_{1,bereinigt}$/pA} & {$T_2$/°C} & {$I_2$/pA} & {$I_{2,bereinigt}$/pA}\\
 			\midrule
@@ -51,6 +57,18 @@
 			-17,20 & 10,00 & 8,03 & 5,8 & 5,40 & -0,03\\
 			-16,00 & 10,00 & 7,96 & 7,6 & 5,70 & 0,04\\
 			-14,80 & 10,00 & 7,88 & 9,5 & 6,20 & 0,28\\
+      \bottomrule
+      \end{tabular}
+    \end{center}
+  \end{table}
+  \begin{table}[htp]
+  	\begin{center}
+      \caption{Messwerte mit und ohne Bereinigung um den Untergrund für beide Messreihen (Fortsetzung).}
+      \label{tab:messwerte2}
+  		\begin{tabular}{cccccc}
+  		\toprule
+  			{$T_1$/°C} & {$I_1$/pA} & {$I_{1,bereinigt}$/pA} & {$T_2$/°C} & {$I_2$/pA} & {$I_{2,bereinigt}$/pA}\\
+  			\midrule
 			-13,50 & 9,30 & 7,10 & 11,3 & 6,60 & 0,43\\
 			-12,50 & 8,60 & 6,33 & 13,2 & 7,10 & 0,65\\
 			-11,40 & 7,70 & 5,35 & 15,1 & 7,50 & 0,76\\
@@ -93,6 +111,19 @@
 			28,30 & 7,60 & 0,62 & - & - & -\\
 			29,30 & 7,60 & 0,44 & - & - & -\\
 			30,20 & 7,60 & 0,27 & - & - & -\\
+      \bottomrule
+      \end{tabular}
+    \end{center}
+  \end{table}
+
+\begin{table}[htp]
+	\begin{center}
+    \caption{Messwerte mit und ohne Bereinigung um den Untergrund für beide Messreihen (Fortsetzung).}
+    \label{tab:messwerte3}
+		\begin{tabular}{cccccc}
+		\toprule
+			{$T_1$/°C} & {$I_1$/pA} & {$I_{1,bereinigt}$/pA} & {$T_2$/°C} & {$I_2$/pA} & {$I_{2,bereinigt}$/pA}\\
+			\midrule
 			31,30 & 7,60 & 0,06 & - & - & -\\
 			32,30 & 7,70 & -0,03 & - & - & -\\
 			33,40 & 7,90 & -0,05 & - & - & -\\
@@ -155,6 +186,7 @@ und \ref{fig:heiz2} zu sehen.
 
 
 \subsection{Bestimmung und Abzug des Untergrundes}
+\label{sec:untergrund}
 
 Zur Bestimmung des Untergrundes müssen zunächst die Minima des Stroms gefunden
 werden. Für die gefundenen Werte wird anschließend eine Ausgleichsrechnung der
