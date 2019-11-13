@@ -231,13 +231,11 @@ W=[]
 
 # Kleinere Heizrate
 
-T1 = temp1_2[16:41]
-yT1 = current1_2[16:41]
+T1 = temp1_2[16:54]
+yT1 = current1_2[16:54]
 hr1 = noms(heatRate[0])
 
 m2y1 = lnint(T1,yT1,hr1)
-#print(T1)
-#print(yT1)
 m2x1 = T1[m2y1>0]
 m2y1 = m2y1[m2y1>0]
 m2y1 = np.log(m2y1)
@@ -246,7 +244,8 @@ plt.plot(m2x1, m2y1, 'rx')
 plt.savefig('build/test.pdf')
 plt.clf()
 
-params , cov = optimize.curve_fit(linfit, m2x1[3:],m2y1[3:]) # Letzten Drei Werte auslassen und begründen
+params , cov = optimize.curve_fit(linfit, m2x1[3:-4],m2y1[3:-4]) # Letzten Drei Werte auslassen, ersten vier auslassen
+# letzten drei wegen invers und so
 A, B = correlated_values(params, cov)
 print('Parameter Methode 2 Kleinere Heizrate')
 
@@ -256,27 +255,25 @@ print('W=', A*k_B)
 print('W in eV:', A*k_B/e)
 W.append(A*k_B)
 
-print(m2x1)
-print(m2y1)
-
-xlin = np.linspace(0.0037, 0.0044, 1000)
-plt.plot(m2x1[3:], m2y1[3:],'bx', alpha=0.75, label = 'Messwerte')
-plt.plot(m2x1[0:3], m2y1[0:3],'gx', alpha=0.75, label = 'Messwerte')
+xlin = np.linspace(0.0035, 0.0045, 3000)
+plt.plot(m2x1[3:-4], m2y1[3:-4],'bx', alpha=0.75, label = 'Für Ausgleichsrechnung verwendete Messwerte')
+plt.plot(m2x1[0:3], m2y1[0:3],'gx', alpha=0.75, label = 'Weggelassene Messwerte')
+plt.plot(m2x1[-4:], m2y1[-4:],'gx', alpha=0.75)
 plt.plot(xlin, linfit(xlin,*params), 'r-', label='Ausgleichsfunktion')
-#plt.ylim(-10,45)
-#plt.xlim(-75,55)
+plt.ylim(3,14)
+plt.xlim(0.00365,0.0044)
 plt.grid()
 plt.xlabel(r'$(1/T)/$(1/K)')
 plt.ylabel(r'$\; \mathrm{ln} \left( \int_T ^{T*} I(T^{\prime})dT^{\prime}\; / \; I(T)\cdot b \right) \; $')
 plt.legend(loc='best')
-plt.savefig('build/testFuerIntfit.pdf')
+plt.savefig('build/integral1_2.pdf')
 plt.clf()
 
 
 # Größere Heizrate
 
-T2 = temp2[15:30]
-yT2 = current2[15:30]
+T2 = temp2[15:38]
+yT2 = current2[15:38]
 hr2 = noms(heatRate[1])
 
 m2y2 = lnint(T2,yT2,hr2)
@@ -285,9 +282,9 @@ m2y2 = m2y2[m2y2>0]
 m2y2 = np.log(m2y2)
 m2x2 = 1/m2x2
 
-params , cov = optimize.curve_fit(linfit, m2x2[1:] ,m2y2[1:]) # Letzten Wert rauslassen, Ausreißer
+params , cov = optimize.curve_fit(linfit, m2x2[1:] ,m2y2[1:])
 A, B = correlated_values(params, cov)
-print('Parameter Methode 2 Kleinere Heizrate')
+print('Parameter Methode 2 Größere Heizrate')
 
 print('A=', A)
 print('B=', B)
@@ -295,17 +292,17 @@ print('W=', A*k_B)
 W.append(A*k_B)
 print('W in eV:', A*k_B/e)
 
-xlin = np.linspace(0.0037, 0.0044, 1000)
-plt.plot(m2x2[1:], m2y2[1:],'bx', alpha=0.75, label = 'Messwerte')
-plt.plot(m2x1[0], m2y1[0],'gx', alpha=0.75, label = 'Messwerte')
+xlin = np.linspace(0.0035, 0.0043, 1000)
+plt.plot(m2x2, m2y2,'bx', alpha=0.75, label = 'Für Ausgleichsrechnung verwendete Messwerte')
+plt.plot(m2x2[0], m2y2[0],'gx', alpha=0.75, label = 'Weggelassene Messwerte')
 plt.plot(xlin, linfit(xlin,*params), 'r-', label='Ausgleichsfunktion')
-#plt.ylim(-10,45)
-#plt.xlim(-75,55)
+plt.ylim(2,16)
+plt.xlim(0.0036,0.0043)
 plt.grid()
 plt.xlabel(r'$(1/T)/$(1/K)')
-plt.ylabel(r'$Log von dem großen Scheißintegral$')
+plt.ylabel(r'$\; \mathrm{ln} \left( \int_T ^{T*} I(T^{\prime})dT^{\prime}\; / \; I(T)\cdot b \right) \; $')
 plt.legend(loc='best')
-plt.savefig('build/testFuerIntfit2.pdf')
+plt.savefig('build/integral2.pdf')
 plt.clf()
 
 
@@ -322,8 +319,6 @@ for i in (0,1):
     ### nur den ersten index gibt, wo das erste mal der maximale wert kommt
     indices_Imax = np.argwhere(currents[i] == np.amax(currents[i])) # amax means maximum of array
     T_max = temps[i][indices_Imax]
-    print('T_max beträgt', mittel(T_max, deltadof=0)) # Welche ddof sollen wir nehmen?
-    print('W', W[i])
-    print('heatrate', heatRate[i])
+    print('T_max beträgt', T_max) # Welche ddof sollen wir nehmen?
     tau_0 = kboltzmann*T_max**2/(W[i]*heatRate[i]) * unp.exp(-W[i]/(kboltzmann*T_max))
     print(tau_0)
