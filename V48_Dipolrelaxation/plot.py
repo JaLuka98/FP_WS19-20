@@ -12,6 +12,7 @@ from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from matrix2latex import matrix2latex
 
 k_B=1.3806485e-23
+e=1.602e-19
 
 #################################
 ### Our statistical functions ###
@@ -83,8 +84,8 @@ names = ['build/interpol_1_2.pdf', 'build/interpol_2']
 
 for i in (0,1):
     xlin = np.linspace(times[i][0], times[i][-1], 5000)
-    plt.plot(times[i]/60, temps[i], 'b.', alpha=0.5, label = labels[i])
-    plt.plot(xlin/60, lin(xlin, noms(heatRate[i]), offset=temps[i][0]), 'r-', label='Ausgleichsfunktion')
+    plt.plot(times[i]/60, temps[i], 'b.', alpha=0.5, label = labels[i], mew=0.5)
+    plt.plot(xlin/60, lin(xlin, noms(heatRate[i]), offset=temps[i][0]), 'r-', label='Ausgleichsfunktion', linewidth=0.5)
     #plt.ylim(-10,45)
     #plt.xlim(-75,55)
     plt.grid()
@@ -178,17 +179,18 @@ for i in (0,1):
 
 print(current1_2[12:41]) # Wie man sieht sind hier negative Werte am Anfang drin.
 # Das ist ein Problem. Ich nehme sie raus mit dem Argument, dass es am Anfang nur "Rauschen ist" (?)
-params, covariance_matrix = optimize.curve_fit(linfit, 1/temp1_2[23:38], np.log(current1_2[23:38]))
+params, covariance_matrix = optimize.curve_fit(linfit, 1/temp1_2[23:41], np.log(current1_2[23:41]))
 a, b = correlated_values(params, covariance_matrix)
 print('Fit für die langsame Heizrate:')
 print('a=', a)
 print('b=', b)
 print('W=', -a*k_B)
+print('W in eV:', -a*k_B/e)
 
 
 xlin = np.linspace(0.0035,0.0045)
 plt.plot(1/temp1_2[16:41], np.log(current1_2[16:41]), 'bx', mew=0.5, label = 'Messwerte')
-plt.plot(1/temp1_2[23:38], np.log(current1_2[23:38]), 'rx', mew=0.5, label = 'Für die Ausgleichsrechnung verwendete Messwerte')
+plt.plot(1/temp1_2[23:41], np.log(current1_2[23:41]), 'rx', mew=0.5, label = 'Für die Ausgleichsrechnung verwendete Messwerte')
 plt.plot(xlin, linfit(xlin,*params), label= 'Ausgleichsrechnung', linewidth=0.5)
 plt.xlim(0.00387,0.0044)
 plt.grid()
@@ -200,15 +202,16 @@ plt.clf()
 
 print(current2[12:30])#Hier müssen auch noch ein paar Werte rausgenommen werden!
 
-params, covariance_matrix = optimize.curve_fit(linfit, 1/temp2[17:28], np.log(current2[17:28]))
+params, covariance_matrix = optimize.curve_fit(linfit, 1/temp2[17:30], np.log(current2[17:30]))
 a, b = correlated_values(params, covariance_matrix)
 print('Fit für die schnelle Heizrate:')
 print('a=', a)
 print('b=', b)
 print('W=', -a*k_B)
+print('W in eV:', -a*k_B/e)
 
 plt.plot(1/temp2[15:30], np.log(current2[15:30]), 'bx', mew=0.5, label = 'Messwerte')
-plt.plot(1/temp2[17:28], np.log(current2[17:28]), 'rx', mew=0.5, label = 'Für die Ausgleichsrechnung verwendete Messwerte')
+plt.plot(1/temp2[17:30], np.log(current2[17:30]), 'rx', mew=0.5, label = 'Für die Ausgleichsrechnung verwendete Messwerte')
 xlin = np.linspace(0.0035,0.0043)
 plt.plot(xlin, linfit(xlin,*params), label= 'Ausgleichsrechnung', linewidth=0.5)
 plt.xlim(0.0038,0.00422)
