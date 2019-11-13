@@ -11,8 +11,8 @@ sich mithilfe einer Ausgleichsrechnung der Form
 berechnen. Dabei wird der bei der niedrigsten Temperatur gemessene Wert als bekannter
 Punkt festgelegt. Die Heizrate ergibt sich aus der Steigung der Geraden. Sie beträgt
 \begin{align*}
-  b_1&=\SI{1.1339(0024)}{\kelvin\per\minute}= \,, \\
-  b_2&=\SI{1.7587(0033)}{\kelvin\per\minute}= \,.
+  b_1&=\SI{1.1339(0024)}{\kelvin\per\minute}&= \SI{0.01890(00004)}{\kelvin\per\second}\,, \\
+  b_2&=\SI{1.7587(0033)}{\kelvin\per\minute}&= \SI{0.02931(00005)}{\kelvin\per\second}\,.
 \end{align*}
 Die Messwerte und die Ausgleichsfunktionen sind in den Abbildungen \ref{fig:heiz1}
 und \ref{fig:heiz2} zu sehen.
@@ -43,14 +43,33 @@ Form
 \end{equation*}
 durchgeführt. Es ergeben sich die Parameter
 \begin{align*}
-  WERTE EINFUEGEN!
+  a_1&=\SI{3.9(05)}{\pico\ampere}  \,,\\
+  b_1&=\SI{0.024(0005)}{\per\kelvin}  \,,\\
+  c_1&=\SI{-0.6(05)}{\pico\ampere}  \,,\\
+  a_2&=\SI{6(4)}{\pico\ampere}  \,,\\
+  b_2&=\SI{0.018(018)}{\per\kelvin}  \,,\\
+  c_2&=\SI{-2(4)}{\pico\ampere}  \,.
 \end{align*}
 
 Die Ausgleichsfunktionen für den Untergrund, sowie die für die Ausgleichsrechnungen
-verwendeten Werte sind in den Abbildungen (REFERENZ) und (REFERENZ) zu sehen.
+verwendeten Werte sind in den Abbildungen \ref{fig:depol1} und \ref{fig:depol2} zu sehen.
+Außerdem sind dort die um den Untergrund bereinigten Daten dargestellt, mit denen auch
+im Folgenden weitergerechnet wird.
 
-
-Der Untergrund wird anschließend von den Daten subtrahiert.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/depolarisationskurve_1_2.pdf}
+  \caption{Messwerte, sowie Ausgleichsrechnung für den Untergrund aus den markierten Werten
+  und um den Untergrund bereinigte Daten für die Messreihe mit der niedrigeren Heizrate.}
+  \label{fig:depol1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/depolarisationskurve_2.pdf}
+  \caption{Messwerte, sowie Ausgleichsrechnung für den Untergrund aus den markierten Werten
+  und um den Untergrund bereinigte Daten für die Messreihe mit der höheren Heizrate.}
+  \label{fig:depol2}
+\end{figure}
 
 \subsection{Bestimmung der Aktivierungsenergie über die Stromdichte}
 
@@ -67,14 +86,28 @@ der Ausgleichsrechnungen ergeben sich zu
 \begin{align*}
   WERTE
 \end{align*}
-Die Aktivierungsenergien können damit über $W=-ak$ zu
+Die Aktivierungsenergien können damit über $W=-ak_B$ zu
 \begin{align*}
  WERTE
 \end{align*}
 bestimmt werden.
 
-Die Werte und die Ausgleichsrechnung sind in den Abbildungen (REFERENZ) und (REFERENZ)
-dargestellt.
+Die Werte und die Ausgleichsrechnung sind in den Abbildungen \ref{fig:fit1} und
+\ref{fig:fit2} dargestellt.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/fit1.pdf}
+  \caption{Messwerte und lineare Ausgleichsrechnung zur Bestimmung der Aktivierungsenergie für
+  die Messreihe mit der niedrigeren Heizrate.}
+  \label{fig:fit1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/fit2.pdf}
+  \caption{Messwerte und lineare Ausgleichsrechnung zur Bestimmung der Aktivierungsenergie für
+  die Messreihe mit der höheren Heizrate.}
+  \label{fig:fit2}
+\end{figure}
 
 \subsection{Bestimmung der Aktivierungsenergie aus dem Polarisationsansatz}

@@ -10,6 +10,8 @@ from uncertainties import ufloat
 from uncertainties import correlated_values, correlation_matrix
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 
+k_B=1.3806485e-23
+
 #################################
 ### Our statistical functions ###
 #################################
@@ -127,10 +129,10 @@ names = ['build/depolarisationskurve_1_2.pdf', 'build/depolarisationskurve_2']
 x=np.linspace(-70,65,1000)
 
 for i in (0,1):
-    plt.plot(temps[i], currents[i], 'bx', alpha=0.75, label = labels[i])
+    plt.plot(temps[i], currents[i], 'bx', alpha=0.75, mew=0.5, label = labels[i])
     plt.plot(expfitx[i], expfity[i], 'rx', label = 'Werte für den Fit')
     plt.plot(x, exp(x, *params[i]),'g-', label='Ausgleichsrechnung', linewidth=0.5)
-    plt.plot(temps[i], currents[i]-exp(temps[i],*params[i]), 'gx', label='Messwerte mit Untergrundkorrektur')
+    plt.plot(temps[i], currents[i]-exp(temps[i],*params[i]), 'gx', mew=0.5,  label='Messwerte mit Untergrundkorrektur')
     #plt.ylim(-10,45)
     #plt.xlim(-75,55)
     plt.grid()
@@ -139,7 +141,6 @@ for i in (0,1):
     plt.legend(loc='best')
     plt.savefig(names[i])
     plt.clf()
-
 
 current1_2-=exp(temp1_2, *params1)    #Untergrund Abziehen
 current2-=exp(temp2, *params2)
@@ -162,36 +163,42 @@ for i in (0,1):
 
 print(current1_2[12:41]) # Wie man sieht sind hier negative Werte am Anfang drin.
 # Das ist ein Problem. Ich nehme sie raus mit dem Argument, dass es am Anfang nur "Rauschen ist" (?)
-params, covariance_matrix = optimize.curve_fit(linfit, np.log(current1_2[16:41]), 1/temp1_2[16:41])
+params, covariance_matrix = optimize.curve_fit(linfit, 1/temp1_2[16:41], np.log(current1_2[16:41]))
 a, b = correlated_values(params, covariance_matrix)
 print('Fit für die langsame Heizrate:')
 print('a=', a)
 print('b=', b)
+print('W=', -a*k_B)
 
-xlin = np.linspace(0.00188,0.002)
-plt.plot(1/temp1_2[12:41], np.log(current1_2[12:41]),  'bx', alpha=0.75, label = 'Messwerte')
-plt.plot(xlin, linfit(xlin,*params))
-#plt.ylim(-10,45)
-#plt.xlim(-75,55)
+
+xlin = np.linspace(0.0035,0.0045)
+plt.plot(1/temp1_2[16:41], np.log(current1_2[16:41]),  'bx', alpha=0.75, label = 'Messwerte')
+plt.plot(xlin, linfit(xlin,*params), label= 'Ausgleichsrechnung')
+plt.xlim(0.0039,0.0044)
 plt.grid()
-plt.xlabel(r'$1/T mal $°C')
+plt.xlabel(r'$(1/T)/$(1/K)')
 plt.ylabel(r'$Log I$')
 plt.legend(loc='best')
 plt.savefig('build/fit1.pdf')
 plt.clf()
 
-#params, covariance_matrix = optimize.curve_fit(linfit, np.log(current2[12:30]), 1/temp2[12:30])
-#a, b = correlated_values(params, covariance_matrix)
-#print('Fit für die schnelle Heizrate:')
-#print('a=', a)
-#print('b=', b)
+print(current2[12:30])#Hier müssen auch noch ein paar Werte rausgenommen werden!
 
-plt.plot(np.log(current2[12:30]), 1/temp2[12:30] ,'bx', alpha=0.75, label = 'Messwerte')
-#plt.ylim(-10,45)
+params, covariance_matrix = optimize.curve_fit(linfit, 1/temp2[15:30], np.log(current2[15:30]))
+a, b = correlated_values(params, covariance_matrix)
+print('Fit für die schnelle Heizrate:')
+print('a=', a)
+print('b=', b)
+print('W=', -a*k_B)
+
+plt.plot(1/temp2[12:30], np.log(current2[12:30]), 'bx', alpha=0.75, label = 'Messwerte')
+xlin = np.linspace(0.0035,0.0045)
+plt.plot(xlin, linfit(xlin,*params), label= 'Ausgleichsrechnung')
+plt.xlim(0.0038,0.0042)
 #plt.xlim(-75,55)
 plt.grid()
 plt.xlabel(r'$(1/T)/$(1/K)')
-plt.ylabel(r'$ln(I)/$pA')
+plt.ylabel(r'$Log(I)/$')
 plt.legend(loc='best')
 plt.savefig('build/fit2.pdf')
 plt.clf()
