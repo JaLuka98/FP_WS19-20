@@ -127,7 +127,7 @@ params=[params1, params2]
 ### Plot the actual data ###
 ############################
 
-labels = ['Heizrate 1_2', 'Heizrate 2']
+labels = ['Niedigere Heizrate', 'Höhere Heizrate']
 names = ['build/depolarisationskurve_1_2.pdf', 'build/depolarisationskurve_2']
 x=np.linspace(-100,100,1000)
 xlims = [-70,65]
