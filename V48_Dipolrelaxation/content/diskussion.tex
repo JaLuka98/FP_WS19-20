@@ -29,7 +29,7 @@ alle per Hand ausgewählt, was eine weitere Fehlerquelle darstellt. Dennoch ist 
 Abbildungen \ref{fig:depol1} und \ref{fig:depol2} zu erkennen, dass die Ausgleichsrechnungen
 gut zu den Daten passen.
 
-Die Bestimmung der Aktivierungsenergie über die Stromdichte ist stark zu kritisieren.
+Die Vorgehensweise bei der Bestimmung der Aktivierungsenergie über die Stromdichte ist zu kritisieren.
 Hier sollte theoretisch ein annähernd linearer Verlauf vorliegen. Dieser ist jedoch
 in den Abbildungen \ref{fig:fit1} und \ref{fig:fit2} nur in Ansätzen erkennbar.
 Entsprechend erscheint es auch nur bedingt sinnvoll hier eine lineare Ausgleichsrechnung
@@ -40,8 +40,30 @@ wird. Die so bestimmten Aktivierungsenergien liegen bei
   W_1&=\SI{1.04(06)e-19}{\joule}= \SI{0.652(034)}{\eV}  \,, \\
   W_2&=\SI{1.24(10)e-19}{\joule}=\SI{0.77(06)}{\eV} \,.
 \end{align}
-und weichen damit um $57{,}6\%$ für $W_1$ und $87,9\%$ für
-$W_2$ vom Literaturwert $0{,}66\,$eV ab.
+und weichen damit um $-1{,}21\%$ für $W_1$ und $16{,}67\%$ für
+$W_2$ vom Literaturwert $0{,}66\,$eV ab. Die Methode liefert also trotz einiger
+Ungenauigkeiten sehr gute Ergebnisse.
 Gründe dafür, dass die Daten nicht-linear sind könnten darin liegen, dass der Untergrund
 nicht richtig bestimmt werden konnte, oder dass die Temperatur schon zu hoch war und somit
 die lineare Näherung in diesem Temperaturbereich keine Gültigkeit mehr hat.
+
+Die Bestimmung der Aktivierungsenergie aus dem Polarisationsanstaz bringt ebenfalls
+einige Ungenauigkeiten mit sich, weil die oberen Grenzen für die Integration per Hand
+ausgewählt werden müssen. Zudem wurden gezielt Messwerte nicht berücksichtigt, was
+dazu führt, dass die Ergebnisse an Aussagekraft verlieren. Die Aktivierungsenergien
+können so zu
+\begin{align*}
+	W_1=\SI{1.40(4)e-19}{\joule}=\SI{0.876(23)}{\eV} \,, \\
+	W_2=\SI{1.51(4)e-19}{\joule}=\SI{0.940(26)}{\eV} \,
+\end{align*}
+bestimmt werden. Die Abweichungen vom oben genannten Theoriewert betragen hier
+$32{,}72\%$ für $W_1$ und $42{,}42\%$ für $W_2$.
+
+Die Relaxationszeiten wurden zu
+\begin{align*}
+	\tau_{0,1}=\SI{1.9(20)e-15}{\second} \,, \\
+	\tau_{0,2}=\SI{1.2(14)e-16}{\second} \,
+\end{align*}
+bestimmt. Die Werte enthalten keine Information, da hier die Unsicherheiten größer
+als die Nominalwerte sind. Außerdem weichen sie stark vom Literaturwert  $\SI{4(2)e-14}{\second}$
+ab.

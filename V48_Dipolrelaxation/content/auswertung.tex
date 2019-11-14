@@ -5,7 +5,9 @@ Die aufgenommenen Werte, sowie die um den Untergrund bereinigten Werte (siehe
 Kapitel \ref{sec:untergrund}) sind in den Tabellen \ref{tab:messwerte1}
 bis \ref{tab:messwerte3} dargestellt. Im Folgenden bezeichnet der Index 1 die
 Messreihe mit der geringeren Heizrate und der Index 2 die Messreihe mit der
-höheren Heizrate.
+höheren Heizrate. Es werden alle Berechnungen in Python 3.7.1, unterstützt durch das
+Paket NumPy \cite{numpy}, durchgeführt. Für die Ausgleichsrechnung wird SciPy
+\cite{scipy} verwendet. Die Abbildungen werden mit matplotlib \cite{matplotlib} erstellt.
 
 \begin{table}[htp]
 	\begin{center}
@@ -256,8 +258,8 @@ Die Aktivierungsenergien können damit über $W=-ak_B$ zu
  W_1&=\SI{1.04(06)e-19}{\joule}= \SI{0.652(034)}{\eV}  \,, \\
  W_2&=\SI{1.24(10)e-19}{\joule}=\SI{0.77(06)}{\eV} \,.
 \end{align*}
-bestimmt werden. Der Literaturwert hierzu beträgt $W_{lit}=0{,}66\,$eV \cite{lit}. Davon weichen
-die aus den Messwerten berechneten Werte um $57{,}6\%$ für $W_1$ und $87,9\%$ für
+bestimmt werden. Der Literaturwert hierzu beträgt $W_{\text{lit}}=0{,}66\,$eV \cite{lit}. Davon weichen
+die aus den Messwerten berechneten Werte um $-1{,}21\%$ für $W_1$ und $16{,}67\%$ für
 $W_2$ ab.
 
 Die Werte und die Ausgleichsrechnung sind in den Abbildungen \ref{fig:fit1} und
@@ -345,9 +347,9 @@ gesuchte Relaxationszeit
 	\tau_0=\frac{k_B T_{\text{max}}^2}{W b} e^{\left(-\frac{W}{k_B T_{\text{max}}}\right)} \,.
 \end{equation*}
 Es ergeben sich die Werte
-\begin{align}
+\begin{align*}
 	\tau_{0,1}=\SI{1.9(20)e-15}{\second} \,, \\
 	\tau_{0,2}=\SI{1.2(14)e-16}{\second} \,.
-\end{align}
+\end{align*}
 
 Diese Werte enthalten keine Information, da ihre Unsicherheiten größer als ihre Nominalwerte sind. Die Werte sind jedoch nicht allzu weit von dem Literaturwert von $\SI{4(2)e-14}{\second}$ \cite{lit} entfernt, der ebenso eine hohe Ungenauigkeit aufweist.
