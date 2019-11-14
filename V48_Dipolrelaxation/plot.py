@@ -80,7 +80,7 @@ for i in (0,1):
 ### Plot the interpolations ###
 ###############################
 
-labels = ['Heizrate 1_2', 'Heizrate 2']
+labels = ['Niedrigere Heizrate', 'Höhere Heizrate']
 names = ['build/interpol_1_2.pdf', 'build/interpol_2']
 
 for i in (0,1):
@@ -129,15 +129,17 @@ params=[params1, params2]
 
 labels = ['Heizrate 1_2', 'Heizrate 2']
 names = ['build/depolarisationskurve_1_2.pdf', 'build/depolarisationskurve_2']
-x=np.linspace(-70,65,1000)
+x=np.linspace(-100,100,1000)
+xlims = [-70,65]
+ylims = [-12.5,17.5]
 
 for i in (0,1):
     plt.plot(temps[i], currents[i], 'bx', alpha=0.75, mew=0.5, label = labels[i])
     plt.plot(expfitx[i], expfity[i], 'rx', label = 'Werte für den Fit')
     plt.plot(x, exp(x, *params[i]),'g-', label='Ausgleichsrechnung', linewidth=0.5)
     plt.plot(temps[i], currents[i]-exp(temps[i],*params[i]), 'gx', mew=0.5,  label='Messwerte mit Untergrundkorrektur')
-    #plt.ylim(-10,45)
-    #plt.xlim(-75,55)
+    plt.ylim(ylims)
+    plt.xlim(xlims)
     plt.grid()
     plt.xlabel(r'$T/$°C')
     plt.ylabel(r'$I/$pA')

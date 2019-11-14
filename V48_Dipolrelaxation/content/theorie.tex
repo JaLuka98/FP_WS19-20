@@ -65,6 +65,7 @@ Für den Anfang dieses Verlaufs bei niedrigen Temperaturen ist das Integral in d
 genähert werden kann. Es ist dann möglich, in diesem Bereich eine Ausgleichsrechnung $\ln j$ gegen $\frac{1}{T}$ durchzuführen, um $W$ zu ermitteln.
 
 \subsection{Herleitung des Depolarisationsstroms über den Polarisationsansatz}
+\label{subsec:polAnsatz}
 
 Es ist auch möglich, die Aktivierungsenergie und die charakteristische Relaxationszeit über den gesamten Kurvenverlauf zu ermitteln. Dazu wird betrachtet, dass die Änderung der Polarisation der Probe einen Strom hervorruft.
 Es zeigt sich, dass mit dem Strom $i(T)$ der Zusammenhang
@@ -73,8 +74,13 @@ Es zeigt sich, dass mit dem Strom $i(T)$ der Zusammenhang
   \label{eqn:polAnsatz}
 \end{equation}
 gilt, sodass bei Kenntnis des Stromverlaufs $i(T)$ eine Ausgleichsrechnung erfolgen kann, um $W$ und gegebenenfalls auch $\tau_0$ zu bestimmen.
-Eine andere Möglichkeit besteht darin, $\tau_0$ aus dem Maximum der Depolarisationskurve zu bestimmen. Dafür gilt
+Eine andere Möglichkeit besteht darin, $\tau_0$ aus dem Maximum der Depolarisationskurve zu bestimmen.
+Zwischen $T_{max}$ und $\tau$ gilt der Zusammenhang
+\begin{equation}
+	\tau=\frac{k_B T_{\text{max}}^2}{W b} \,.
+\end{equation}
+Für $\tau_0$ folgt durch Einsetzen in Gleichung \eqref{eqn:relaxtime}
 \begin{equation}
   \tau_0 = \frac{k_\text{B}T_{\text{max}}^2}{Wb}\exp\left(-\frac{W}{k_\text{B}T_\text{max}}\right)
+  \label{eqn:tau_0}\,.
 \end{equation}
-mit der Lage des Strommaximums $T_\text{max}$.
