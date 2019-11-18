@@ -34,8 +34,8 @@ def hyp(x,a,b):
 def lin(x,a,offset=0):
     return a*x + offset
 
-def exp(x,a,b,c):
-    return a*np.exp(b*x)+c
+def exp(x,a,b,c,d):
+    return a*np.exp((x-b)/c)+d
 
 def lnint(T,current,heatingRate):
 	array = np.array([])
@@ -100,25 +100,27 @@ for i in (0,1):
 ### Untergrund bestimmen ###   Vielleicht sind hier die Werte für i einfach so klein dass er da nichts findet... ist mir erst zu spät eingefallen....
 ############################
 
-expfitx1=np.append(temp1_2[10:19],temp1_2[55:58])
-expfity1=np.append(current1_2[10:19], current1_2[55:58])
+expfitx1=np.append(temp1_2[5:19],temp1_2[55:72])
+expfity1=np.append(current1_2[5:19], current1_2[55:72])
 
-params1, covariance_matrix = optimize.curve_fit(exp, expfitx1, expfity1, p0=[0.01,0.01,0])
-a, b, c = correlated_values(params1, covariance_matrix)
+params1, covariance_matrix = optimize.curve_fit(exp, expfitx1, expfity1, p0=[0.01,0.01,1, 0])
+a, b, c, d = correlated_values(params1, covariance_matrix)
 print('Fit für 1.2K/min:')
 print('a=', a)
 print('b=', b)
 print('c=', c)
+print('d=', d)
 
-expfitx2=np.append(temp2[12:15],temp2[37:41])
-expfity2=np.append(current2[12:15], current2[37:41])
+expfitx2=np.append(temp2[11:17],temp2[37:51])
+expfity2=np.append(current2[11:17], current2[37:51])
 
-params2, covariance_matrix = optimize.curve_fit(exp, expfitx2, expfity2, p0=[0.01,0.01,0])
-a, b, c = correlated_values(params2, covariance_matrix)
+params2, covariance_matrix = optimize.curve_fit(exp, expfitx2, expfity2, p0=[0.01,0.01 ,0.5, 0])
+a, b, c, d = correlated_values(params2, covariance_matrix)
 print('Fit für 2K/min:')
 print('a=', a)
 print('b=', b)
 print('c=', c)
+print('d=', d)
 
 expfitx=[expfitx1, expfitx2]
 expfity=[expfity1, expfity2]
@@ -128,7 +130,7 @@ params=[params1, params2]
 ############################
 
 labels = ['Niedigere Heizrate', 'Höhere Heizrate']
-names = ['build/depolarisationskurve_1_2.pdf', 'build/depolarisationskurve_2']
+names = ['build/depolarisationskurve_1_2.pdf', 'build/depolarisationskurve_2.pdf']
 x=np.linspace(-100,100,1000)
 xlims = [-70,65]
 ylims = [-12.5,17.5]
@@ -179,6 +181,7 @@ for i in (0,1):
 ###############################
 ### Fit des Anfangsbereichs ###
 ###############################
+w_theo=0.66 #eV
 
 #print(current1_2[12:41]) # Wie man sieht sind hier negative Werte am Anfang drin.
 # Das ist ein Problem. Ich nehme sie raus mit dem Argument, dass es am Anfang nur "Rauschen ist" (?)
@@ -189,6 +192,7 @@ print('a=', a)
 print('b=', b)
 print('W=', -a*k_B)
 print('W in eV:', -a*k_B/e)
+print('Abweichung vom Theoriewert:', ((-noms(a)*k_B/e)/w_theo-1)*100, '%')
 
 
 xlin = np.linspace(0.0035,0.0045)
@@ -198,7 +202,7 @@ plt.plot(xlin, linfit(xlin,*params), label= 'Ausgleichsrechnung', linewidth=0.5)
 plt.xlim(0.00387,0.0044)
 plt.grid()
 plt.xlabel(r'$(1/T)/$(1/K)')
-plt.ylabel(r'$Log I$')
+plt.ylabel(r'ln$(I)$')
 plt.legend(loc='best')
 plt.savefig('build/fit1.pdf')
 plt.clf()
@@ -212,6 +216,7 @@ print('a=', a)
 print('b=', b)
 print('W=', -a*k_B)
 print('W in eV:', -a*k_B/e)
+print('Abweichung vom Theoriewert:', ((-noms(a)*k_B/e)/w_theo-1)*100, '%')
 
 plt.plot(1/temp2[15:30], np.log(current2[15:30]), 'bx', mew=0.5, label = 'Messwerte')
 plt.plot(1/temp2[17:30], np.log(current2[17:30]), 'rx', mew=0.5, label = 'Für die Ausgleichsrechnung verwendete Messwerte')
@@ -221,7 +226,7 @@ plt.xlim(0.0038,0.00422)
 #plt.xlim(-75,55)
 plt.grid()
 plt.xlabel(r'$(1/T)/$(1/K)')
-plt.ylabel(r'$Log(I)$')
+plt.ylabel(r'ln$(I)$')
 plt.legend(loc='best')
 plt.savefig('build/fit2.pdf')
 plt.clf()
@@ -255,6 +260,7 @@ print('A=', A)
 print('B=', B)
 print('W=', A*k_B)
 print('W in eV:', A*k_B/e)
+print('Abweichung vom Theoriewert:', ((noms(A)*k_B/e)/w_theo-1)*100, '%')
 W.append(A*k_B)
 
 xlin = np.linspace(0.0035, 0.0045, 3000)
@@ -293,6 +299,7 @@ print('B=', B)
 print('W=', A*k_B)
 W.append(A*k_B)
 print('W in eV:', A*k_B/e)
+print('Abweichung vom Theoriewert:', ((noms(A)*k_B/e)/w_theo-1)*100, '%')
 
 xlin = np.linspace(0.0035, 0.0043, 1000)
 plt.plot(m2x2, m2y2,'bx', alpha=0.75, label = 'Für Ausgleichsrechnung verwendete Messwerte')
