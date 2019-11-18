@@ -1,7 +1,7 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-Die grundlegenden Definitionen und Erläuterungen wurden \cite{AshcroftMermin} entnommen, während die Herleitungen aus \cite{xxx} erarbeitet wurden.
+Die grundlegenden Definitionen und Erläuterungen wurden \cite{AshcroftMermin} entnommen, während die Herleitungen aus \cite{anleitungalt} erarbeitet wurden.
 
 \subsection{Dipole in Ionenkristallen}
 
@@ -46,14 +46,28 @@ Dieser Zusammenhang gilt nur, wenn der Ionenkristall ausreichend bei dieser Temp
   j(T) = y(T_p) p \frac{\symup{d}N}{\symup{d}t}\,.
   \label{eqn:jAnsatz}
 \end{equation}
-Für den ersten Term lässt sich der Ausdruck aus Gleichung \eqref{eqn:yApprox} einsetzen und für $N$ lässt sich eine Relaxationsgleichung mit der Relaxationszeit $\tau(T)$ ansetzen, sodass sich unter Verwendung von \eqref{eqn:relaxtime}
+
+Für den ersten Term lässt sich der Ausdruck aus Gleichung \eqref{eqn:yApprox} einsetzen, während der Relaxationsansatz
 \begin{equation}
-  j(T) = \frac{p^2 E}{3 k_\text{B} T_p} {N_p}{\tau_0}
+  \frac{\symup{d}N}{\symup{d}t} = - \frac{N}{\tau}
+  \label{eqn:dNdt}
+\end{equation}
+für die Anzahl der relaxierenden Dipole pro Volumen und pro Zeit $\frac{\symup{d}N}{\symup{d}t}$ plausibel ist, da es sich um einen statistischen prozess ähnlich dem radioaktiven Zerfall handelt.
+Die Lösung der Gleichung \eqref{eqn:dNdt} mit einer konstanten Heizrate $b$ ist
+\begin{equation}
+  N(t) = N_p \exp \left(- \int_{T_0}^{T} \frac{\symup{d}T'}{b \tau(T')} \right) \,,
+  \label{eqn:N(t)}
+\end{equation}
+wobei $N_p$ die Anzahl der zu Beginn des Aufheizens bei einer Temperatur $T_0$ vorhanden Dipole pro Volumeneinheit bezeichnet.
+
+Es werden nun die Zwischenergebnisse \eqref{eqn:yApprox} und \eqref{eqn:N(t)} mit der Gleichung für die Relaxationszeit \eqref{eqn:relaxtime} kombiniert und in den Ansatz für $j(T)$ (Gleichung \eqref{eqn:jAnsatz}) eingesetzt. Es ergibt sich
+\begin{equation}
+  j(T) = \frac{p^2 E}{3 k_\text{B} T_p} \frac{N_p}{\tau_0}
          \exp \left(- \frac{1}{b \tau_0} \int_{T_0}^{T} \exp(-W/(k_\text{B}T')) \symup{d}T' \right) \exp\left(\frac{W}{k_{\text{B}}T}\right)\,.
   \label{eqn:depolKurve}
 \end{equation}
-ergibt. Der Kurvenverlauf von $j(T)$ ist bereits aus allgemeinen Überlegungen ersichtlich: Für steigende Temperaturen wird der Depolarisationsstrom steil bis zu einem Maximum ansteigen, da die Relaxationszeit schnell mit der Temperatur abnimmt, um danach wieder exponentiell zu sinken, weil die Anzahl der noch nicht relaxierten Dipole immer weiter abnimmt. Ein zweites Maximum, das zu einer höheren Aktivierungsenergie gehört, kann möglicherweise im Experiment für noch höhere Temperaturen beobachtet werden. Ein typischer
-Kurvenverlauf für die Stromstärke ist in Abbildung \ref{fig:kurve} zu sehen. Zwar wurde die Depolarisationskurve \eqref{eqn:depolKurve} nur für die Stromdichte $j(T)$ hergeleitet, jedoch gilt bei Annahme einer konstanten Stromdichte eine einfache Proportionalität $j=I/A$ mit dem Probenquerschnitt $A$ zwischen den beiden Größen, sodass auch die Stromstärke für eine Versuchsauswertung in guter Näherung herangezogen werden kann.
+ergibt. Der Kurvenverlauf von $j(T)$ ist bereits aus allgemeinen Überlegungen ersichtlich: Für steigende Temperaturen wird der Depolarisationsstrom steil bis zu einem Maximum ansteigen, da die Relaxationszeit schnell mit der Temperatur abnimmt, um danach wieder exponentiell zu sinken, weil die Anzahl der noch nicht relaxierten Dipole immer weiter abnimmt. Ein zweites Maximum, das zu einer höheren Aktivierungsenergie und einem zweiten Relaxationsprozess gehört, kann möglicherweise im Experiment für noch höhere Temperaturen beobachtet werden, da dann ein signifikanter Teil der Dipole über genug thermische Energie verfügt, um eine größere Potenzialbarriere zu überwinden.
+Ein typischer Kurvenverlauf für die Stromstärke ist in Abbildung \ref{fig:kurve} zu sehen. Zwar wurde die Depolarisationskurve \eqref{eqn:depolKurve} nur für die Stromdichte $j(T)$ hergeleitet, jedoch gilt bei Annahme einer konstanten Stromdichte eine einfache Proportionalität $j=I/A$ mit dem Probenquerschnitt $A$ zwischen den beiden Größen, sodass auch die Stromstärke für eine Versuchsauswertung in guter Näherung herangezogen werden kann.
 
 \begin{figure}
   \centering
@@ -73,20 +87,40 @@ genähert werden kann. Es ist dann möglich, in diesem Bereich eine Ausgleichsre
 \subsection{Herleitung des Depolarisationsstroms über den Polarisationsansatz}
 \label{subsec:polAnsatz}
 
-Es ist auch möglich, die Aktivierungsenergie und die charakteristische Relaxationszeit über den gesamten Kurvenverlauf zu ermitteln. Dazu wird betrachtet, dass die Änderung der Polarisation der Probe einen Strom hervorruft.
-Es zeigt sich, dass mit dem Strom $i(T)$ der Zusammenhang
+Es ist auch möglich, die Aktivierungsenergie und die charakteristische Relaxationszeit über den gesamten Kurvenverlauf zu ermitteln.
+Dazu wird die Polarisation $P$ der Probe (Gesamtdipolmoment pro Volumeneinheit) betrachtet, für die ebenso eine Relaxationsgleichung analog zu Gleichung \eqref{eqn:dNdt} gilt:
 \begin{equation}
-  \frac{W}{k_\text{B}T} = \ln \frac{\int_T^\infty i(T')\,\symup{d}T'}{i(T) \tau_0 b}
+  \frac{\symup{d}P}{\symup{d}t} = - \frac{P}{\tau(T(t))}\,.
+\end{equation}
+Die Änderung der Probe mit der Querschnittsfläche $A$ ruft einen Strom $I$ in einem äußeren Stromkreis hervor, der durch
+\begin{equation}
+  I(t) = A \frac{\symup{d}{P}}{\symup{d}t}
+\end{equation}
+gegeben ist. Die Lösung dieser Gleichung ergibt sich durch Integration zu
+\begin{equation}
+  \int_{t(T)}^{\infty} I(t) \, \symup{d}t = - A P(t)\,,
+\end{equation}
+wobei die obere Integrationsgrenze wegen $P(t\to\infty)=0$ wegfällt.
+Diese drei Gleichungen können kombiniert werden. Wird ausgenutzt, dass eine eindeutige Zuordnung zwischen $t$ und $T$ existiert (konstante Heizrate), folgt für die Relaxationszeit
+\begin{equation}
+  \tau(T) = \frac{\int_T^{\infty} I(T') \, \symup{d}T'}{b I(T)}\,.
+\end{equation}
+Für die Relaxationszeit gilt Gleichung \eqref{eqn:Relaxationszeit}, sodass die Beziehung
+\begin{equation}
+  \frac{W}{k_\text{B}T} = \ln \frac{\int_T^\infty I(T')\,\symup{d}T'}{I(T) \tau_0 b}
   \label{eqn:polAnsatz}
 \end{equation}
-gilt, sodass bei Kenntnis des Stromverlaufs $i(T)$ eine Ausgleichsrechnung erfolgen kann, um $W$ und gegebenenfalls auch $\tau_0$ zu bestimmen.
-Eine andere Möglichkeit besteht darin, $\tau_0$ aus dem Maximum der Depolarisationskurve zu bestimmen.
-Zwischen $T_{\text{max}}$ und $\tau$ gilt der Zusammenhang
-\begin{equation}
-	\tau=\frac{k_B T_{\text{max}}^2}{W b} \,.
-\end{equation}
-Für $\tau_0$ folgt durch Einsetzen in Gleichung \eqref{eqn:relaxtime}
+gilt. Bei Kenntnis des Stromverlaufs $I(T)$ kann somit eine Ausgleichsrechnung erfolgen, um die Aktivierungsenergie $W$ aus dem Verlauf der Depolarisationskurve zu bestimmen. Dabei wird in der Praxis nicht bis Unendlich, sondern bis zu einer Temperatur integriert, wo der Strom näherungsweise null ist.
+Eine Bestimmung der Relaxationszeit mit einer Ausgleichsrechnung dieser Form ist nicht ratsam, da ein Offset bei der Messung der Stromstärke das Ergebnis für $\tau_0$ beeinflussen würde und dieser daher sehr genau bekannt sein müsste.
+
+Eine geeignetere Möglichkeit besteht darin, $\tau_0$ aus dem Maximum der Depolarisationskurve zu bestimmen. Dazu wird zuerst Stelle $T_{\text{max}}$  bestimmt, wo die Stromdichte bzw. Stromstärke maximal ist. Dabei wird Gleichung \eqref{eqn:depolKurve} abgeleitet und für $T_{\text{max}}$ gleich Null gesetzt.
+Alle konstanten Vorfaktoren und die Exponentialfunktion mit dem Integral im Exponenten können dann gestrichen werden, sodass sich die Formel
+%Zwischen $T_{\text{max}}$ und $\tau$ gilt der Zusammenhang
+%\begin{equation}
+%	\tau=\frac{k_B T_{\text{max}}^2}{W b} \,.
+%\end{equation}
 \begin{equation}
   \tau_0 = \frac{k_\text{B}T_{\text{max}}^2}{Wb}\exp\left(-\frac{W}{k_\text{B}T_\text{max}}\right)
-  \label{eqn:tau_0}\,.
+  \label{eqn:tau_0}
 \end{equation}
+ergibt.
