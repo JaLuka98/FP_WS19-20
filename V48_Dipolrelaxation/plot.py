@@ -34,8 +34,8 @@ def hyp(x,a,b):
 def lin(x,a,offset=0):
     return a*x + offset
 
-def exp(x,a,b,c,d):
-    return a*np.exp((x-b)/c)+d
+def exp(x,a,b,d):
+    return a*np.exp(b*x)+d
 
 def lnint(T,current,heatingRate):
 	array = np.array([])
@@ -103,23 +103,21 @@ for i in (0,1):
 expfitx1=np.append(temp1_2[5:19],temp1_2[55:72])
 expfity1=np.append(current1_2[5:19], current1_2[55:72])
 
-params1, covariance_matrix = optimize.curve_fit(exp, expfitx1, expfity1, p0=[0.01,0.01,1, 0])
-a, b, c, d = correlated_values(params1, covariance_matrix)
+params1, covariance_matrix = optimize.curve_fit(exp, expfitx1, expfity1)
+a, b, d = correlated_values(params1, covariance_matrix)
 print('Fit für 1.2K/min:')
 print('a=', a)
 print('b=', b)
-print('c=', c)
 print('d=', d)
 
 expfitx2=np.append(temp2[11:17],temp2[37:51])
 expfity2=np.append(current2[11:17], current2[37:51])
 
-params2, covariance_matrix = optimize.curve_fit(exp, expfitx2, expfity2, p0=[0.01,0.01 ,0.5, 0])
-a, b, c, d = correlated_values(params2, covariance_matrix)
+params2, covariance_matrix = optimize.curve_fit(exp, expfitx2, expfity2, p0=[0.01,0.01 ,0.5])
+a, b, d= correlated_values(params2, covariance_matrix)
 print('Fit für 2K/min:')
 print('a=', a)
 print('b=', b)
-print('c=', c)
 print('d=', d)
 
 expfitx=[expfitx1, expfitx2]
