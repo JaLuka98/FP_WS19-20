@@ -120,13 +120,6 @@ print('a=', a)
 print('b=', b)
 print('d=', d)
 
-yhat = exp(expfitx2, noms(a),noms(b),noms(d))
-ybar = np.sum(expfity2)/len(expfity2)
-ssreg = np.sum((yhat-ybar)**2)
-sstot = np.sum((expfity2-ybar)**2)
-print('r squared', ssreg/sstot)
-
-
 expfitx=[expfitx1, expfitx2]
 expfity=[expfity1, expfity2]
 params=[params1, params2]
