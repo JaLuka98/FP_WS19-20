@@ -1,23 +1,29 @@
 \section{Theorie}
 \label{sec:Theorie}
 
+Die grundlegenden Definitionen und Erläuterungen wurden \cite{AshcroftMermin} entnommen, während die Herleitungen aus \cite{xxx} erarbeitet wurden.
+
 \subsection{Dipole in Ionenkristallen}
-Ein Ionenkristall ist eine räumlich periodische Anordnung aus Anionen und Kationen, die durch ionische Bindungen zusammengehalten werden. Bei Caesiumiodid (CsI) sind die Caesiumionen \ce{Cs^+} Kationen, während die Iodidionen \ce{I^+} die Anionen sind.
+
+Alkalimetallsalze sind Verbindungen aus einem Alkalimetall, in diesem Versuch Kalium, und einem Halogen, hier Brom. Die Kristallstruktur dieser Verbindung ist der sogenannte Ionenkristall. Bei einem Ionenkristall ist die Ladungsdichte der Elektronen stark nahe den Kernen der Ionen konzentriert. Der Bindungstyp ist die ionische Bindung, die einerseits auf der elektrostatischen Anziehung zwischen den positiv geladenen Kationen (hier \ce{K^+}) und den negativ geladenen Anionen (hier \ce{Br^+}) und andererseits auf den Abstoßungskräften zwischen den Kernen, den Elektronenhüllen und den gleichnamig geladenen Ionen basiert.
+Deswegen kann ein Ionenkristall vereinfacht auch als Molekularkistall aus Kationen und Anionen verstanden werden, in dem die einzelnen Ionen vollständig gefüllte Elektronenschalen ähnlich den Edelgasen haben.
+
+Ein elektrischer Dipol ist eine Anordnung aus zwei entgegengesetzten Ladungen.
 Durch die Dotierung von solchen Alkalimetallsalzen mit zweiwertigen Kationen wie zum Beispiel Stromtiumionen \ce{Sr^{2+}} können permanente elektrische Dipole erzeugt werden, da der gesamte Kristall ladungsneutral bleiben muss und sich eine Leerstelle bildet. Dies ist in Abbildung \ref{fig:dipolIonenkristall} zu sehen.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{data/kristall.png}
-  \caption{Skizze zur Entstehung eines Dipols in einem Ionenkristall bei Dotierung \cite{anleitungalt}.}
+  \caption{Skizze zur Entstehung eines Dipols am Beispiel von Caesiumiodid mit einfach positiv geladenen Caesiumkationen und einfach negativ geladenen Iodanionen bei Dotierung mit Strontium \cite{anleitungalt}.}
   \label{fig:dipolIonenkristall}
 \end{figure}
 
-Es ist auch ersichtlich, dass es nur diskrete Ausrichtungen des Dipols $\vec{P}$ im Festkörper gibt, da dieser vollständig durch die Lage von Leerstelle und Fremdion bestimmt ist. Durch Diffusion der Leerstelle kann der Dipol seine Orientierung ändern. Dazu ist eine materialspezifische Aktivierungsenergie $W$ nötig, da das gitterperiodische Potenzial überwunden werden muss. Die mittlere Zeit zwischen zwei Umorientierungen des Dipols wird Relaxationszeit $\tau$ gennant und beträgt
+Es ist auch ersichtlich, dass es nur diskrete Ausrichtungen des Dipols $\vec{P}$ im Festkörper gibt, da dieser vollständig durch die Lage von Leerstelle und Fremdion \cite{Was soll hier geändert werden? Was bedeutet IA? Ausdruck? Ich finde es ok...?} bestimmt ist. Durch Diffusion der Leerstelle kann der Dipol seine Orientierung ändern. Dazu ist eine materialspezifische Aktivierungsenergie $W$ nötig, da das gitterperiodische Potenzial überwunden werden muss. Die mittlere Zeit zwischen zwei Umorientierungen des Dipols wird Relaxationszeit $\tau$ gennant und beträgt
 \begin{equation}
   \tau(T) = \tau_0 \exp\left(\frac{W}{k_{\text{B}}T}\right)
   \label{eqn:relaxtime}
 \end{equation}
-mit der Temperatur des Kristalls $T$, der Boltzmannkonstante $k_{\text{B}}$ und der charakteristischen Relaxationszeit $\tau_0$.
+mit der Temperatur des Kristalls $T$, der Boltzmannkonstante $k_{\text{B}}$ und der charakteristischen Relaxationszeit $\tau_0$. Es ist ersichtlich, dass diese Relaxationszeit invers proportional zu einer Boltzmannverteilung $\exp(-W/(k_\text{B}T))$ ist, da der Bruchteil der Dipole, die aufgrund der thermischen Bewegungen im Kristall in der Lage sind, eine Energie $W$ aufzubringen, proportional zu der Boltzmannverteilung ist.
 
 \subsection{Herleitung des Depolarisationsstroms über die Stromdichte}
 Es gibt zwei grundlegende Möglichkeiten, die charakteristischen Größen eines Ionenkristalls $W$ und $\tau_0$ zu bestimmen. Die erste der beiden Möglichkeiten arbeitet mit der Stromdichte $j(T)$, die als Folge der Depolarisation auftritt.
@@ -27,7 +33,7 @@ Dazu wird der Ionenkristall in einem elektrischen Feld $E$ betrachtet, sodass si
   y(x) = \coth(x) - \frac{1}{x}
   \label{eqn:langevin}
 \end{equation}
-gilt, wobei $x=(pE)/(k_\text{B}T)$ mit dem Betrag des Dipolmoments $p$.
+gilt. Dabei gilt für das Argument der Funktion $x=(pE)/(k_\text{B}T)$ mit dem Betrag des Dipolmoments $p$.
 Dies lässt sich für die in diesem Versuch vorliegenden schwachen elektrischen Felder im Vergleich zur Temperatur zu
 \begin{equation}
   y(T) = \frac{pE}{3k_\text{B}T}
@@ -43,11 +49,11 @@ Dieser Zusammenhang gilt nur, wenn der Ionenkristall ausreichend bei dieser Temp
 Für den ersten Term lässt sich der Ausdruck aus Gleichung \eqref{eqn:yApprox} einsetzen und für $N$ lässt sich eine Relaxationsgleichung mit der Relaxationszeit $\tau(T)$ ansetzen, sodass sich unter Verwendung von \eqref{eqn:relaxtime}
 \begin{equation}
   j(T) = \frac{p^2 E}{3 k_\text{B} T_p} {N_p}{\tau_0}
-         \exp \left(- \frac{1}{b \tau_0} \int_{T_0}^{T} \exp(-W/(k_\text{B}T') \symup{d}T' \right) \exp\left(\frac{W}{k_{\text{B}}T}\right)\,.
+         \exp \left(- \frac{1}{b \tau_0} \int_{T_0}^{T} \exp(-W/(k_\text{B}T')) \symup{d}T' \right) \exp\left(\frac{W}{k_{\text{B}}T}\right)\,.
   \label{eqn:depolKurve}
 \end{equation}
-ergibt. Der Kurvenverlauf von $j(T)$ ist bereits aus allgemeinen Überlegungen ersichtlich: Für tiefe Temperaturen wird der Depolarisationsstrom steil bis zu einem Maximum ansteigen, da die Relaxationszeit schnell mit der Temperatur abnimmt, um danach wieder exponentiell zu sinken, weil die Anzahl der noch nicht relaxierten Dipole immer weiter abnimmt. Ein zweites Maximum, das zu einer höheren Aktivierungsenergie gehört, kann möglicherweise im Experiment für noch höhere Temperaturen beobachtet werden. Ein typischer
-Kurvenverlauf ist in Abbildung \ref{fig:kurve} zu sehen.
+ergibt. Der Kurvenverlauf von $j(T)$ ist bereits aus allgemeinen Überlegungen ersichtlich: Für steigende Temperaturen wird der Depolarisationsstrom steil bis zu einem Maximum ansteigen, da die Relaxationszeit schnell mit der Temperatur abnimmt, um danach wieder exponentiell zu sinken, weil die Anzahl der noch nicht relaxierten Dipole immer weiter abnimmt. Ein zweites Maximum, das zu einer höheren Aktivierungsenergie gehört, kann möglicherweise im Experiment für noch höhere Temperaturen beobachtet werden. Ein typischer
+Kurvenverlauf für die Stromstärke ist in Abbildung \ref{fig:kurve} zu sehen. Zwar wurde die Depolarisationskurve \eqref{eqn:depolKurve} nur für die Stromdichte $j(T)$ hergeleitet, jedoch gilt bei Annahme einer konstanten Stromdichte eine einfache Proportionalität $j=I/A$ mit dem Probenquerschnitt $A$ zwischen den beiden Größen, sodass auch die Stromstärke für eine Versuchsauswertung in guter Näherung herangezogen werden kann.
 
 \begin{figure}
   \centering
@@ -75,7 +81,7 @@ Es zeigt sich, dass mit dem Strom $i(T)$ der Zusammenhang
 \end{equation}
 gilt, sodass bei Kenntnis des Stromverlaufs $i(T)$ eine Ausgleichsrechnung erfolgen kann, um $W$ und gegebenenfalls auch $\tau_0$ zu bestimmen.
 Eine andere Möglichkeit besteht darin, $\tau_0$ aus dem Maximum der Depolarisationskurve zu bestimmen.
-Zwischen $T_{max}$ und $\tau$ gilt der Zusammenhang
+Zwischen $T_{\text{max}}$ und $\tau$ gilt der Zusammenhang
 \begin{equation}
 	\tau=\frac{k_B T_{\text{max}}^2}{W b} \,.
 \end{equation}
