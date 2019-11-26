@@ -1,2 +1,104 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Interpolation zur Parametrisierung des Magnetfeldes}
+
+Zur Auswertung des Versuchs und Durchführung der Rechnungen muss das Magnetfeld $B$
+an der Stelle der Probe bekannt sein. Allerdings ist die Messung mit der vorliegenden Hall-Sonde
+ungenau, weil die Stelle der Messung nicht immer genau gleich eingestellt werden kann.
+Außerdem liegen natürliche Fluktuationen des Magnetfelds durch andere Experimente und elektromagnetische
+Störungen durch Umgebungseinflüsse vor. Deswegen wird eine lineare Ausgleichsrechnung der Form
+
+\begin{equation*}
+  I(B) = aI+b
+\end{equation*}
+
+angesetzt, um einen eingestellten Strom $I$ in ein Magnetfeld $B$ mit einer Abschätzung der Unsicherheit umzurechnen.
+Die dafür verwendeten Werte sind in Tabelle \ref{tab:IB} zu finden, wobei die angezeigten Nachkommastellen der magnetischen Flussdichte beim Messgerät nicht berücksichtigt wurden, da sie stark fluktuierten.
+
+\begin{table}[htp]
+	\begin{center}
+    \caption{Eingestellte Stromstärken $I$ und gemessene magnetische Flussdichten $B$ zur Interpolation für die Parametrisierung der Flussdichte}
+    \label{tab:IB}
+		\begin{tabular}{cc}
+		\toprule
+			{$I$/A} & {$B$/mT}\\
+			\midrule
+			 0.0 &    5\\
+			 0.5 &   48\\
+			 1.0 &   72\\
+			 1.5 &  104\\
+			 2.0 &  134\\
+			 2.5 &  175\\
+			 3.0 &  196\\
+			 3.5 &  236\\
+			 4.0 &  228\\
+			 4.5 &  295\\
+			 5.0 &  308\\
+			 5.5 &  360\\
+			 6.0 &  393\\
+			 6.5 &  410\\
+			 7.0 &  460\\
+			 7.5 &  474\\
+			 8.0 &  499\\
+			 8.5 &  514\\
+			 9.0 &  568\\
+			 9.5 &  572\\
+			10.0 &  620\\
+			10.5 &  637\\
+			11.0 &  659\\
+			11.5 &  692\\
+			12.0 &  722\\
+			12.5 &  776\\
+			13.0 &  824\\
+			13.5 &  909\\
+			14.0 &  940\\
+			14.5 &  920\\
+			15.0 &  968\\
+			15.5 & 1040\\
+			16.0 & 1073\\
+			16.5 & 1088\\
+			17.0 & 1099\\
+			17.5 & 1127\\
+			18.0 & 1126\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Die Ausgleichsrechnung ergibt konkret die Parameter
+
+\begin{align}
+  a &= \SI{0.0643(8)}{\tesla\per\ampere}\,,\\
+  b &= \SI{-0.004(8)}{\tesla}\,.
+\end{align}
+
+Die Ausgleichsfunktion mit diesen konkreten Parametern wird in der Folge verwendet, um
+die am Ort der Probe vorhandenen magnetischen Feldstärken in Abhängigkeit der eingestellten Stromstärken zu bestimmen.
+
+\subsection{Bestimmung des Landé-Faktors für die rote Linie}
+
+Für die rote Linie wurden vier Bilder aufgenommen: Zwei mal mit angelegtem Magnetfeld und zwei mal ohne, jeweils für die Einstellungen des Polarisationsfilters \ang{0} und \ang{90}.
+
+\begin{table}[htp]
+	\begin{center}
+    \caption{\cite{insert caption}}
+    \label{tab:rot}
+		\begin{tabular}{ccc}
+		\toprule
+			{$\Delta s$/px} & {$\delta s$/px} & {$\delta \lambda$/pm}\\
+			\midrule
+			137 &  56 & 10.00\\
+			152 &  69 & 11.10\\
+			157 &  70 & 10.90\\
+			170 &  67 &  9.64\\
+			171 &  72 & 10.30\\
+			180 &  78 & 10.60\\
+			192 &  83 & 10.57\\
+			206 &  88 & 10.45\\
+			221 &  90 &  9.96\\
+			238 & 101 & 10.38\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}

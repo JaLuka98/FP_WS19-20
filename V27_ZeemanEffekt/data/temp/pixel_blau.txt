@@ -1,0 +1,17 @@
+#Delta_s  delta_s_sigma delta_s_pi
+#Delta_s ab der noch schwachen blauen Linie rechts (x=3363px bis x=1700px)
+#delta_s_sigma ab x=3361px bis einschließlich x=1770px
+#delta_s_pi ab x=2903px bis x=1370px
+95  35  52
+102 45  57
+108 43  59
+111 49  56
+117 45  54
+119 44  57
+121 48  60
+128 53  63
+132 52  69
+141 57  66
+144 67  72
+156 82  73
+164 73  77

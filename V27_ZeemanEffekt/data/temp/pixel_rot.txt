@@ -1,0 +1,13 @@
+#Delta_s  delta_s
+#von rechts, schwache Linie nicht mitnehmen (rechteste)
+# bei delta_s von rechts bis gleich viele Werte genommen wurden!?
+137 56
+152 69
+157 70
+170 67
+171 72
+180 78
+192 83
+206 88
+221 90
+238 101
