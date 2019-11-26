@@ -8,12 +8,11 @@ Zustände im Magnetfeld verschieben. Dies soll im Folgenden untersucht werden.
 \label{subsec:quanten}
 
 Ein gebundenes Elektron in einem Atom kann durch vier Quantenzahlen vollständig beschrieben werden.
-Die Hauptquantenzahl $n$ kann ganzzahlige Werte größer als Null annehmen. Die Nebenquantenzahl
-$l$ kann werte von $0,1,...,n-1$ annehmen. Die magnetische Quantenzahl des Bahndrehimpulses
-$m$ liegt zwischen $-l, -l+1,..., l-1, l$ und die Spinquantenzahl $s$ hat für
-Elektronen den Wert $\pm\frac{1}{2}$.
-
-(HIER VIELLEICHT NOCH ETWAS AUSFOMULIEREN)
+Die Hauptquantenzahl $n$ kann ganzzahlige Werte größer als Null annehmen. Sie beschreibt die Schale, auf der sich das Elektron befindet. Die Nebenquantenzahl
+$l$ ist charakterisiert die Form des Atomorbitals und kann Werte von $0,1,...,n-1$ annehmen. Die magnetische Quantenzahl des Bahndrehimpulses
+$m$ beschreibt die Orientierung des Bahndrehimpulses in $z$-Richtung und liegt zwischen $-l, -l+1,..., l-1, l$.
+Die Spinquantenzahl $s$ hat für
+Elektronen den Wert $s=\frac{1}{2}$.
 
 \subsection{Magnetisches Moment eines Elektrons}
 Jedes Hüllenelektron eines Atoms besitzt einen Bahndrehimpuls $\vec{l}$ und einen
@@ -121,9 +120,16 @@ Die Energiedifferenz zwischen zwei aufeinanderfolgenden Zeeman-Niveaus beträgt 
 \begin{equation}
   \Delta E=g_J \mu_B B\,.
 \end{equation}
+Die Aufspaltung einer Spektrallinie im magnetischen Feld ist in Abbildung \ref{fig:aufspaltung}
+für den Spezialfall $g_J=0$ dargestellt.
 
-(BILD ZUR AUFSPALTUNG IN 2J+1 NIVEAUS)
-
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{data/aufspaltung.png}
+  \caption{Aufspaltung einer Spektrallinie im magnetischen Feld für den normalen Zeeman-Effekt. Hier gilt
+  $g_J=0$. \cite{aufspaltung}}
+  \label{fig:aufspaltung}
+\end{figure}
 
 \subsection{Optische Übergänge zwischen Zeemanaufgespalteten Energieniveaus}
 
@@ -133,16 +139,24 @@ Im Allgemeinen sind optische Übergänge nur dann erlaubt, wenn gilt:
 \end{equation}
 Dabei ist die Strahlung, die mit $\Delta m= 0$ emittiert wird linear in Richtung des
 Magnetfeldes polarisiert. Für $\Delta m= \pm1$ ist die Strahlung zirkular polarisiert.
-Dabei unterscheiden sich die Drehrichtungen je nach Vorzeichen.
+Dabei unterscheiden sich die Drehrichtungen je nach Vorzeichen. Die linear polarisierte
+Strahlung wird auch als $\pi$-polarisiert und die zirkular polarisierte Strahlung als
+$\sigma$-polarisiert bezeichnet.
 
 Aufgrund dieser Auswahlregeln können nur bestimmte Übergänge zwischen den Zeeman-Niveaus
 beobachtet werden. Beim Normalen Zeeman-Effekt, bei dem der Spin nicht berücksichtigt wird
 und somit $g_J=1$ gilt,
 können drei Gruppen von Spektrallinien beobachtet werden, die jeweils einer der oben
-beschriebenen Auswahlregeln entsprechen. Aufgrund der Polarisation der Strahlung kann
+beschriebenen Auswahlregeln entsprechen. Dies ist in Abbildung \ref{fig:cdrot} beispielhaft
+für die rote Cadmium Linie dargestellt. Aufgrund der Polarisation der Strahlung kann
 die linear polarisierte Komponente jedoch nur bei transversaler Beobachtung gemessen werden.
 
-(BILD ZUR AUFSPALTUNG BEI NORMALEM ZEEMAN)
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{data/cd_rot.png}
+  \caption{Verschiedene Übergänge bei der roten Linie von Cadmium im Magnetfeld. \cite{cdrot}}
+  \label{fig:cdrot}
+\end{figure}
 
 Beim Anormalen Zeeman-Effekt wird auch der Spin berücksichtigt, woraus folgt, dass
 $g_J\neq1$ ist. Die Energie einer Spektrallinie ist hier gegeben durch
@@ -150,9 +164,15 @@ $g_J\neq1$ ist. Die Energie einer Spektrallinie ist hier gegeben durch
   \increment E = [m_1 g_J(L_1,S_1,J_1) - m_2 g_J(L_2,S_2,J_2)] \mu_B B +E_0\,,
 \end{equation}
 wobei die $m_i, L_i, S_i, J_i$ die jeweiligen Quantenzahlen und $E_0$ die Energie bei
-ausgeschaltetem Magnetfeld ist.
+ausgeschaltetem Magnetfeld ist. In Abbildung \ref{fig:cdblau} ist beispielhaft der
+anormale Zeemaneffekt bei der blauen Cadmium-Linie dargestellt.
 
-(BILD ZUR AUFSPALTUNG BEI ANORMALEM ZEEMAN)
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{data/cd_blau.png}
+  \caption{Verschiedene Übergänge bei der blauen Linie von Cadmium im Magnetfeld. \cite{cdblau}}
+  \label{fig:cdblau}
+\end{figure}
 
 
 \subsection{Optische Übergänge in Cd-Atomen}
