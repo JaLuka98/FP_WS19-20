@@ -1,6 +1,10 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Es werden alle Berechnungen in Python 3.7.1, unterstützt durch das
+Paket NumPy \cite{numpy}, durchgeführt. Für die Ausgleichsrechnung wird SciPy
+\cite{scipy} verwendet. Die Abbildungen werden mit matplotlib \cite{matplotlib} erstellt.
+
 \subsection{Interpolation zur Parametrisierung des Magnetfeldes}
 
 Zur Auswertung des Versuchs und Durchführung der Rechnungen muss das Magnetfeld $B$
@@ -68,10 +72,11 @@ Die dafür verwendeten Werte sind in Tabelle \ref{tab:IB} zu finden, wobei die a
 
 Die Ausgleichsrechnung ergibt konkret die Parameter
 
-\begin{align*}
+\begin{align}
   a &= \SI{0.0643(8)}{\tesla\per\ampere}\,,\\
   b &= \SI{-0.004(8)}{\tesla}\,
-\end{align*}
+  \label{eqn:paramsB(I)}
+\end{align}
 
 und ist in Abbildung \ref{fig:bAusgleich} dargestellt.
 Die Ausgleichsfunktion mit diesen konkreten Parametern wird in der Folge verwendet, um
@@ -87,7 +92,8 @@ die am Ort der Probe vorhandenen magnetischen Feldstärken in Abhängigkeit der 
 \subsection{Bestimmung des Landé-Faktors für die rote Linie}
 
 Für die rote Linie bei $\lambda_0=\SI{643.8}{\nano\meter}$ vier Bilder aufgenommen: Zwei mal mit angelegtem Magnetfeld und zwei mal ohne, jeweils für die Einstellungen des Polarisationsfilters \ang{0} und \ang{90}.
-Die Bilder wurden aufgehellt, da die geringe Lichtmenge ein Ausmessen der Abstände der Linien sehr erschwerden würde. Alle Bilder zur roten Spektrallinie sind im Anhang \ref{sec:anhang} zu finden.
+Die Bilder werden aufgehellt, da die geringe Lichtmenge ein Ausmessen der Abstände der Linien sehr erschwerden würde. Die Aufhellung und Ausmessung der Abstände wird mit GIMP \cite{gimp} vorgenommen.
+Alle Bilder zur roten Spektrallinie sind im Anhang \ref{sec:Anhang} zu finden.
 
 Es ist zu erkennen, dass für einen Polarisationsfilter in Stellung \ang{90} die Spektrallinien nicht aufspalten. Mit den Überlegungen aus Kapitel \ref{subsec:theorieCadmium} ist ersichtlich, dass die Stellung \ang{90} zur $\pi$-Polarisation gehört, während die Stellung \ang{0} der $\sigma$-Polarisation zugehörig ist. Die Stellungen des Polarisationsfilters werden im Folgenden auch so bezeichnet. Außerdem wird das Bild mit dem $\pi$-polarisiertem Licht nicht weiter betrachtet, da an diesem genau Messungen an aufgespalteten Spektrallinien durchgeführt werden können.
 
@@ -98,7 +104,7 @@ Ingesamt sind in Tabelle \ref{tab:rot} die abgelesenen Abstände $\Delta s$ und 
 
 \begin{table}[htp]
 	\begin{center}
-    \caption{\cite{insert caption}}
+    \caption{Abgemessene Abstände $\Delta s$ und $\delta s$ für die beiden Polarisationen sowie daraus berechnete Wellenlängenverschiebungen $\delta \lambda$ für die rote Spektrallinie.}
     \label{tab:rot}
 		\begin{tabular}{ccc}
 		\toprule
@@ -120,11 +126,15 @@ Ingesamt sind in Tabelle \ref{tab:rot} die abgelesenen Abstände $\Delta s$ und 
 \end{table}
 
 Die abgelesenen Abstände unterliegen dabei Messfehlern, da die Mitten der Spektrallinien mit dem Auge abgeschätzt werden. Daher werden für die $\Delta s$ und $\delta s$ konstante Unsicherheiten von $\sigma_{\Delta s} = \sigma_{\delta s}= 5\,\text{px}$ veranschlagt.
-\cite{Insert Fehlerfortpflanzung delta lamb}
 Die Mittelung der Wellenlängenverschiebungen ergibt
 \begin{equation*}
   \overline{\delta \lambda} = \SI{10.39(24)}{\pico\meter}\,.
 \end{equation*}
+Für die Unsicherheit der Wellenlängenverschiebung ergibt die Gauß'sche Fehlerfortpflanzung
+\begin{equation}
+  \sigma_{\delta \lambda} = \frac{\delta \lambda_\text{D}}{2(\Delta s)^2} \sqrt{(\delta s \sigma_{\Delta s})^2 + (\Delta s \sigma_{\delta s})^2}\,,
+\end{equation}
+wobei die einzelnen Unsicherheiten dann wie bei einer Mittelung üblich quadratisch addiert und radiziert zu $\sigma_{\overline{\delta \lambda}}$ beitragen.
 
 Der Ansatz zur experimentellen Bestimmung der Landé-Faktoren lautet mit den Überlegungen aus der Theorie \ref{sec:theorie}
 \begin{equation*}
@@ -133,9 +143,14 @@ Der Ansatz zur experimentellen Bestimmung der Landé-Faktoren lautet mit den Üb
 sodass sich die Formel
 \begin{equation}
   g_J = \frac{hc}{\mu_\text{B} B} \left (\frac{1}{\lambda_0} - \frac{1}{\lambda_0+\overline{\delta \lambda}}\right)
-  \eqref{eqn:g_J_auswertung}
+  \label{eqn:g_J_auswertung}
 \end{equation}
 ergibt.
+Die Unsicherheit von $g_J$ folgt aus Gauß'scher Fehlerfortpflanzung:
+\begin{equation}
+  \sigma_{g_J} = \frac{hc}{\mu_B B^2 \lambda_0 (\lambda_0+\overline{\delta \lambda})^2}
+  \sqrt{(B \lambda_0 \sigma_{\overline{\delta \lambda}})^2 + (\overline{\delta \lambda}(\lambda_0 + \overline{\delta \lambda})^2 \sigma_B)^2}\,.
+\end{equation}
 Die eingestellte Stromstärke beträgt $\SI{9}{\ampere}$, sodass die Flussdichte $B = \SI{575(4)}{\milli\tesla}$ beträgt.
 Der experimentelle Wert für den Landé-Faktor des roten $\sigma$-Übergangs ist dann
 \begin{equation*}
@@ -145,12 +160,12 @@ Die relative Abweichung zum theoretischen Wert (siehe Kapitel \ref{subsec:theori
 
 \subsection{Bestimmung der Landé-Faktoren für die blaue Linie}
 
-Für die gleichen Situationen wie zuvor wurden für die blaue Linie bei $\lambda=\SI{480}{\nano\meter}$ wieder vier Bilder aufgenommen, die im Anhang \ref{sec:anhang} zu sehen sind.
+Für die gleichen Situationen wie zuvor wurden für die blaue Linie bei $\lambda=\SI{480}{\nano\meter}$ wieder vier Bilder aufgenommen, die im Anhang \ref{sec:Anhang} zu sehen sind.
 Bei der blauen Linie können sowohl für die $\sigma$- als auch für die $\pi$-Polarisation Aufspaltungen beobachtet werden, sodass die Abstände ${\delta s}_\sigma$ und ${\delta s}_\pi$ bestimmt werden und mit den Wellenlängenverschiebungen in Tabelle \ref{tab:blau} aufgeführt sind. Es werden wieder Unsicherheiten von $5\,\text{px}$ für alle ausgemessenen Abstände angenommen.
 
 \begin{table}[htp]
 	\begin{center}
-    \caption{\cite{insert caption}}
+    \caption{Abgemessene Abstände $\Delta s$ und $\delta s$ für die beiden Polarisationen sowie daraus berechnete Wellenlängenverschiebungen $\delta \lambda$ für die blaue Spektrallinie.}
     \label{tab:blau}
 		\begin{tabular}{ccccc}
 		\toprule
@@ -182,10 +197,17 @@ Es ergeben sich die Mittelwerte
 \end{align*}
 
 für die Wellenlängenverschiebungen.
-Die magnetischen Flussdichten ergeben sich aus den angelegten Stromstärken $\SI{5.5}{\ampere}$ und $\SI{16}{\ampere}$ zu $\SI{350(5)}{\milli\tesla}$ und $\SI{1025(7)}{\milli\tesla}$ für die $\sigma$- bzw. die $\pi$-Polarisationen.
+Die magnetischen Flussdichten ergeben sich aus den angelegten Stromstärken $\SI{5.5}{\ampere}$ und $\SI{16}{\ampere}$ zu $\SI{350(5)}{\milli\tesla}$ und $\SI{1025(7)}{\milli\tesla}$ für die $\sigma$- bzw. die $\pi$-Polarisation.
 
 Für die $\pi$-Polarisation kann die Formel \eqref{eqn:g_J_auswertung} so in der Form verwendet werden. Es folgt ein Landé-Faktor von
 \begin{equation*}
   g_J = \num{0.613(16)}
 \end{equation*}
 für den $\pi$-polarisierten Übergang der blauen Linie. Der theoretische Wert ist gemäß Kapitel \ref{subsec:theorieCadmium} $0{,}5$, sodass sich eine Abweichung von $22{,}6\%$ ergibt.
+
+Zwar kann für die $\sigma$-Polarisation auch die Formel \eqref{eqn:g_J_auswertung} verwendet werden, es muss jedoch beachtet werden, dass eigentlich vier Spektrallinien der $\sigma$-Polarisation zu sehen sind, wie in Kapitel \ref{subsec:theorieCadmium} erläutert wird. An den Bildern im Anhang \ref{sec:Anhang} ist allerdings zu erkennen, dass die beiden nah beiander liegenden Spektrallinien in diesem Experiment nicht aufgelöst werden können, sodass ein effektiver Landé-Faktor von $1,75$ durch die Mittelung der beiden möglichen Übergänge pro auflösbare Linie als Theoriewert angesetzt wird.
+Mit Formel \eqref{eqn:g_J_auswertung} folgt ein Wert von
+\begin{equation}
+  g_J = \num{1.50(5)}\,.
+\end{equation}
+Die Abweichung vom Theoriewert beträgt $-14{,}29\%$.
