@@ -24,43 +24,43 @@ Die dafür verwendeten Werte sind in Tabelle \ref{tab:IB} zu finden, wobei die a
 		\toprule
 			{$I$/A} & {$B$/mT}\\
 			\midrule
-			 0.0 &    5\\
-			 0.5 &   48\\
-			 1.0 &   72\\
-			 1.5 &  104\\
-			 2.0 &  134\\
-			 2.5 &  175\\
-			 3.0 &  196\\
-			 3.5 &  236\\
-			 4.0 &  228\\
-			 4.5 &  295\\
-			 5.0 &  308\\
-			 5.5 &  360\\
-			 6.0 &  393\\
-			 6.5 &  410\\
-			 7.0 &  460\\
-			 7.5 &  474\\
-			 8.0 &  499\\
-			 8.5 &  514\\
-			 9.0 &  568\\
-			 9.5 &  572\\
-			10.0 &  620\\
-			10.5 &  637\\
-			11.0 &  659\\
-			11.5 &  692\\
-			12.0 &  722\\
-			12.5 &  776\\
-			13.0 &  824\\
-			13.5 &  909\\
-			14.0 &  940\\
-			14.5 &  920\\
-			15.0 &  968\\
-			15.5 & 1040\\
-			16.0 & 1073\\
-			16.5 & 1088\\
-			17.0 & 1099\\
-			17.5 & 1127\\
-			18.0 & 1126\\
+			 0,0 &    5\\
+			 0,5 &   48\\
+			 1,0 &   72\\
+			 1,5 &  104\\
+			 2,0 &  134\\
+			 2,5 &  175\\
+			 3,0 &  196\\
+			 3,5 &  236\\
+			 4,0 &  228\\
+			 4,5 &  295\\
+			 5,0 &  308\\
+			 5,5 &  360\\
+			 6,0 &  393\\
+			 6,5 &  410\\
+			 7,0 &  460\\
+			 7,5 &  474\\
+			 8,0 &  499\\
+			 8,5 &  514\\
+			 9,0 &  568\\
+			 9,5 &  572\\
+			10,0 &  620\\
+			10,5 &  637\\
+			11,0 &  659\\
+			11,5 &  692\\
+			12,0 &  722\\
+			12,5 &  776\\
+			13,0 &  824\\
+			13,5 &  909\\
+			14,0 &  940\\
+			14,5 &  920\\
+			15,0 &  968\\
+			15,5 & 1040\\
+			16,0 & 1073\\
+			16,5 & 1088\\
+			17,0 & 1099\\
+			17,5 & 1127\\
+			18,0 & 1126\\
 		\bottomrule
 		\end{tabular}
 	\end{center}
@@ -68,17 +68,33 @@ Die dafür verwendeten Werte sind in Tabelle \ref{tab:IB} zu finden, wobei die a
 
 Die Ausgleichsrechnung ergibt konkret die Parameter
 
-\begin{align}
+\begin{align*}
   a &= \SI{0.0643(8)}{\tesla\per\ampere}\,,\\
-  b &= \SI{-0.004(8)}{\tesla}\,.
-\end{align}
+  b &= \SI{-0.004(8)}{\tesla}\,
+\end{align*}
 
+und ist in Abbildung \ref{fig:bAusgleich} dargestellt.
 Die Ausgleichsfunktion mit diesen konkreten Parametern wird in der Folge verwendet, um
 die am Ort der Probe vorhandenen magnetischen Feldstärken in Abhängigkeit der eingestellten Stromstärken zu bestimmen.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/b.pdf}
+  \caption{Messwerte und Graph der Ausgleichsfunktion zur Parametrisierung der magnetischen Flussdichte $B$ in Abhängigkeit der angelegten Stromstärke I.}
+  \label{fig:bAusgleich}
+\end{figure}
+
 \subsection{Bestimmung des Landé-Faktors für die rote Linie}
 
-Für die rote Linie wurden vier Bilder aufgenommen: Zwei mal mit angelegtem Magnetfeld und zwei mal ohne, jeweils für die Einstellungen des Polarisationsfilters \ang{0} und \ang{90}.
+Für die rote Linie bei $\lambda_0=\SI{643.8}{\nano\meter}$ vier Bilder aufgenommen: Zwei mal mit angelegtem Magnetfeld und zwei mal ohne, jeweils für die Einstellungen des Polarisationsfilters \ang{0} und \ang{90}.
+Die Bilder wurden aufgehellt, da die geringe Lichtmenge ein Ausmessen der Abstände der Linien sehr erschwerden würde. Alle Bilder zur roten Spektrallinie sind im Anhang \ref{sec:anhang} zu finden.
+
+Es ist zu erkennen, dass für einen Polarisationsfilter in Stellung \ang{90} die Spektrallinien nicht aufspalten. Mit den Überlegungen aus Kapitel \ref{subsec:theorieCadmium} ist ersichtlich, dass die Stellung \ang{90} zur $\pi$-Polarisation gehört, während die Stellung \ang{0} der $\sigma$-Polarisation zugehörig ist. Die Stellungen des Polarisationsfilters werden im Folgenden auch so bezeichnet. Außerdem wird das Bild mit dem $\pi$-polarisiertem Licht nicht weiter betrachtet, da an diesem genau Messungen an aufgespalteten Spektrallinien durchgeführt werden können.
+
+Zwar wurden zwei Bilder ohne angelegtes Magnetfeld für die beiden Polarisationszustände angefertigt, diese sollten jedoch theoretisch identisch sein und sich nur in ihrer Intensität unterscheiden. Es wurde validiert, dass dies für die Abstände $\Delta s$ bis auf manuelle Ablesefehler der Fall ist.
+Im Folgenden wird mit dem Bild mit dem $\sigma$-polarisiertem Licht gearbeitet, da dies eine größere Helligkeit aufweist.
+
+Ingesamt sind in Tabelle \ref{tab:rot} die abgelesenen Abstände $\Delta s$ und $\delta s$ in Pixeln sowie die daraus mithilfe der Formel \eqref{eqn:deltaLambdaD} berechneten Wellenlängenverschiebungen $\delta \lambda$.
 
 \begin{table}[htp]
 	\begin{center}
@@ -88,17 +104,88 @@ Für die rote Linie wurden vier Bilder aufgenommen: Zwei mal mit angelegtem Magn
 		\toprule
 			{$\Delta s$/px} & {$\delta s$/px} & {$\delta \lambda$/pm}\\
 			\midrule
-			137 &  56 & 10.00\\
-			152 &  69 & 11.10\\
-			157 &  70 & 10.90\\
-			170 &  67 &  9.64\\
-			171 &  72 & 10.30\\
-			180 &  78 & 10.60\\
-			192 &  83 & 10.57\\
-			206 &  88 & 10.45\\
-			221 &  90 &  9.96\\
-			238 & 101 & 10.38\\
+			137 &  56 & 10,00\\
+			152 &  69 & 11,10\\
+			157 &  70 & 10,90\\
+			170 &  67 &  9,64\\
+			171 &  72 & 10,30\\
+			180 &  78 & 10,60\\
+			192 &  83 & 10,57\\
+			206 &  88 & 10,45\\
+			221 &  90 &  9,96\\
+			238 & 101 & 10,38\\
 		\bottomrule
 		\end{tabular}
 	\end{center}
 \end{table}
+
+Die abgelesenen Abstände unterliegen dabei Messfehlern, da die Mitten der Spektrallinien mit dem Auge abgeschätzt werden. Daher werden für die $\Delta s$ und $\delta s$ konstante Unsicherheiten von $\sigma_{\Delta s} = \sigma_{\delta s}= 5\,\text{px}$ veranschlagt.
+\cite{Insert Fehlerfortpflanzung delta lamb}
+Die Mittelung der Wellenlängenverschiebungen ergibt
+\begin{equation*}
+  \overline{\delta \lambda} = \SI{10.39(24)}{\pico\meter}\,.
+\end{equation*}
+
+Der Ansatz zur experimentellen Bestimmung der Landé-Faktoren lautet mit den Überlegungen aus der Theorie \ref{sec:theorie}
+\begin{equation*}
+  \Delta E = g_j \mu_\text{B} B = hc \left (\frac{1}{\lambda_0} - \frac{1}{\lambda_0+\overline{\delta \lambda}}\right)\,,
+\end{equation*}
+sodass sich die Formel
+\begin{equation}
+  g_J = \frac{hc}{\mu_\text{B} B} \left (\frac{1}{\lambda_0} - \frac{1}{\lambda_0+\overline{\delta \lambda}}\right)
+  \eqref{eqn:g_J_auswertung}
+\end{equation}
+ergibt.
+Die eingestellte Stromstärke beträgt $\SI{9}{\ampere}$, sodass die Flussdichte $B = \SI{575(4)}{\milli\tesla}$ beträgt.
+Der experimentelle Wert für den Landé-Faktor des roten $\sigma$-Übergangs ist dann
+\begin{equation*}
+  g_J = \num{0.964(23)}\,.
+\end{equation*}
+Die relative Abweichung zum theoretischen Wert (siehe Kapitel \ref{subsec:theorieCadmium}) beträgt $-3{,}6\%$.
+
+\subsection{Bestimmung der Landé-Faktoren für die blaue Linie}
+
+Für die gleichen Situationen wie zuvor wurden für die blaue Linie bei $\lambda=\SI{480}{\nano\meter}$ wieder vier Bilder aufgenommen, die im Anhang \ref{sec:anhang} zu sehen sind.
+Bei der blauen Linie können sowohl für die $\sigma$- als auch für die $\pi$-Polarisation Aufspaltungen beobachtet werden, sodass die Abstände ${\delta s}_\sigma$ und ${\delta s}_\pi$ bestimmt werden und mit den Wellenlängenverschiebungen in Tabelle \ref{tab:blau} aufgeführt sind. Es werden wieder Unsicherheiten von $5\,\text{px}$ für alle ausgemessenen Abstände angenommen.
+
+\begin{table}[htp]
+	\begin{center}
+    \caption{\cite{insert caption}}
+    \label{tab:blau}
+		\begin{tabular}{ccccc}
+		\toprule
+			{$\Delta s$/px} & {${\delta s}_\sigma$/px} & {${\delta s}_\pi$/px} & {${\delta \lambda}_\sigma$/pm} & {${\delta \lambda}_\pi$/pm}\\
+			\midrule
+			 95 & 35 & 5,0 & 52 & 7,4\\
+			102 & 45 & 5,9 & 57 & 7,5\\
+			108 & 43 & 5,4 & 59 & 7,4\\
+			111 & 49 & 5,9 & 56 & 6,8\\
+			117 & 45 & 5,2 & 54 & 6,2\\
+			119 & 44 & 5,0 & 57 & 6,5\\
+			121 & 48 & 5,3 & 60 & 6,7\\
+			128 & 53 & 5,6 & 63 & 6,6\\
+			132 & 52 & 5,3 & 69 & 7,0\\
+			141 & 57 & 5,4 & 66 & 6,3\\
+			144 & 67 & 6,3 & 72 & 6,7\\
+			156 & 82 & 7,1 & 73 & 6,3\\
+			164 & 73 & 6,0 & 77 & 6,3\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Es ergeben sich die Mittelwerte
+
+\begin{align*}
+  \overline{{\delta \lambda}_\sigma} &= \SI{5.65(17)}{\pico\meter}\,,\\
+  \overline{{\delta \lambda}_\sigma} &= \SI{6.75(17)}{\pico\meter}\,.
+\end{align*}
+
+für die Wellenlängenverschiebungen.
+Die magnetischen Flussdichten ergeben sich aus den angelegten Stromstärken $\SI{5.5}{\ampere}$ und $\SI{16}{\ampere}$ zu $\SI{350(5)}{\milli\tesla}$ und $\SI{1025(7)}{\milli\tesla}$ für die $\sigma$- bzw. die $\pi$-Polarisationen.
+
+Für die $\pi$-Polarisation kann die Formel \eqref{eqn:g_J_auswertung} so in der Form verwendet werden. Es folgt ein Landé-Faktor von
+\begin{equation*}
+  g_J = \num{0.613(16)}
+\end{equation*}
+für den $\pi$-polarisierten Übergang der blauen Linie. Der theoretische Wert ist gemäß Kapitel \ref{subsec:theorieCadmium} $0{,}5$, sodass sich eine Abweichung von $22{,}6\%$ ergibt.

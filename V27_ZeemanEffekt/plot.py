@@ -72,11 +72,12 @@ m[:,0] = Delta_s
 m[:,1] = delta_s
 
 Delta_s = unp.uarray(Delta_s, 5)
-delta_s = unp.uarray(delta_s, 3)
+delta_s = unp.uarray(delta_s, 5)
 print('Rote Linie:')
 lam_0 = 633.8*1e-9
 delta_lambda_D = 4.8912559474967786e-11
 I = 9
+print('B-Feld fuer ', I, ' Ampere: ', B_field(I))
 delta_lam = delta_lambda(delta_s, Delta_s, delta_lambda_D)
 
 m[:,2] = 1e12*unp.nominal_values(delta_lam)
@@ -90,13 +91,24 @@ print(g_J(lam_0, delta_lam, B_field(I)))
 ##### Berechnung von g_J für die blaue Linie,
 
 Delta_s, delta_s_sigma, delta_s_pi = np.genfromtxt('data/temp/pixel_blau.txt', unpack=True)
+
+hr = ['$\Delta s$/px', '${\delta s}_\sigma$/px', '${\delta s}_\pi$/px', '${\delta \lambda}_\sigma$/pm','${\delta \lambda}_\pi$/pm']
+m = np.zeros((len(Delta_s), 5))
+m[:,0] = Delta_s
+m[:,1] = delta_s_sigma
+m[:,3] = delta_s_pi
+
 Delta_s = unp.uarray(Delta_s, 5)
 delta_s_sigma = unp.uarray(delta_s_sigma, 5)
 print('Blaue Linie Sigma (0 Grad):')
 lam_0 = 480*1e-9
 delta_lambda_D = 2.6952020928905114e-11
 I = 5.5
+print('B-Feld fuer ', I, ' Ampere: ', B_field(I))
 delta_lam = delta_lambda(delta_s_sigma, Delta_s, delta_lambda_D)
+
+m[:,2] = 1e12*unp.nominal_values(delta_lam)
+
 delta_lam = sum(delta_lam)/len(delta_lam)
 print(delta_lam)
 print(g_J(lam_0, delta_lam, B_field(I)))
@@ -106,7 +118,13 @@ print('Blaue Linie Sigma (90 Grad):')
 lam_0 = 480*1e-9
 delta_lambda_D = 2.6952020928905114e-11
 I = 16
+print('B-Feld fuer ', I, ' Ampere: ', B_field(I))
 delta_lam = delta_lambda(delta_s_pi, Delta_s, delta_lambda_D)
+
+m[:,4] = 1e12*unp.nominal_values(delta_lam)
+t=matrix2latex(m, headerRow=hr, format='%.1f')
+print(t)
+
 delta_lam = sum(delta_lam)/len(delta_lam)
 print(delta_lam)
 print(g_J(lam_0, delta_lam, B_field(I)))

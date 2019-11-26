@@ -42,10 +42,11 @@ Gangunterschied der eingestrahlten Wellenlänge entspricht. Bei einer Veränderu
 des Magnetfeldes verändert sich die Wellenlänge der eingestrahlten Strahlung, sodass
 sich auch die Interferenzstreifen verschieben.
 
-Für große Austrittswinkel lässt sich der Spektralbereich $\Delta \lambda_D$ durch
+Für große Austrittswinkel lässt sich der Spektralbereich $\Delta \lambda_\text{D}$ durch
 den Ausdruck
 \begin{equation}
-   \Delta \lambda = \frac{\lambda^2}{2d} \sqrt{\frac{1}{n^2-1}}
+   \Delta \lambda_\text{D} = \frac{\lambda^2}{2d} \sqrt{\frac{1}{n^2-1}}
+   \label{eqn:deltaLambdaD}
 \end{equation}
 berechnen. Dabei ist $d$ die Dicke und $n$ der Brechungsindex der Lummer-Gehrcke-Platte.
 Das Auflösungsvermögen einer Lummer-Gehrcke-Platte ist gegeben durch
@@ -71,3 +72,11 @@ Die sich ergebenden Bilder sind beispielhaft für die rote Spektrallinie von Cad
 \end{figure}
 
 Der Abstand $\Delta s$ wird bei ausgeschaltetem Magnetfeld gemessen und ist dabei der Abstand von der Mitte einer Spektrallinie bis zur nächsten. Ähnlich dazu bezeichnet $\delta s$ den Abstand der aufgespaltenen Linien von Mitte zu Mitte bei angelegtem Magnetfeld.
+Für die Wellenverschiebung aufgrund des Magnetfeldes gilt dann die Formel
+\begin{equation}
+  \delta \lambda = \frac{1}{2} \frac{\delta s}{\Delta s} \Delta \l\text{D}
+  \label{eqn:deltaLambda}
+\end{equation}
+mit dem Dispersionsgebiet $\delta \lambda_\text{D}$ aus Gleichung \eqref{eqn:deltaLambdaD}.
+
+\cite{add Theoretische Daten Lummer}
