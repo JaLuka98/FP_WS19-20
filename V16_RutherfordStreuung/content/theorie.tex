@@ -1,0 +1,24 @@
+\section{Theorie}
+\label{sec:Theorie}
+
+Geladene Teilchen mit so niedrigen Energien, dass Strahlungseffekte keine Bedeutung haben, verlieren ihre Energie beim Durchgang durch Materie an die Hüllenelektronen durch Ionisation und Anregung. Die Bethe-Bloch-Formel beschreibt dabei den mittleren Energieverlust pro Massenbelegung $x = s \rho$ mit der Dichte des Mediums $\rho$ und der Wegstrecke $s$, der von des Eigenschaften des Mediums und der Geschwindigkeit $v$ des Teilchens abhängt:
+
+\begin{equation}
+  -\left<\frac{\mathrm{d}E}{\mathrm{d}x}\right> = - \frac{4\pi e^2 z^2 n}{m_{\mathrm{e}}v^2(4 \pi \epsilon_{\mathrm{0}})^2} \ln{\frac{2 m_{\mathrm{e}} v^2}{I}}\,.
+  \label{eqn:bethe}
+\end{equation}
+
+Dabei bezeichnet $e$ die Elementarladung, $z$ die Ladungszahl des Teilchens, $n$ die Elektronendichte des beschossenen Mediums, $\m_\text{e}$ die Elektronenmasse, $\epsilon_0$ die elektrische Permitivität des Vakuums und $I$ die typische Anregungsenergie des Mediums. Häufig werden die Klammern zur Mittelung der Übersichtlichkeit halber weggelassen, da es einleuchtend ist, dass es sich bei Streuprozessen um statistische Prozesse handelt.
+Es gilt bei dieser Form der Bethe-Bloch-Formel die Näherung, dass das einfallende Teilchen deutlich schwerer als ein Elektron ist und durch die Streuung mit den als in Ruhe betrachteten Hüllenelektronen nicht von seiner Bahn abgelenkt wird, sondern nur Energie verliert. Außerdem sollen die einfallenden Teilchen eine Geschwindigkeit deutlich kleiner als die Lichtgeschwindigkeit haben ($v/c \ll 1$).
+
+Die Streuung eines schweren Projektilteilchens an einem Hüllenelektron wird durch die Rutherford-Streuung beschrieben. Für den differenziellen Wirkungsquerschnitt gilt
+
+\begin{equation}
+  \frac{\mathrm{d}\sigma}{\mathrm{d}\Omega} = \left( \frac{1}{4\pi\epsilon_0}\frac{Z Z_2 e^2}{4 E} \right) \frac{1}{\sin^4\left( \frac{\theta}{2} \right)}\,.
+  \label{eqn:rutherford}
+\end{equation}
+
+Dabei bezeichnet $Z$ die Ladungszahl der Atomkerne im Medium und $E$ die Energie des einfallenden Teilchens.
+Diese Formel stellt einen niederenergetischen Grenzfall da und berücksichtigt weder den Spin des einfallenden Teilchens noch den des Hüllenelektrons. Des Weiteren werden beide Teilchens als punktförmig angenähert und nur eine elastische Streuung durch die elektromagnetische Wechselwirkung betrachtet.
+
+Der differenzielle Wirkungsquerschnitt beschreibt die Wahrscheinlichkeit, das ein einfallendes Teilchen in das Raumwinkelelement $\mathrm{d} \Omega$ gestreut wird. Der totale Wirkungsquerschnitt ergibt sich durch Integration über den vollständigen Raumwinkel und ist mit der Wahrscheinlichkeit assoziiert, dass überhaupt eine Streeung stattfindet. Es ist zu beachten, dass die Formel \eqref{eqn:rutherford} unmodifiziert bei der Integration über den Raumwinkel einen divergierenden Wirkungsquerschnitt ergibt, was an der unteren Integrationsgrenze $0$ für die $\theta$-Integration liegt. In der Praxis existiert aufgrund der endlichen Ausdehnung der Atome im Target jedoch ein minimaler Streuwinkel, sodass die Integrationsgrenze angepasst werden muss.
