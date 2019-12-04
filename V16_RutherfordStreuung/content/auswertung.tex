@@ -1,2 +1,220 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+
+(HIER DIE AUSWERTUNG DES PEAKS)
+
+\subsection{Bestimmung der Foliendicke}
+\label{subsec:dicke}
+
+Die zu Bestimmung der Foliendicke verwendeten Messdaten für die Pulshöhe
+mit und ohne Folie befinden sich in Tabelle \ref{tab:dicke}.
+
+\begin{table}[htp]
+	\begin{center}
+    \caption{Messwerte zur Bestimmung der Foliendicke.}
+    \label{tab:dicke}
+		\begin{tabular}{cccc}
+		\toprule
+			{$p_\text{Folie}$/mbar} & {$U_{\text{Folie}}$/V} & {$p$/mbar} & {$U$/V}\\
+			\midrule
+			107 & 9,84 & 118 & 11,8\\
+			114 & 9,52 & 113 & 11,9\\
+			126 & 8,96 & 130 & 11,4\\
+			140 & 8,24 & 140 & 11,3\\
+			148 & 7,20 & 150 & 11,0\\
+			156 & 6,88 & 160 & 10,9\\
+			163 & 6,32 & 170 & 10,5\\
+			177 & 5,84 & 180 & 10,4\\
+			187 & 5,20 & 190 & 10,5\\
+			199 & 4,08 & 200 & 10,0\\
+			- & -  & 213 & 7,9\\
+			- & -  & 225 & 8,0\\
+			- & -  & 240 & 7,1\\
+			- & -  & 250 & 6,0\\
+			- & -  & 260 & 4,5\\
+			- & -  & 275 & 3,5\\
+			- & -  & 285 & 2,6\\
+			- & -  & 300 & 2,5\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Es wird die Pulshöhe in Abhängigkeit vom Druck aufgetragen und für den
+linear abfallenden Bereich eine Ausgleichsrechnung der Form
+\begin{equation}
+  f(p)=ap+b
+\end{equation}
+durchgeführt. Dies ist in Abbildung \ref{fig:dicke} zu sehen. Bei der linearen Ausgleichsrechnung
+für die Messreihe ohne Folie werden dabei nur die in blau dargestellten Messwerte berücksichtigt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/dicke.pdf}
+  \caption{Messwerte für die Messreihen mit und ohne Folie, sowie lineare Ausgleichsrechnungen.}
+  \label{fig:dicke}
+\end{figure}
+
+Es ergeben sich die Parameter
+\begin{align}
+  a_{\text{Folie}}&=\SI{}{\volt\per\milli\bar} \, \\
+  b_{\text{Folie}}&=\SI{}{\volt} \,\\
+  a&=\SI{}{\volt\per\milli\bar} \, \\
+  b&=\SI{}{\volt} \,.
+\end{align}
+
+(HIER DANN NOCH DAS MIT BREMSVERMÖGEN UND DER GANZE SPAß)
+
+\subsection{Bestimmung des Raumwinkels}
+\label{subsec:raumwinkel}
+
+Der Raumwinkel $\Delta \Omega$ ist der Raumwinkel um die Folie herum, der die
+effektive Detektorfläche beschreibt. Die effektive Detektorfläche folgt aus geometrischen
+Überlegungen. Diese sind in Abbildung (REFERENZ) veranschaulicht.
+
+(BILD MIT SKZIZZEN EINFÜGEN!)
+
+Aus trigonometrischen Verhältnissen kann hergeleitet werden, dass gilt:
+\begin{align*}
+  b &= \frac{b_\symup{b} \cdot d}{c} \,,\\
+  h &= \frac{h_\symup{b} \cdot d}{c} \,.
+\end{align*}
+Dabei bezeichnet $b_\symup{b}$ die Breite und $h_\symup{b}$ die Höhe der Blende.
+Die Breite der effektiven Detektorfläche wird mit $b$ bezeichnet und die entsprechende Höhe mit $h$.
+Der Abstand von der Folie zur Blende ist durch $c$ gegeben und $d$ beschreibt den Abstand
+der Folie und der Detektoroberfläche. Aus den bekannten Werten (ZITAT VERSUCHSANLEITUNG)
+\begin{align*}
+  b_\symup{b} = \SI{2}{\milli\meter} \,, \\
+  h_\symup{b} = \SI{10}{\milli\meter} \,, \\
+  c = \SI{41}{\milli\meter} \,,\\
+  d = \SI{41}{\milli\meter}
+\end{align*}
+lassen sich die Werte
+\begin{align*}
+  b &= \SI{2.195}{\milli\meter} \,,\\
+  h &= \SI{10.976}{\milli\meter}
+\end{align*}
+berechnen. Diese charakterisieren die effektive Detektorfläche. Der Raumwinkel kann dann durch
+\begin{equation}
+  \Delta \Omega = 4 \arctan\left(\frac{b h}{2d \sqrt{4d^2 + b^2 + h^2}}\right)
+\end{equation}
+berechnet werden. Mit den oben genannten Werten ergibt sich
+\begin{equation*}
+  \Delta \Omega = \SI{}{sr} \,.
+\end{equation*}
+
+Der Raumwinkel um die Quelle herum folgt mit den Werten (ZITAT VERSUCHANLEITUNG)
+\begin{align*}
+  c &= \SI{97}{\milli\meter} \,, \\
+  d &= \SI{101}{\milli\meter}
+\end{align*}
+zu
+\begin{equation*}
+  \Delta \Omega_\text{Quelle} = \SI{}{sr} \,.
+\end{equation*}
+
+\subsection{Bestimmung der Aktivität der Probe}
+\label{subsec:aktivitaet}
+
+Die theoretisch heute zu erwartende Aktivität lässt sich mit Kenntnis der Halbwertszeit
+und der Aktivität zu einem früheren Zeitpunkt berechnen. Im Oktober 1994 betrug die
+Aktivität der Probe $\SI{330}{\kilo\becquerel}$ (ZITAT VERSUCHSANLEITUNG). Die Halbwertszeit
+von 241-Americium beträgt $T_{1/2}=432$ Jahre. Daraus lässt sich mithilfe von
+\begin{align*}
+  A_{\text{heute,theo}}&= A_{1994}\exp(-\lambda*t) \, \\
+  \lambda= \frac{\ln(2)}{T_{1/2}}
+\end{align*}
+die heutige Aktivität bestimmen. Die Zeit beträgt dabei $t=25+1/6$ Jahre. Somit beträgt die
+theoretisch zuerwartende heutige Aktivität
+\begin{equation*}
+  A_{\text{heute,theo}}= \SI{}{\kilo\becquerel} \,.
+\end{equation*}
+
+Aus den Messwerten lässt sich die heutige Aktivität unter
+Kenntnis des Raumwinkels $\Delta \Omega_{\text{Quelle}}$ aus der Messung der Zählrate berechnen.
+Das Verhältnis der heutigen Aktivität und die gemessene Zählrate müssen nämlich in
+dem gleichen Verhältnis zueinander stehen, wie der Raumwinkel $\Delta \Omega_{\text{Quelle}}$ und
+der gesamte Raumwinkel. Somit ist die heutige Aktivität gegeben durch
+\begin{equation*}
+  A_{\text{heute,exp}}=\frac{4 \pi  I}{\Delta \Omega_{\text{Quelle}}}=\SI{}{\kilo/becquerel} \,.
+\end{equation*}
+
+
+\subsection{Bestimmung des differentiellen Wirkungsquerschnitts}
+\label{subsec:wq}
+
+In Tabelle (REFERENZ) sind die Messwerte für die Zählrate in Abhängigkeit vom
+Winkel aufgeführt. Außerdem befinden sich dort die berechneten differentiellen
+Wirkungsquerschnitte. Diese werden wie folgt berechnet:
+
+(TABELLE EINFÜGEN)
+
+Für den Wirkungsquerschnitt gilt:
+\begin{equation}
+  \frac{\symup{d}\sigma}{\symup{d}\Omega} = \frac{I}{I_0  N_\symup{Au} \Delta x \Delta \Omega} \,.
+  \label{eqn:wq}
+\end{equation}
+Dabei ist $I$ die Zählrate mit Folie, $I_0$ die Zählrate ohne Folie, $ N_\symup{Au}$
+die Teilchendichte von Gold, $\Delta x$ die Foliendicke und $\Delta \Omega$ der Raumwinkel.
+Die Teilchendichte von Gold lässt sich durch
+\begin{equation*}
+  N_\symup{Au} = N_\symup{A} \frac{\rho_\symup{Au}}{M_\symup{Au}}
+\end{equation*}
+berechnen. Mit den Werte (WERTE EINFÜGEN UND ZITIEREN) ergibt sich damit der Wert
+\begin{equation*}
+  N_\symup{Au} =
+\end{equation*}
+für die Teilchendichte von Gold.
+Mit der Zählrate $I_0=$ ohne Folie, der Schichtdicke $\Delta x =2$\,µm und dem Raumwinkel
+aus Kapitel \ref{subsec:raumwinkel} ergeben sich damit die in Tabelle (REFERENZ) dargestellten Werte.
+
+Diese sind in Abbildung \ref{fig:wq} gegen den Streuwinkel $\theta$ aufgetragen. Außerdem ist
+eine Theoriekurve zu sehen. Diese wird gemäß Gleichung \eqref{eqn:rutherford} mit den
+Werten $z=2$ und $Z=79$ berechnet.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/wq.pdf}
+  \caption{Berechnete Werte für den differentiellen Wirkungsquerschnitt und Theoriekurve.}
+  \label{fig:wq}
+\end{figure}
+
+
+\subsection{Untersuchung von Mehrfachstreuung}
+\label{subsec:mehrfach}
+
+Für zwei Goldfolien mit den Dicken $\Delta x=2$\,µm und $\Delta x=4$\,µm werden
+die Zählraten
+\begin{align*}
+  I_2=
+  I_4=
+\end{align*}
+gemessen. Analog zu der Berechnung in Kapitel \ref{subsec:wq} lassen dich die Wirkungsquerschnitte
+\begin{align*}
+  Werte..
+\end{align*}
+berechnen.
+
+\subsection{Untersuchung der $Z$-Abhängigkeit}
+\label{subsec:z}
+
+Zur Untersuchung der Mehrfachstreuung wurden Folien aus Gold, Platin und
+Bishmuth untersucht. In Tabelle (REFERENZ) sind die Dicken $\Delta x$ der Folien,
+die Ordnungszahlen $Z$, die Dichten $\rho$, die molaren Massen $M$ und die daraus berechneten
+Parameter $\frac{I}{N \Delta x}$ aufgeführt. $N$ bezeichnet hier die in Kapitel \ref{subsec:wq}
+bereits eingeführte Teilchendichte des jeweiligen Elements.
+
+(TABELLE EINFÜGEN)
+
+In Abbildung \ref{fig:z} ist der Parameter $\frac{I}{N \Delta x}$ gegen die Ordnungszahl
+aufgetragen. Es sind dabei zwei Werte bei $Z=79$ zu sehen, da zwei unterschiedlich dicke
+Goldfolien untersucht wurden. Es ist zu erkennen, dass der Parameter $\frac{I}{N \Delta x}$
+tendenziell mit der Ordnungszahl zunimmt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/z.pdf}
+  \caption{Auftragung des Parameters $\frac{I}{N \Delta x}$ gegen die Ordnungszahl $Z$.}
+  \label{fig:z}
+\end{figure}
