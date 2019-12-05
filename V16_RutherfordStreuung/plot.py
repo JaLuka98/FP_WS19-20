@@ -120,12 +120,17 @@ print('Zerfallskonstante:', lamda)
 print('Aktivität heute:', A_heute)
 
 
+
 #####################################
 ###Plot für den differentiellen WQ###
 #####################################
 print('##############Differentieller WQ################')
 I0=2359/150
 sigmaI0=np.sqrt(2359)/150
+
+A_heute=4*np.pi*I0/omega
+sigmaA=4*np.pi*sigmaI0/omega
+print('Experimentall: A_heute=', A_heute, '±', sigmaA)
 
 print('I_0=:', I0, '+/-', sigmaI0)
 
@@ -172,7 +177,7 @@ def rutherford(theta):
    return (1/(4*np.pi*8.854*1e-12))**2 *((2*79*(1.602*1e-19)**2)/(4*5.638*1e6*1.602*1e-19))**2 *(1/(np.sin(np.deg2rad(theta/2))))**4 #hier noch E_0 anpassen???
 
 def rutherfordverschoben(theta):
-    return (1/(4*np.pi*8.854*1e-12))**2 *((2*79*(1.602*1e-19)**2)/(4*5.638*1e6*1.602*1e-19))**2 *(1/(np.sin(np.deg2rad((theta-3)/2))))**4
+    return (1/(4*np.pi*8.854*1e-12))**2 *((2*79*(1.602*1e-19)**2)/(4*5.638*1e6*1.602*1e-19))**2 *(1/(np.sin(np.deg2rad((theta-2.5)/2))))**4
 
 linspace=np.linspace(-7,-0.01,1000)
 linspace2=np.linspace(0.01, 11, 1000)
@@ -244,6 +249,9 @@ N_A = 6.022*1e23
 N_abs=N_A *rho/M
 
 komischegroesse=I/(N_abs*dicke)
+sigmakomischegroesse=sigmaI/(N_abs*dicke)
+
+print('Fehler komische Groesse:', sigmakomischegroesse)
 
 hr = ['$N$','' ,'A/\mathrm{s^{-1}$', '', '$\rho/\mathrm{\frac{kg}{m^3}$', '$M/\mathrm{\frac{g}{Mol}}$', '$x$/µm', '$Z$', '$\frac{A}{Nx}/10^-23\mathrm{\frac{m^2}{s}}$']
 m = np.zeros((4, 9))
@@ -263,7 +271,7 @@ print(t)
 
 #Jetzt die komischegroesse gegen die kernladungszahl auftragen
 
-plt.plot(Z, komischegroesse, 'rx', mew=0.5)
+plt.errorbar(Z, komischegroesse, yerr=sigmakomischegroesse, fmt = 'x', elinewidth=0.5, markeredgewidth=0.5)
 plt.ylabel(r'$\frac{I}{N \Delta x}/\frac{\mathrm{m^2}}{\mathrm{s}}$')
 plt.xlabel(r'$Z$')
 #plt.xlim(-10, 10)
@@ -277,4 +285,8 @@ plt.clf()
 def rutherford(theta, Z):
    return (1/(4*np.pi*8.854*1e-12))**2 *((2*Z*(1.602*1e-19)**2)/(4*5.5*1e6*1.602*1e-19))**2 *(1/(np.sin(np.deg2rad(theta/2))))**4
 
-theogroesse=rutherford(6, Z)/(dicke*N_A*rho/M)
+theogroesse=rutherford(6, Z)*(I0*omega)
+sigmaTheogroesse=rutherford(6, Z)*sigmaI0*omega
+
+print('theogroesse:', theogroesse)
+print('sigma theogroesse:', sigmaTheogroesse)
