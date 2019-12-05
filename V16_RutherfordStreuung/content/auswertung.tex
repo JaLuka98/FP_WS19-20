@@ -7,14 +7,14 @@
 In Abbildung \ref{fig:puls} ist beispielhaft ein auf dem Oszilloskop beobachteter Puls
 dargestellt. Aus der Abbildung können wie Werte
 \begin{align*}
-  U_\text{max}&= \,,\\
-  T_\text{Anstieg}&=
+  U_\text{max}&= \SI{11.8}{\volt}\,,\\
+  T_\text{Anstieg}&= SI{}{\sec} \text{2/5 von dem was ein Kästchen ist.}
 \end{align*}
 abgelesen werden.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{build/dicke.pdf}
+  \includegraphics[width=\textwidth]{images/peak.JPG}
   \caption{Darstellung eines Pulses auf dem Oszilloskop.}
   \label{fig:puls}
 \end{figure}
@@ -242,7 +242,7 @@ aus Kapitel \ref{subsec:raumwinkel} ergeben sich damit die in Tabelle \ref{tab:w
 
 Diese sind in Abbildung \ref{fig:wq} gegen den Streuwinkel $\theta$ aufgetragen. Außerdem ist
 eine Theoriekurve zu sehen. Diese wird gemäß Gleichung \eqref{eqn:rutherford} mit den
-Werten $z=2$ und $Z=79$ berechnet.
+Werten $z=2$, $Z=79$ und $E=5{,}5$\,MeV \cite{energie} berechnet.
 
 \begin{figure}
   \centering
@@ -264,17 +264,20 @@ Die Fehler werden hier nach der Gauß'schen Fehlerfortpflanzung bestimmt:
 Für zwei Goldfolien mit den Dicken $\Delta x=2$\,µm und $\Delta x=4$\,µm werden
 die Zählraten
 \begin{align*}
-  I_2= \SI{15.71(32)}{1\per\second}\,,\\
-  I_4= \SI{17.18(34)}{1\per\second}
+  I_2&= \SI{15.71(32)}{1\per\second}\,,\\
+  I_4&= \SI{17.18(34)}{1\per\second}
 \end{align*}
 gemessen. Analog zu der Berechnung in Kapitel \ref{subsec:wq} lassen sich die Wirkungsquerschnitte
 \begin{align*}
-  \left(\frac{d \sigma}{d \Omega}\right)_2=\SI{3.92(11)e-21}{\metre\squared} \,, \\
-  \left(\frac{d \sigma}{d \Omega}\right)_4=\SI{1.79(05)e-21}{\metre\squared}
+  \left(\frac{d \sigma}{d \Omega}\right)_2&=\SI{3.92(11)e-21}{\metre\squared} \,, \\
+  \left(\frac{d \sigma}{d \Omega}\right)_4&=\SI{1.79(05)e-21}{\metre\squared}
 \end{align*}
-berechnen.
+berechnen. Es ist erkennbar, dass der Wirkungsquerschnitt für die dünnere Folie
+größer ist.
 
-(HIER VIELLEICHT NOCH THEORIEWERTE???)
+Da der Winkel bei dieser Messung zu $\theta=0°$ gewählt wurde und die
+Rutherford'sche Streuformel \eqref{eqn:rutherford} an dieser Stelle eine Polstellt beseitzt,
+können die theoretischen Werte hier nicht berechnet werden.
 
 \subsection{Untersuchung der $Z$-Abhängigkeit}
 \label{subsec:z}
@@ -317,5 +320,5 @@ tendenziell mit der Ordnungszahl zunimmt.
 \end{figure}
 
 (IN DER ANLEITUNG STEHT MAN SOLL DAS JETZT NOCH IRGENDWIE THEORETISCH BERECHNEN...)
-dafür könnte man jetzt einfach die theoretisch berechnete Aktivität in dem Raumwinkel
-durch N und die Foliendicke teilen und dann auch gegen Z auftragen.
+Dafür einfach Rutherford durch einen Wert teilen für den gegebenen Winkel. Dann kann
+man das auch gegen Z auftragen. 

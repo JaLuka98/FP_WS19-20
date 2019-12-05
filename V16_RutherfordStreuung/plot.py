@@ -266,3 +266,9 @@ plt.tight_layout()
 plt.grid()
 plt.savefig('build/z.pdf')
 plt.clf()
+
+#Jetzt irgendwie die Theoriewerte dazu berechnen:
+def rutherford(theta, Z):
+   return (1/(4*np.pi*8.854*1e-12))**2 *((2*Z*(1.602*1e-19)**2)/(4*5.5*1e6*1.602*1e-19))**2 *(1/(np.sin(np.deg2rad(theta/2))))**4
+
+theogroesse=rutherford(6, Z)/(dicke*N_A*rho/M)
