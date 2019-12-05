@@ -97,16 +97,16 @@ effektive Detektorfläche beschreibt. Die effektive Detektorfläche folgt aus ge
 
 Aus trigonometrischen Verhältnissen kann hergeleitet werden, dass gilt:
 \begin{align*}
-  b &= \frac{b_\symup{b} d}{c} \,,\\
-  h &= \frac{h_\symup{b} d}{c} \,.
+  b &= \frac{b_{\symup{b}} d}{c} \,,\\
+  h &= \frac{h_{\symup{b}} d}{c} \,.
 \end{align*}
-Dabei bezeichnet $b_\symup{b}$ die Breite und $h_\symup{b}$ die Höhe der Blende.
+Dabei bezeichnet $b_{\symup{b}}$ die Breite und $h_{\symup{b}}$ die Höhe der Blende.
 Die Breite der effektiven Detektorfläche wird mit $b$ bezeichnet und die entsprechende Höhe mit $h$.
 Der Abstand von der Folie zur Blende ist durch $c$ gegeben und $d$ beschreibt den Abstand
 der Folie und der Detektoroberfläche. Aus den bekannten Werten \cite{Versuchsanleitung}
 \begin{align*}
-  b_\symup{b} &= \SI{2}{\milli\meter} \,, \\
-  h_\symup{b} &= \SI{10}{\milli\meter} \,, \\
+  b_{\symup{b}} &= \SI{2}{\milli\meter} \,, \\
+  h_{\symup{b}} &= \SI{10}{\milli\meter} \,, \\
   c &= \SI{41}{\milli\meter} \,,\\
   d &= \SI{41}{\milli\meter}
 \end{align*}
@@ -221,20 +221,20 @@ Folgenden erläutert.
 
 Für den Wirkungsquerschnitt gilt \cite{wq}:
 \begin{equation}
-  \frac{\symup{d}\sigma}{\symup{d}\Omega} = \frac{I}{I_0  N_\symup{Au} \Delta x \Delta \Omega} \,.
+  \frac{\symup{d}\sigma}{\symup{d}\Omega} = \frac{I}{I_0  N_{\symup{Au}} \Delta x \Delta \Omega} \,.
   \label{eqn:wq}
 \end{equation}
-Dabei ist $I$ die Zählrate mit Folie, $I_0$ die Zählrate ohne Folie, $ N_\symup{Au}$
+Dabei ist $I$ die Zählrate mit Folie, $I_0$ die Zählrate ohne Folie, $ N_{\symup{Au}}$
 die Teilchendichte von Gold, $\Delta x$ die Foliendicke und $\Delta \Omega$ der Raumwinkel.
 Die Teilchendichte von Gold lässt sich durch
 \begin{equation*}
-  N_\symup{Au} = N_\symup{A} \frac{\rho_\symup{Au}}{M_\symup{Au}}
+  N_{\symup{Au}} = N_{\symup{A}} \frac{\rho_{\symup{Au}}}{M_{\symup{Au}}}
 \end{equation*}
 berechnen. Mit den Werten $\rho_{\symup{Au}}=\SI{19.32}{\gram\per\cubic\centi\metre}$ \cite{rho}
-und ${M_\symup{Au}}=\SI{196.97}{\gram\per\mol}$ \cite{molmasse}
+und ${M_{\symup{Au}}}=\SI{196.97}{\gram\per\mol}$ \cite{molmasse}
 ergibt sich der Wert
 \begin{equation*}
-  N_\symup{Au} = \SI{5.91}{1\per\cubic\metre}
+  N_{\symup{Au}} = \SI{5.91}{1\per\cubic\metre}
 \end{equation*}
 für die Teilchendichte von Gold.
 Mit der Zählrate $I_0=\SI{15.73(032)}{1 \per\second}$ ohne Folie, der Schichtdicke $\Delta x =2$\,µm und dem Raumwinkel
@@ -253,8 +253,8 @@ Werten $z=2$, $Z=79$ und $E=5{,}5$\,MeV \cite{energie} berechnet.
 
 Die Fehler werden hier nach der Gauß'schen Fehlerfortpflanzung bestimmt:
 \begin{equation*}
-  \sigma_{\frac{\symup{d}\sigma}{\symup{d}\Omega}} = \sqrt{\left(\frac{\sigma_N}{t \cdot I_0 \cdot N_\symup{Au} \cdot \Delta x \cdot \Delta \Omega}\right)^2
-  + \left(\frac{N \cdot \sigma_{I_0}}{t \cdot I_0^2 \cdot N_\symup{Au} \cdot \Delta x \cdot \Delta \Omega}\right)^2}
+  \sigma_{\frac{\symup{d}\sigma}{\symup{d}\Omega}} = \sqrt{\left(\frac{\sigma_N}{t \cdot I_0 \cdot N_{\symup{Au}} \cdot \Delta x \cdot \Delta \Omega}\right)^2
+  + \left(\frac{N \cdot \sigma_{I_0}}{t \cdot I_0^2 \cdot N_{\symup{Au}} \cdot \Delta x \cdot \Delta \Omega}\right)^2}
 \end{equation*}
 
 
@@ -321,4 +321,4 @@ tendenziell mit der Ordnungszahl zunimmt.
 
 (IN DER ANLEITUNG STEHT MAN SOLL DAS JETZT NOCH IRGENDWIE THEORETISCH BERECHNEN...)
 Dafür einfach Rutherford durch einen Wert teilen für den gegebenen Winkel. Dann kann
-man das auch gegen Z auftragen. 
+man das auch gegen Z auftragen.
