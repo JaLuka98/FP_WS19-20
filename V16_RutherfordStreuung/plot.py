@@ -49,12 +49,14 @@ print(t)
 params1, covariance_matrix1 = optimize.curve_fit(linfit, p_f, U_f)
 a1, b1 = correlated_values(params1, covariance_matrix1)
 print('Fit für mit Folie:')
+b_folie = b1
 print('a=', a1)
 print('b=', b1)
 
 params2, covariance_matrix2 = optimize.curve_fit(linfit, p[8:], U[8:])
 a2, b2 = correlated_values(params2, covariance_matrix2)
 print('Fit für mit Folie:')
+b = b2
 print('a=', a2)
 print('b=', b2)
 
@@ -76,6 +78,10 @@ plt.clf()
 #############################################
 ###Bestimung von Dicke siehe Nebenrechnung###
 #############################################
+
+E_alpha = 5.49
+DeltaE = E_alpha * (1 - b_folie/b2)
+print('DeltaE beträgt: ', DeltaE)
 
 ##########################
 ###Raumwinkel bestimmen###

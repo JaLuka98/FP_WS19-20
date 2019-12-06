@@ -79,7 +79,47 @@ Es ergeben sich die Parameter
   b&=\SI{25.3(11)}{\volt} \,.
 \end{align*}
 
-(HIER DANN NOCH DAS MIT DER FOLIENDICKE UND SO...)
+Die Parameter $b$ bzw. $b_{\text{Folie}}$ sind dann die geschätzten Spannungen bei einem vollständig evakuiertem Versuchsaufbau ohne bzw. mit Folie im Strahlengang.
+Das Durchlaufen der Folie bedeutet für die Alphateilchen eine Energiedifferenz $\Delta E = E-E_{\text{Folie}}$ bezüglich des Durchlaufens mit bzw. ohne Folie, wobei $E = E_\alpha$ bzw. $E_{\text{Folie}}$ die Energien der Alphateilchen ohne bzw. mit Folie im Weg zum Detektor bezeichnen.
+Um nun von Spannungen auf Energien zu schließen, verwendet man den Quotient aus den beiden $y$-Achsenabschnitten, für den
+\begin{equation*}
+  \frac{b_{\text{Folie}}}{b} = \frac{E_{\text{Folie}}}{E_\alpha}
+\end{equation*}
+gilt. Mit dieser Information lässt sich die Energiedifferenz durch den Zusammenhang
+\begin{equation*}
+  \Delta E = E_\alpha \left( 1 - \frac{b_{\text{Folie}}}{b} \right)b_{\text{Folie}}
+\end{equation*}
+berechnen. Für die vorliegenden Werte ergibt sich $\Delta E = \SI{1.88(18)}{\mega\electronvolt}$.
+
+Die Foliendicke $\Delta s$ wird berechnet, indem die Bethe-Bloch-Formel \eqref{eqn:bethe} als diskreter Energieverlust $\Delta E/(\Delta s \cdot \rho)$ genähert wird.
+Dann ergibt sich die Foliendicke durch Umstellen der Formel zu
+\begin{equation*}
+  \Delta x =
+  \frac{m_{\mathrm{e}} v^2(4 \pi \epsilon_{\mathrm{0}})^2}
+  {4\pi e^4 z^2 n_\text{Au} \ln{\frac{2 m_{\mathrm{e}} v^2}{I}}}
+\end{equation*}.
+
+Die Teilchendichte von Gold lässt sich durch
+\begin{equation*}
+  N_{\symup{Au}} = N_{\symup{Au}} \frac{\rho_{\symup{Au}}}{M_{\symup{Au}}}
+\end{equation*}
+berechnen. Mit den Werten $\rho_{\symup{Au}}=\SI{19.32}{\gram\per\cubic\centi\metre}$ \cite{rho}
+und ${M_{\symup{Au}}}=\SI{196.97}{\gram\per\mol}$ \cite{molmasse}
+ergibt sich der Wert
+\begin{equation*}
+  N_{\symup{Au}} \approx \SI{5.91e28}{\per\cubic\metre}\,.
+\end{equation*}
+Die Elektronendichte beträgt dann
+\begin{equation}
+  N_\text{Au} \cdot Z = N_\text{Au} \cdot 79 \approx \SI{4.66e30}{\per\cubic\metre}\,,
+\end{equation}
+da jedes Goldatom im Mittel 79 Elektronen enthält, an denen die Alphateilchen streuen können.
+
+Insgesamt beträgt die experimentell bestimmte Foliendicke dann
+\begin{equation*}
+  \Delta x = \SI{4.4(4)}{\micro\metre}
+\end{equation*}
+mit einer relativen Unsicherheit von $9{,}09\%$.
 
 \subsection{Bestimmung des Raumwinkels}
 \label{subsec:raumwinkel}
@@ -224,19 +264,8 @@ Für den Wirkungsquerschnitt gilt \cite{wq}:
   \frac{\symup{d}\sigma}{\symup{d}\Omega} = \frac{I}{I_0  N_{\symup{Au}} \Delta x \Delta \Omega} \,.
   \label{eqn:wq}
 \end{equation}
-Dabei ist $I$ die Zählrate mit Folie, $I_0$ die Zählrate ohne Folie, $ N_{\symup{Au}}$
+Dabei ist $I$ die Zählrate mit Folie, $I_0$ die Zählrate ohne Folie, $ N_{\symup{Au}} \approx \SI{5.91e28}{\per\cubic\metre}$
 die Teilchendichte von Gold, $\Delta x$ die Foliendicke und $\Delta \Omega$ der Raumwinkel.
-Die Teilchendichte von Gold lässt sich durch
-\begin{equation*}
-  N_{\symup{Au}} = N_{\symup{A}} \frac{\rho_{\symup{Au}}}{M_{\symup{Au}}}
-\end{equation*}
-berechnen. Mit den Werten $\rho_{\symup{Au}}=\SI{19.32}{\gram\per\cubic\centi\metre}$ \cite{rho}
-und ${M_{\symup{Au}}}=\SI{196.97}{\gram\per\mol}$ \cite{molmasse}
-ergibt sich der Wert
-\begin{equation*}
-  N_{\symup{Au}} = \SI{5.91}{1\per\cubic\metre}
-\end{equation*}
-für die Teilchendichte von Gold.
 Mit der Zählrate $I_0=\SI{15.73(032)}{1 \per\second}$ ohne Folie, der Schichtdicke $\Delta x =2$\,µm und dem Raumwinkel
 aus Kapitel \ref{subsec:raumwinkel} ergeben sich damit die in Tabelle \ref{tab:wq} dargestellten Werte.
 
