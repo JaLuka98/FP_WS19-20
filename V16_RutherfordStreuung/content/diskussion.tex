@@ -2,7 +2,10 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
-Insgesamt ist der Versuch nur bedingt als erfolgreich zu bewerten.
+Insgesamt ist der Versuch nur bedingt als erfolgreich zu bewerten. Zwei große Fehlerquellen ziehen sich dabei durch den gesamten Versuch und alle Messreihen: Der Kammerdruck kann nicht komplett auf $0$ oder nahe $0$ gesenkt werden. Stattdessen konnte er nur bis auf ungefähr $\SI{100}{\milli\bar}$ gesenkt werden. Durch den nichtverschwindenden Kammerdruck
+könnten somit zusätzliche Streuungen der $\alpha$-Teilchen und ein zusätzlicher
+Energieverlust herbeigeführt werden. Dies führt zu Abweichungen, da dieser zusätzliche Energieverlust durch die Luft nicht berücksichtigt wird.
+Zweitens waren alle im Versuch verwendeten Folien leicht bis stark eingedellt und gewellt, sodass unter Anderem ein senkrechter Einfall der Strahlung auf die Folie nicht mehr gewährleistet ist. Durch diese Abweichungen der Folien kommt es insgesamt zu nur schwer abschätzbaren systematischen Fehlern.
 
 Die berechnete Foliendicke $\Delta x = \SI{4.4(4)}{\micro\metre}$ weicht um
 $120\%$ vom wahren Wert $\Delta x = \SI{2}{\micro\metre}$ ab. Ein möglicher Grund für diese
@@ -12,23 +15,20 @@ Y-Achsenabschnitte deutlich weiter auseinander als wenn die Geraden parallel wä
 wie es auch theoretisch zu erwarten wäre. Außerdem ist anzumerken, dass
 bei der Messreihe ohne Folie der Wertebereich, für den die Ausgleichsrechnung durchgeführt wird,
 manuell per Augenmaß bestimmt wurde.
+Außerdem wurde angenommen, dass sich die Geschwindigkeit $v$ der Alphateilchen, welche in Gleichung \eqref{eqn:foliendicke} einzusetzen ist, aus der Energie $E_\alpha$ zu bestimmen ist, die die Teilchen beim Verlassen der Quelle haben. Dies entspricht jedoch nicht ganz den Gegebenheiten im Versuch, da eine endliche Ausdehnung der Folie zu einem Energieverlust führt, währen die Teilchen die Folie passieren, sodass sie langsamer werden.
 
 Die heutige Aktivität der Probe kann zu $A_{\text{heute,theo}}= \SI{316.94}{\kilo\becquerel}$
-bestimmt werden. Der Experimentell bestimmte Wert
+bestimmt werden. Der experimentell bestimmte Wert
 $A_{\text{heute,exp}}=\SI{83.80(173)}{\kilo\becquerel}$ weicht davon um
-$-73{,}56\%$ ab. Ein möglicher Grund für diese Abweichung ist, dass der Kammerdruck
-während der gesamten Messung mit etwa $110-120$\,mbar deutlich über dem theoretisch
-angenommenen Wert von $0$\,mbar liegt. Durch den nichtverschwindenden Kammerdruck
-könnten somit zusätzliche Streuungen der $\alpha$-Teilchen und ein zusätzlicher
-Energieverlust herbeigeführt werden. Ein weiterer möglicher Grund ist, dass der Detektor
+$-73{,}56\%$ ab. Hier ist es möglich, dass der nichtverschwindende Kammerdruck eine nicht zu vernachlässigende Rolle spielt. Ein weiterer  möglicher Grund ist, dass der Detektor
 schlecht positioniert sein könnte, wodurch die berechnete effektive Detektorfläche
 nicht der realen entspricht.
 
 Die aus den Messwerten berechneten Wirkungsquerschnitte folgen, wie in Abbildung
 \ref{fig:wq} zu sehen ist, nicht dem theoretisch zu erwartenden Verlauf. Mögliche Gründe
-dafür sind, dass die rutherford'sche Streuformel selbst nur eine Näherung ist und
+dafür sind, dass die Rutherford'sche Streuformel selbst nur eine Näherung ist und
 dass die Zählraten bei der Messung durch den nichtverschwindenden Kammerdruck
-verfälscht werden.
+verfälscht werden. Auch die Diskriminatorschwelle trägt zu Fehlern bei, da diese zum Teil auch Alphateilchen unterdrückt, die viel Energie verloren haben. Eine Abschätzung dieser Fehlerquelle wäre nur bei genauerem Auseinandersetzen mit dem Gerät und seinen Funktionen möglich. Insgesamt lassen sich bei diesen deutlichen Abweichungen auch Rechenfehler nicht ausschließen.
 
 Bei der Berechnung der Wirkungsquerschnitte für zwei Folien verschiedener Dicken
 ergeben sich die Werte
@@ -36,8 +36,9 @@ ergeben sich die Werte
   \left(\frac{d \sigma}{d \Omega}\right)_2&=\SI{3.92(11)e-21}{\metre\squared} \,, \\
   \left(\frac{d \sigma}{d \Omega}\right)_4&=\SI{1.79(05)e-21}{\metre\squared} \,.
 \end{align*}
+Der differenzielle Wirkungsquerschnitt nimmt also für die vorliegenden Messungen mit höherer Foliendicke beim gleichen Element ab. Dies erscheint sinnvoll, da sich durch Mehrfachstreuuungen bei einer dickeren Folie die vielen Ablenkungen bei kleinen Streuwinkeln aufsummieren, sodass mehr Ereignisse bei großen Winkeln zu erwarten sind. Insofern lässen sich diese Ergebnisse qualitativ schlüssig erklären.
 
-Für die Abhängigkeit des Wirkungsquerschintts von der Kernladungszahl konnte experimentell
+Für die Abhängigkeit des Wirkungsquerschnitts von der Kernladungszahl konnte experimentell
 nur gezeigt werden, dass mit höheren Kernladungszahlen auch höhere Wirkungsquerschnitte
 einhergehen. Der theoretisch erwartete quadratische Verlauf konnte aufgrund von zu
 wenigen Messdaten nicht nachvollzogen werden. Außerdem liegen die experimentell

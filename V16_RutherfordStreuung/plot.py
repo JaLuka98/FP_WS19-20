@@ -122,9 +122,9 @@ print('Aktivität heute:', A_heute)
 
 
 #####################################
-###Plot für den differentiellen WQ###
+###Plot für den differenziellen WQ###
 #####################################
-print('##############Differentieller WQ################')
+print('##############differenzieller WQ################')
 I0=2359/150
 sigmaI0=np.sqrt(2359)/150
 
@@ -153,7 +153,7 @@ print('Atomdichte:',  dichte*1e6,'pro m^-3')
 dichte*=1e6 #Teilchenanzahl pro m^3
 
 
-differentiellerWQ = I/(I0*dichte*dicke*omega)
+differenziellerWQ = I/(I0*dichte*dicke*omega)
 sigmaWQ=np.sqrt((sigmaI/(I0*dichte*dicke*omega))**2 + ((I*sigmaI0/(I0**2*dichte*dicke*omega)))**2)
 #Die Fehler hier eskalieren irgendwie ein bisschen, aber das I_0 ist ja auch fehlerbehaftet...
 
@@ -166,7 +166,7 @@ m[:,2] = t
 m[:,3] = I
 m[:,4] = sigmaI
 m[:,5] = theta
-m[:,6] = differentiellerWQ *1e21
+m[:,6] = differenziellerWQ *1e21
 m[:,7] = sigmaWQ*1e21
 t=matrix2latex(m, headerRow=hr, format='%.2f')
 print(t)
@@ -181,7 +181,7 @@ def rutherfordverschoben(theta):
 
 linspace=np.linspace(-7,-0.01,1000)
 linspace2=np.linspace(0.01, 11, 1000)
-plt.errorbar(theta, differentiellerWQ, yerr=sigmaWQ, fmt = 'x', elinewidth=0.5, markeredgewidth=0.5, label='Experimenteller Wirkungsquerschnitt')
+plt.errorbar(theta, differenziellerWQ, yerr=sigmaWQ, fmt = 'x', elinewidth=0.5, markeredgewidth=0.5, label='Experimenteller Wirkungsquerschnitt')
 plt.plot(linspace, rutherford(linspace), label='Theoretischer Wirkungsquerschnitt', color='red', linewidth=0.5)
 plt.plot(linspace, rutherfordverschoben(linspace), label='Theoretischer Wirkungsquerschnitt (verschoben)', color='green', linewidth=0.5)
 plt.plot(linspace2, rutherford(linspace2), color='red',linewidth=0.5)
@@ -211,9 +211,9 @@ sigmaI=sigmaCounts/t
 print('Nominalwerte für Mehrfachstreuung:', I)
 print('Unsicherheiten für Mehrfachstreuung:', sigmaI)
 
-differentiellerWQ = I/(I0*dichte*dicke*omega)
+differenziellerWQ = I/(I0*dichte*dicke*omega)
 sigmaWQ=np.sqrt((sigmaI/(I0*dichte*dicke*omega))**2 + ((I*sigmaI0/(I0**2*dichte*dicke*omega)))**2)
-print('WQ:', differentiellerWQ)
+print('WQ:', differenziellerWQ)
 print('sigmaWQ:', sigmaWQ)
 
 

@@ -1,20 +1,24 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Im Folgenden werden alle Berechnungen in Python 3.7.1, unterstützt durch das
+Paket NumPy \cite{numpy}, durchgeführt. Für Ausgleichsrechnungen wird SciPy
+\cite{scipy} verwendet. Die Abbildungen werden mit matplotlib \cite{matplotlib} erstellt.
+
 \subsection{Bestimmung der Pulshöhe und Anstiegszeit}
 \label{subsec:puls}
 
 In Abbildung \ref{fig:puls} ist beispielhaft ein auf dem Oszilloskop beobachteter Puls
-dargestellt. Aus der Abbildung können wie Werte
+dargestellt. Aus der Abbildung können die Werte
 \begin{align*}
   U_\text{max}&= \SI{11.8}{\volt}\,,\\
-  T_\text{Anstieg}&= \SI{1}{µ\sec}
+  T_\text{Anstieg}&= \SI{1}{\micro\second}
 \end{align*}
-abgelesen werden.
+mithilfe des Cursors und der Zeiteinteilung abgelesen werden.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{images/peak.JPG}
+  \includegraphics[width=0.75\textwidth]{images/peak.JPG}
   \caption{Darstellung eines Pulses auf dem Oszilloskop.}
   \label{fig:puls}
 \end{figure}
@@ -27,7 +31,7 @@ mit und ohne Folie befinden sich in Tabelle \ref{tab:dicke}.
 
 \begin{table}[htp]
 	\begin{center}
-    \caption{Messwerte zur Bestimmung der Foliendicke.}
+    \caption{Messwerte zur Bestimmung der Foliendicke. Die Messwerte mit Folie sind indiziert, während die Messwerte ohne eingebaute Folie keinen Index haben.}
     \label{tab:dicke}
 		\begin{tabular}{cccc}
 		\toprule
@@ -87,17 +91,39 @@ Um nun von Spannungen auf Energien zu schließen, verwendet man den Quotient aus
 \end{equation*}
 gilt. Mit dieser Information lässt sich die Energiedifferenz durch den Zusammenhang
 \begin{equation*}
-  \Delta E = E_\alpha \left( 1 - \frac{b_{\text{Folie}}}{b} \right)b_{\text{Folie}}
+  \Delta E = E_\alpha \left( 1 - \frac{b_{\text{Folie}}}{b} \right)
 \end{equation*}
 berechnen. Für die vorliegenden Werte ergibt sich $\Delta E = \SI{1.88(18)}{\mega\electronvolt}$.
-
-Die Foliendicke $\Delta s$ wird berechnet, indem die Bethe-Bloch-Formel \eqref{eqn:bethe} als diskreter Energieverlust $\Delta E/(\Delta s \cdot \rho)$ genähert wird.
-Dann ergibt sich die Foliendicke durch Umstellen der Formel zu
+Die Unsicherheit der Energiedifferenz kann mit
 \begin{equation*}
-  \Delta x =
+  \sigma_{\Delta E} = \frac{E_\alpha}{b^2} \sqrt{\left( b \sigma_{b_\text{Folie}} \right)^2 + \left( b_\text{Folie} \sigma_b \right)^2}
+\end{equation*}
+berechnet werden \footnote{Ist $f$ eine Funktion, die von unsicheren Variablen $x_i$ mit
+Standardabweichungen $\sigma_i$ abhängt, so ist die Unsicherheit von f
+\begin{equation}
+  \sigma_f = \sqrt{
+    \sum\limits_{i = 1}^N
+      \left( \frac{\partial f}{\partial x_i} \sigma_i \right)^{\!\! 2}
+  }\,.
+  \label{eqn:gaussfehler}
+\end{equation}
+Diese Formel wird auch "Gauß'sches Fehlerfortpflanzungsgesetz" gennant und hier verwendet.}.
+
+Die Foliendicke $\Delta s$ wird berechnet, indem die Bethe-Bloch-Formel \eqref{eqn:bethe} als diskreter Energieverlust $\Delta E/\Delta x$ genähert wird.
+Dann ergibt sich die Foliendicke durch Umstellen der Formel zu
+\begin{equation}
+  \Delta x = \Delta E
+  \frac{m_{\mathrm{e}} v^2(4 \pi \epsilon_{\mathrm{0}})^2}
+  {4\pi e^4 z^2 n_\text{Au} \ln{\frac{2 m_{\mathrm{e}} v^2}{I}}}
+  \label{eqn:foliendicke}
+\end{equation}
+Da in dieser Formel nur die Energiedifferenz fehlerbehaftet ist, ist die Unsicherheit der Foliendicke durch
+\begin{equation*}
+  \sigma_{\Delta x} = \sigma_{\Delta E}
   \frac{m_{\mathrm{e}} v^2(4 \pi \epsilon_{\mathrm{0}})^2}
   {4\pi e^4 z^2 n_\text{Au} \ln{\frac{2 m_{\mathrm{e}} v^2}{I}}}
 \end{equation*}
+gegeben.
 
 Die Teilchendichte von Gold lässt sich durch
 \begin{equation*}
@@ -111,7 +137,7 @@ ergibt sich der Wert
 \end{equation*}
 Die Elektronendichte beträgt dann
 \begin{equation}
-  N_\text{Au} \cdot Z = N_\text{Au} \cdot 79 \approx \SI{4.66e30}{\per\cubic\metre}\,,
+  n_\text{Au} = N_\text{Au} \cdot Z = N_\text{Au} \cdot 79 \approx \SI{4.66e30}{\per\cubic\metre}\,,
 \end{equation}
 da jedes Goldatom im Mittel 79 Elektronen enthält, an denen die Alphateilchen streuen können.
 
@@ -120,8 +146,7 @@ Insgesamt beträgt die experimentell bestimmte Foliendicke dann
   \Delta x = \SI{4.4(4)}{\micro\metre}
 \end{equation*}
 mit einer relativen Unsicherheit von $9{,}09\%$.
-
-(WIR WISSEN: DICKE=2µm -> ABWEICHUNG)
+Die Herstellerangabe der Foliendicke ist $\SI{2}{\micro\meter}$. Die relative Abweichung zu dieser beträgt $120\%$.
 
 \subsection{Bestimmung des Raumwinkels}
 \label{subsec:raumwinkel}
@@ -210,17 +235,17 @@ Der Fehler berechnet sich durch
 Der experimentell bestimmte Wert weicht damit vom theoretisch bestimmten um
 $-73{,}56\%$ ab.
 
-\subsection{Bestimmung des differentiellen Wirkungsquerschnitts}
+\subsection{Bestimmung des differenziellen Wirkungsquerschnitts}
 \label{subsec:wq}
 In Tabelle \ref{tab:wq} sind die Messwerte für die Zählrate in Abhängigkeit vom
 Winkel aufgeführt. Die Zählzeiten wurden dabei manuell mithilfe einer Stoppuhr bestimmt.
 Die Fehler sind gegeben durch $sqrt(N)$, da es sich hier um ein Zählexperiment handelt.
-Außerdem befinden sich dort die berechneten differentiellen
+Außerdem befinden sich dort die berechneten differenziellen
 Wirkungsquerschnitte. Das Vorgehen zur Berechnung der Wirkungsquerschnitte wird im
 Folgenden erläutert.
 \begin{table}[htp]
 	\begin{center}
-    \caption{Messwerte zur Bestimmung des differentiellen Wirkungsquerschnitts, sowie
+    \caption{Messwerte zur Bestimmung des differenziellen Wirkungsquerschnitts, sowie
     die daraus berechneten Aktivitäten und Wirkungsquerschnitte.}
     \label{tab:wq}
 		\begin{tabular}{ccccc}
@@ -280,7 +305,7 @@ Die Fehler werden hier nach der Gauß'schen Fehlerfortpflanzung bestimmt:
   + \left(\frac{N \cdot \sigma_{I_0}}{t \cdot I_0^2 \cdot N_{\symup{Au}} \cdot \Delta x \cdot \Delta \Omega}\right)^2}
 \end{equation*}
 
-Die berechneten differentiellen Wirkungsquerschnitte sind in Abbildung \ref{fig:wq} gegen den Streuwinkel $\theta$ aufgetragen. Außerdem ist
+Die berechneten differenziellen Wirkungsquerschnitte sind in Abbildung \ref{fig:wq} gegen den Streuwinkel $\theta$ aufgetragen. Außerdem ist
 eine zentrierte und eine um $2{,}5$\,° verschobene Theoriekurve zu sehen.
 Diese werden gemäß Gleichung \eqref{eqn:rutherford} mit den
 Werten $z=2$, $Z=79$ und $E=5{,}5$\,MeV \cite{energie} berechnet.
@@ -288,7 +313,7 @@ Werten $z=2$, $Z=79$ und $E=5{,}5$\,MeV \cite{energie} berechnet.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{build/wq.pdf}
-  \caption{Berechnete Werte für den differentiellen Wirkungsquerschnitt und Theoriekurve.}
+  \caption{Berechnete Werte für den differenziellen Wirkungsquerschnitt und Theoriekurve.}
   \label{fig:wq}
 \end{figure}
 
@@ -318,8 +343,8 @@ können die theoretischen Werte hier nicht berechnet werden.
 \subsection{Untersuchung der $Z$-Abhängigkeit}
 \label{subsec:z}
 
-Zur Untersuchung der Mehrfachstreuung wurden Folien aus Gold, Platin und
-Bismut untersucht. In Tabelle \ref{tab:elemente} sind die Dicken $\Delta x$ der Folien,
+Zur Untersuchung der Abhängigkeit des differenziellen Wirkungsquerschnittes von der Ordnungszahl $Z$ des Streumaterials werden Folien aus Gold, Platin und
+Bismut betrachtet. In Tabelle \ref{tab:elemente} sind die Dicken $\Delta x$ der Folien,
 die Ordnungszahlen $Z$ \cite{molmasse}, die Dichten $\rho$ \cite{rho}, die molaren Massen $M$
 \cite{molmasse} und die daraus berechneten
 Parameter $\frac{I}{N \Delta x}$ aufgeführt. $N$ bezeichnet hier die in Kapitel \ref{subsec:dicke}
@@ -360,11 +385,11 @@ beobachtet werden.
 \end{figure}
 
 Theoretisch lässt sich der Parameter $\frac{I}{N \Delta x}$ aus dem
-differentiellen Wirkungsquerschnitt bestimmen. Aus Gleichung \eqref{eqn:wq} folgt:
+differenziellen Wirkungsquerschnitt bestimmen. Aus Gleichung \eqref{eqn:wq} folgt:
 \begin{equation}
   \frac{I}{N \Delta x}= \frac{d \sigma}{d \Omega}I_0 \Delta \Omega \,.
 \end{equation}
-Da der differentielle Wirkungsquerschnitt quadratisch in Z ist, ist theoretisch auch ein
+Da der differenzielle Wirkungsquerschnitt quadratisch in Z ist, ist theoretisch auch ein
 quadratischer Zusammenhang zwischen $\frac{I}{N \Delta x}$ und $Z$ zu erwarten.
 Es ergeben sich die Theoriewerte
 \begin{align*}
