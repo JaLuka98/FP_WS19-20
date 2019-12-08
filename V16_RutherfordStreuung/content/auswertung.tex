@@ -8,7 +8,7 @@ In Abbildung \ref{fig:puls} ist beispielhaft ein auf dem Oszilloskop beobachtete
 dargestellt. Aus der Abbildung können wie Werte
 \begin{align*}
   U_\text{max}&= \SI{11.8}{\volt}\,,\\
-  T_\text{Anstieg}&= SI{}{\sec} \text{2/5 von dem was ein Kästchen ist.}
+  T_\text{Anstieg}&= \SI{1}{µ\sec}
 \end{align*}
 abgelesen werden.
 
@@ -101,7 +101,7 @@ Dann ergibt sich die Foliendicke durch Umstellen der Formel zu
 
 Die Teilchendichte von Gold lässt sich durch
 \begin{equation*}
-  N_{\symup{Au}} = N_{\symup{Au}} \frac{\rho_{\symup{Au}}}{M_{\symup{Au}}}
+  N_{\symup{Au}} = N_{\symup{A}} \frac{\rho_{\symup{Au}}}{M_{\symup{Au}}}
 \end{equation*}
 berechnen. Mit den Werten $\rho_{\symup{Au}}=\SI{19.32}{\gram\per\cubic\centi\metre}$ \cite{rho}
 und ${M_{\symup{Au}}}=\SI{196.97}{\gram\per\mol}$ \cite{molmasse}
@@ -121,20 +121,14 @@ Insgesamt beträgt die experimentell bestimmte Foliendicke dann
 \end{equation*}
 mit einer relativen Unsicherheit von $9{,}09\%$.
 
+(WIR WISSEN: DICKE=2µm -> ABWEICHUNG)
+
 \subsection{Bestimmung des Raumwinkels}
 \label{subsec:raumwinkel}
 
 Der Raumwinkel $\Delta \Omega$ ist der Raumwinkel um die Folie herum, der die
 effektive Detektorfläche beschreibt. Die effektive Detektorfläche folgt aus geometrischen
 Überlegungen. Diese sind in Abbildung \ref{fig:skizze} veranschaulicht.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{images/skizze.pdf}
-  \caption{Skizze zur Berechnung der Größen $b$ und $h$ aus der Geometrie des Versuchsaufbaus.}
-  \label{fig:skizze}
-\end{figure}
-
 Aus trigonometrischen Verhältnissen kann hergeleitet werden, dass gilt:
 \begin{align*}
   b &= \frac{b_{\symup{b}} d}{c} \,,\\
@@ -143,7 +137,15 @@ Aus trigonometrischen Verhältnissen kann hergeleitet werden, dass gilt:
 Dabei bezeichnet $b_{\symup{b}}$ die Breite und $h_{\symup{b}}$ die Höhe der Blende.
 Die Breite der effektiven Detektorfläche wird mit $b$ bezeichnet und die entsprechende Höhe mit $h$.
 Der Abstand von der Folie zur Blende ist durch $c$ gegeben und $d$ beschreibt den Abstand
-der Folie und der Detektoroberfläche. Aus den bekannten Werten \cite{Versuchsanleitung}
+der Folie und der Detektoroberfläche.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{images/skizze.pdf}
+  \caption{Skizze zur Berechnung der Größen $b$ und $h$ aus der Geometrie des Versuchsaufbaus.}
+  \label{fig:skizze}
+\end{figure}
+
+Aus den bekannten Werten \cite{Versuchsanleitung}
 \begin{align*}
   b_{\symup{b}} &= \SI{2}{\milli\meter} \,, \\
   h_{\symup{b}} &= \SI{10}{\milli\meter} \,, \\
@@ -174,17 +176,16 @@ zu
   \Delta \Omega_\text{Quelle} = \SI{0.0021}{sr} \,.
 \end{equation*}
 
-(WELCHEN RAUMWINKEL MÜSSEN WIR JETZT NEHMEN? DER DER QUELLE ERSCHEINT MIR SINNVOLLER...)
-
+\newpage
 \subsection{Bestimmung der Aktivität der Probe}
 \label{subsec:aktivitaet}
 
 Die theoretisch heute zu erwartende Aktivität lässt sich mit Kenntnis der Halbwertszeit
 und der Aktivität zu einem früheren Zeitpunkt berechnen. Im Oktober 1994 betrug die
 Aktivität der Probe $\SI{330}{\kilo\becquerel}$ \cite{Versuchsanleitung}. Die Halbwertszeit
-von 241-Americium beträgt $T_{1/2}=432$ Jahre. Daraus lässt sich mithilfe von
+von 241-Americium beträgt $T_{1/2}=432$ Jahre \cite{t12}. Daraus lässt sich mithilfe von
 \begin{align*}
-  A_{\text{heute,theo}}&= A_{1994}\exp(-\lambda t) \, \\
+  A_{\text{heute,theo}}&= A_{1994}\exp(-\lambda t) \,, \\
   \lambda&= \frac{\ln(2)}{T_{1/2}}
 \end{align*}
 die heutige Aktivität bestimmen. Die Zeit beträgt dabei $t=25+1/6$ Jahre. Somit beträgt die
@@ -199,16 +200,21 @@ Das Verhältnis der heutigen Aktivität und die gemessene Zählrate müssen näm
 dem gleichen Verhältnis zueinander stehen, wie der Raumwinkel $\Delta \Omega_{\text{Quelle}}$ und
 der gesamte Raumwinkel. Somit ist die heutige Aktivität gegeben durch
 \begin{equation*}
-  A_{\text{heute,exp}}=\frac{4 \pi  I}{\Delta \Omega_{\text{Quelle}}}=\SI{}{\kilo\becquerel} \,.
+  A_{\text{heute,exp}}=\frac{4 \pi  I_0}{\Delta \Omega_{\text{Quelle}}}=\SI{83.80(173)}{\kilo\becquerel} \,.
 \end{equation*}
-
+Dabei wurde für die Zählrate ohne Folie $I_0=\SI{15.73(032)}{1 \per\second}$ verwendet.
+Der Fehler berechnet sich durch
+\begin{equation*}
+  \sigma_A=\frac{4 \pi  \sigma_{I_0}}{\Delta \Omega_{\text{Quelle}}} \,.
+\end{equation*}
+Der experimentell bestimmte Wert weicht damit vom theoretisch bestimmten um
+$-73{,}56\%$ ab.
 
 \subsection{Bestimmung des differentiellen Wirkungsquerschnitts}
 \label{subsec:wq}
-
-
 In Tabelle \ref{tab:wq} sind die Messwerte für die Zählrate in Abhängigkeit vom
 Winkel aufgeführt. Die Zählzeiten wurden dabei manuell mithilfe einer Stoppuhr bestimmt.
+Die Fehler sind gegeben durch $sqrt(N)$, da es sich hier um ein Zählexperiment handelt.
 Außerdem befinden sich dort die berechneten differentiellen
 Wirkungsquerschnitte. Das Vorgehen zur Berechnung der Wirkungsquerschnitte wird im
 Folgenden erläutert.
@@ -268,9 +274,15 @@ Dabei ist $I$ die Zählrate mit Folie, $I_0$ die Zählrate ohne Folie, $ N_{\sym
 die Teilchendichte von Gold, $\Delta x$ die Foliendicke und $\Delta \Omega$ der Raumwinkel.
 Mit der Zählrate $I_0=\SI{15.73(032)}{1 \per\second}$ ohne Folie, der Schichtdicke $\Delta x =2$\,µm und dem Raumwinkel
 aus Kapitel \ref{subsec:raumwinkel} ergeben sich damit die in Tabelle \ref{tab:wq} dargestellten Werte.
+Die Fehler werden hier nach der Gauß'schen Fehlerfortpflanzung bestimmt:
+\begin{equation*}
+  \sigma_{\frac{\symup{d}\sigma}{\symup{d}\Omega}} = \sqrt{\left(\frac{\sigma_N}{t \cdot I_0 \cdot N_{\symup{Au}} \cdot \Delta x \cdot \Delta \Omega}\right)^2
+  + \left(\frac{N \cdot \sigma_{I_0}}{t \cdot I_0^2 \cdot N_{\symup{Au}} \cdot \Delta x \cdot \Delta \Omega}\right)^2}
+\end{equation*}
 
-Diese sind in Abbildung \ref{fig:wq} gegen den Streuwinkel $\theta$ aufgetragen. Außerdem ist
-eine Theoriekurve zu sehen. Diese wird gemäß Gleichung \eqref{eqn:rutherford} mit den
+Die berechneten differentiellen Wirkungsquerschnitte sind in Abbildung \ref{fig:wq} gegen den Streuwinkel $\theta$ aufgetragen. Außerdem ist
+eine zentrierte und eine um $2{,}5$\,° verschobene Theoriekurve zu sehen.
+Diese werden gemäß Gleichung \eqref{eqn:rutherford} mit den
 Werten $z=2$, $Z=79$ und $E=5{,}5$\,MeV \cite{energie} berechnet.
 
 \begin{figure}
@@ -280,12 +292,7 @@ Werten $z=2$, $Z=79$ und $E=5{,}5$\,MeV \cite{energie} berechnet.
   \label{fig:wq}
 \end{figure}
 
-Die Fehler werden hier nach der Gauß'schen Fehlerfortpflanzung bestimmt:
-\begin{equation*}
-  \sigma_{\frac{\symup{d}\sigma}{\symup{d}\Omega}} = \sqrt{\left(\frac{\sigma_N}{t \cdot I_0 \cdot N_{\symup{Au}} \cdot \Delta x \cdot \Delta \Omega}\right)^2
-  + \left(\frac{N \cdot \sigma_{I_0}}{t \cdot I_0^2 \cdot N_{\symup{Au}} \cdot \Delta x \cdot \Delta \Omega}\right)^2}
-\end{equation*}
-
+Es ist zu erkennen, dass sich die experimentell bestimmten Werte nicht gut mit den Theoriekurven decken.
 
 \subsection{Untersuchung von Mehrfachstreuung}
 \label{subsec:mehrfach}
@@ -305,7 +312,7 @@ berechnen. Es ist erkennbar, dass der Wirkungsquerschnitt für die dünnere Foli
 größer ist.
 
 Da der Winkel bei dieser Messung zu $\theta=0°$ gewählt wurde und die
-Rutherford'sche Streuformel \eqref{eqn:rutherford} an dieser Stelle eine Polstellt beseitzt,
+Rutherford'sche Streuformel \eqref{eqn:rutherford} an dieser Stelle eine Polstelle besitzt,
 können die theoretischen Werte hier nicht berechnet werden.
 
 \subsection{Untersuchung der $Z$-Abhängigkeit}
@@ -315,8 +322,11 @@ Zur Untersuchung der Mehrfachstreuung wurden Folien aus Gold, Platin und
 Bismut untersucht. In Tabelle \ref{tab:elemente} sind die Dicken $\Delta x$ der Folien,
 die Ordnungszahlen $Z$ \cite{molmasse}, die Dichten $\rho$ \cite{rho}, die molaren Massen $M$
 \cite{molmasse} und die daraus berechneten
-Parameter $\frac{I}{N \Delta x}$ aufgeführt. $N$ bezeichnet hier die in Kapitel \ref{subsec:wq}
-bereits eingeführte Teilchendichte des jeweiligen Elements.
+Parameter $\frac{I}{N \Delta x}$ aufgeführt. $N$ bezeichnet hier die in Kapitel \ref{subsec:dicke}
+bereits eingeführte Teilchendichte des jeweiligen Elements. Der Fehler ergibt sich durch
+\begin{equation*}
+  \sigma_{\frac{I}{N \Delta x}}=\frac{\sigma_I}{N \Delta x} \,.
+\end{equation*}
 
 \begin{table}[htp]
 	\begin{center}
@@ -325,12 +335,12 @@ bereits eingeführte Teilchendichte des jeweiligen Elements.
 		\begin{tabular}{cccccccc}
 		\toprule
     {Element}&{$N$}  & {$I/\mathrm{s^{-1}}$} & {$\rho/\frac{\mathrm{g}}{\mathrm{cm}^3}$}
-    & {$M/\frac{\mathrm{g}}{\mathrm{Mol}}$} & {$x$/µm} & {$Z$} & {$\frac{I}{Nx}/\frac{\mathrm{m}^2}{\mathrm{s}}$}\\
+    & {$M/\frac{\mathrm{g}}{\mathrm{Mol}}$} & {$x$/µm} & {$Z$} & {$\frac{I}{Nx}/10^{-23}\frac{\mathrm{m}^2}{\mathrm{s}}$}\\
 			\midrule
-      Au  &  905 \pm 30 & 1,89 \pm 0,06 & 19,32 & 196,97 & 2 & 79 & 1,60\\
-      Au  &  836 \pm 29 & 1,74 \pm 0,06 &  19,32 & 196,97 & 4 & 79 & 0,74\\
-      Pt  &  901 \pm 30 & 1,88 \pm 0,06 &  21,45 & 195,09 & 2 & 78 & 1,42\\
-      Bi  &  985 \pm 31 & 2,05 \pm 0,07 &   9,80 & 208,98 & 1 & 83 & 7,27\\
+      Au  &  905 \pm 30 & 1,89 \pm 0,06 & 19,32 & 196,97 & 2 & 79 & 1,60  \pm 0,05\\
+      Au  &  836 \pm 29 & 1,74 \pm 0,06 &  19,32 & 196,97 & 4 & 79 & 0,74 \pm 0,03\\
+      Pt  &  901 \pm 30 & 1,88 \pm 0,06 &  21,45 & 195,09 & 2 & 78 & 1,42 \pm 0,05\\
+      Bi  &  985 \pm 31 & 2,05 \pm 0,07 &   9,80 & 208,98 & 1 & 83 & 7,27 \pm 0,20\\
 		\bottomrule
 		\end{tabular}
 	\end{center}
@@ -339,7 +349,8 @@ bereits eingeführte Teilchendichte des jeweiligen Elements.
 In Abbildung \ref{fig:z} ist der Parameter $\frac{I}{N \Delta x}$ gegen die Ordnungszahl
 aufgetragen. Es sind dabei zwei Werte bei $Z=79$ zu sehen, da zwei unterschiedlich dicke
 Goldfolien untersucht wurden. Es ist zu erkennen, dass der Parameter $\frac{I}{N \Delta x}$
-tendenziell mit der Ordnungszahl zunimmt.
+tendenziell mit der Ordnungszahl zunimmt. Für $Z=79$ kann wieder die Mehrfachstreuung
+beobachtet werden.
 
 \begin{figure}
   \centering
@@ -348,6 +359,21 @@ tendenziell mit der Ordnungszahl zunimmt.
   \label{fig:z}
 \end{figure}
 
-(IN DER ANLEITUNG STEHT MAN SOLL DAS JETZT NOCH IRGENDWIE THEORETISCH BERECHNEN...)
-Dafür einfach Rutherford durch einen Wert teilen für den gegebenen Winkel. Dann kann
-man das auch gegen Z auftragen.
+Theoretisch lässt sich der Parameter $\frac{I}{N \Delta x}$ aus dem
+differentiellen Wirkungsquerschnitt bestimmen. Aus Gleichung \eqref{eqn:wq} folgt:
+\begin{equation}
+  \frac{I}{N \Delta x}= \frac{d \sigma}{d \Omega}I_0 \Delta \Omega \,.
+\end{equation}
+Da der differentielle Wirkungsquerschnitt quadratisch in Z ist, ist theoretisch auch ein
+quadratischer Zusammenhang zwischen $\frac{I}{N \Delta x}$ und $Z$ zu erwarten.
+Es ergeben sich die Theoriewerte
+\begin{align*}
+  \left(\frac{I}{N \Delta x}\right)_{\text{Au}}&= \SI{5.29(11)e-25}{\metre\squared\per\second} \,, \\
+  \left(\frac{I}{N \Delta x}\right)_{\text{Pt}}&= \SI{5.15(11)e-25}{\metre\squared\per\second} \,, \\
+  \left(\frac{I}{N \Delta x}\right)_{\text{Bi}}&= \SI{5.83(12)e-25}{\metre\squared\per\second} \,.
+\end{align*}
+Der Fehler folgt aus der Gauß'schen Fehlerfortpflanzung zu
+\begin{equation*}
+  \sigma_{\frac{I}{N \Delta x}}=\frac{d \sigma}{d \Omega} \sigma_{I_0} \Delta \Omega \,.
+\end{equation*}
+Die Theoriewerte liegen allesamt um etwa zwei Größenordnungen unter den experimentell bestimmten.
