@@ -1,6 +1,43 @@
 \section{Theorie}
 \label{sec:Theorie}
 
+Die Tomographie nutzt als bildgebendes Verfahren die unterschiedliche Abschwächung von Strahlung in verschiedenen Materialien, die einen Körper zusammensetzen, aus, um Informationen über die Struktur Zusammensetzung des Körpers gewinnen.
+
+In diesem Versuch wird dazu Gammastrahlung verwendet. Gammastrahlung entsteht beim radioaktiven Alpha- oder Betazerfall, wenn der Tochterkern aus seinem angeregten Zustand unter Abstrahlung eines Photons relaxiert. Diese haben eine diskrete Energie mit einer geringen Breite.
+Als Beispiel kann das Nuklid $\che{137^Cs}$ betrachtet werden, dass durch Betazerfall zu $\che{137^Ba}$ zerfällt. In den meisten Fällen verbleibt der Bariumkern in einem angeregten Zustand und emittiert so das Gammaphoton mit einer Energie von $\SI{0.6617}{\mega\electronvolt}$.
+
+Prinzipiell sind drei verschiedene Mechanismen der Abschwächung von Gammastrahlung in Materie relevant: Bei niedrigen Energien und hohen Ordnungszahlen des Stoffes dominiert der Photoeffekt, bei dem ein Photon von einem Hüllenelektron des Absorbermaterials
+absorbiert wird, wodurch dieses seine Energie erhält. Ist die Energie des Quants dabei höher als die Bindungsenergie des Elektrons, so kann es aus dem Atom herausgelöst werden. Die Restliche Energie wird in kinetische Energie des Elektrons umgewandelt.
+
+Beim Compton-Effekt wird ein Photon inelastisch an einem Elektron gestreut und gibt dort einen Teil seiner Energie ab, sodass das Elektron einen Impulsübertrag erfährt.
+Verschiedene Photonen werden dabei in unterschiedliche Richtungen gestreut, was zu einer Intensitätsabnahme
+des Strahls führt.
+Der Energieübertrag in Abhängigkeit des Streuwinkels des Photons $\theta$ $\Delta E = E - E'$ kann mithilfe der Formel
+\begin{equation}
+	\frac{1}{E'} - \frac{1}{E} = \frac{1}{m_\text{e} c^2} (1-\cos\theta)
+\end{equation}
+bestimmt werden, wobei $m_\text{e}$ die Elektronenmasse und $c$ die Lichtgeschwindigkeit ist. Es ist ersichtlich, dass der Energieübertrag gegen 0 geht, wenn der Streuwinkel gegen 0 geht und maximal wird, wenn $\theta$ gegen $\SI{180}{\degree}$ geht. Somit gibt es eine Grenze an den Energieübertrag
+Der Compton-Effekt ist bei mittleren Energien der Photonen und kleinen Ordnungszahlen $Z$ des abschwächenden Materials dominant.
+
+Bei hohen Quantenenergien tritt insbesondere die Paarbildung auf. Dabei können aus
+einem Photon ein Elektron und ein Positron gebildet werden, wobei das
+Photon verschwindet. Die Energie des Photons muss dafür mindestens das doppelte
+der Ruheenergie eines Elektrons betragen. Dies ist der Grund dafür, dass der Effekt der Paarbildung in diesem Versuch nicht beachtet werden muss, da die Energie des Gammazerfalls von $\che{137^Cs}$ mit $\SI{0.6617}{\mega\electronvolt}$ unter $2m_\text{e} \approx \SI{1.022}{\mega\electronvolt}$ liegt.
+
+In Abbildung \ref{fig:gamma} ist beispielhaft der Absorptionskoeffizient von Germanium in
+Abhängigkeit von der Energie der Strahlung dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=9cm]{data/germanium.png}
+  \caption{Absorptionskoeffizient von Germanium in Abhängikeit von der Energie
+  der Strahlung \cite{Versuchsanleitung}.}
+  \label{fig:gamma}
+\end{figure}
+
+
+
+
 \begin{table}[htp]
 	\begin{center}
     \caption{Massenabschwächungskoeffizienten $\sigma$ in $\si{\centi\meter\squared\per\gram}$, Dichten in $\si{\gram\per\centi\meter\cubed}$ und Absorptionsskoeffizienten $\mu$ in $\si{\per\centi\meter}$.}
