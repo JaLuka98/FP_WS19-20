@@ -3,8 +3,10 @@
 
 Die Tomographie nutzt als bildgebendes Verfahren die unterschiedliche Abschwächung von Strahlung in verschiedenen Materialien, die einen Körper zusammensetzen, aus, um Informationen über die Struktur Zusammensetzung des Körpers gewinnen.
 
+\subsection{Entstehung und Mechanismen der Absorption von Gammastrahlung}
+
 In diesem Versuch wird dazu Gammastrahlung verwendet. Gammastrahlung entsteht beim radioaktiven Alpha- oder Betazerfall, wenn der Tochterkern aus seinem angeregten Zustand unter Abstrahlung eines Photons relaxiert. Diese haben eine diskrete Energie mit einer geringen Breite.
-Als Beispiel kann das Nuklid $\che{137^Cs}$ betrachtet werden, dass durch Betazerfall zu $\che{137^Ba}$ zerfällt. In den meisten Fällen verbleibt der Bariumkern in einem angeregten Zustand und emittiert so das Gammaphoton mit einer Energie von $\SI{0.6617}{\mega\electronvolt}$.
+Als Beispiel kann das Nuklid $\ce{^{137}Cs}$ betrachtet werden, dass durch Betazerfall zu $\ce{^{137}Ba}$ zerfällt. In den meisten Fällen verbleibt der Bariumkern in einem angeregten Zustand und emittiert so das Gammaphoton mit einer Energie von $\SI{0.6617}{\mega\electronvolt}$.
 
 Prinzipiell sind drei verschiedene Mechanismen der Abschwächung von Gammastrahlung in Materie relevant: Bei niedrigen Energien und hohen Ordnungszahlen des Stoffes dominiert der Photoeffekt, bei dem ein Photon von einem Hüllenelektron des Absorbermaterials
 absorbiert wird, wodurch dieses seine Energie erhält. Ist die Energie des Quants dabei höher als die Bindungsenergie des Elektrons, so kann es aus dem Atom herausgelöst werden. Die Restliche Energie wird in kinetische Energie des Elektrons umgewandelt.
@@ -12,7 +14,7 @@ absorbiert wird, wodurch dieses seine Energie erhält. Ist die Energie des Quant
 Beim Compton-Effekt wird ein Photon inelastisch an einem Elektron gestreut und gibt dort einen Teil seiner Energie ab, sodass das Elektron einen Impulsübertrag erfährt.
 Verschiedene Photonen werden dabei in unterschiedliche Richtungen gestreut, was zu einer Intensitätsabnahme
 des Strahls führt.
-Der Energieübertrag in Abhängigkeit des Streuwinkels des Photons $\theta$ $\Delta E = E - E'$ kann mithilfe der Formel
+Der Energieübertrag $\Delta E = E - E'$ in Abhängigkeit des Streuwinkels des Photons $\theta$ kann mithilfe der Formel
 \begin{equation}
 	\frac{1}{E'} - \frac{1}{E} = \frac{1}{m_\text{e} c^2} (1-\cos\theta)
 \end{equation}
@@ -22,19 +24,43 @@ Der Compton-Effekt ist bei mittleren Energien der Photonen und kleinen Ordnungsz
 Bei hohen Quantenenergien tritt insbesondere die Paarbildung auf. Dabei können aus
 einem Photon ein Elektron und ein Positron gebildet werden, wobei das
 Photon verschwindet. Die Energie des Photons muss dafür mindestens das doppelte
-der Ruheenergie eines Elektrons betragen. Dies ist der Grund dafür, dass der Effekt der Paarbildung in diesem Versuch nicht beachtet werden muss, da die Energie des Gammazerfalls von $\che{137^Cs}$ mit $\SI{0.6617}{\mega\electronvolt}$ unter $2m_\text{e} \approx \SI{1.022}{\mega\electronvolt}$ liegt.
+der Ruheenergie eines Elektrons betragen. Dies ist der Grund dafür, dass der Effekt der Paarbildung in diesem Versuch nicht beachtet werden muss, da die Energie des Gammazerfalls von $\ce{^{137}Cs}$ mit $\SI{0.6617}{\mega\electronvolt}$ unter $2m_\text{e} \approx \SI{1.022}{\mega\electronvolt}$ liegt.
 
-In Abbildung \ref{fig:gamma} ist beispielhaft der Absorptionskoeffizient von Germanium in
-Abhängigkeit von der Energie der Strahlung dargestellt.
+%In Abbildung \ref{fig:gamma} ist beispielhaft der Absorptionskoeffizient von Germanium in
+%Abhängigkeit von der Energie der Strahlung dargestellt.
+%
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=9cm]{data/germanium.png}
+%  \caption{Absorptionskoeffizient von Germanium in Abhängikeit von der Energie
+%  der Strahlung \cite{Versuchsanleitung}.}
+%  \label{fig:gamma}
+%\end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=9cm]{data/germanium.png}
-  \caption{Absorptionskoeffizient von Germanium in Abhängikeit von der Energie
-  der Strahlung \cite{Versuchsanleitung}.}
-  \label{fig:gamma}
-\end{figure}
+\subsection{Verfahren zur experimentellen Bestimmung der Abschwächungskoeffizienten}
 
+Für die Absorption von Gammastrahlung in Materie gilt das Lambert-Beersche-Gesetz:
+\begin{equation}
+	N = I_0 \exp(-\sum_i \mu_i d_i)\,.
+	\label{eqn:lambertBeer}
+\end{equation}
+Dabei wird die Zählrate $N$ nach Durchlauf verschiedener Materialien mit Dicken $d_i$ und Abschwächungskoeffizienten $mu_i$ in Verbindung gesetzt, wobei $I_0$ die Zählrate ohne Absorber im Strahlengang bzw. vor dem Absorber ist.
+Diese Gleichung lässt sich logarithmieren, um die Matrixgleichung
+\begin{equation}
+	\symbf{A} \cdot \vec{\mu} = \vec{I}
+\end{equation}
+zu erhalten, wobei die Matrix $\symbf{A}$ die Würfelgeometrie parametrisiert, $\vec{\mu} = (\mu_1, \dots, \mu_n)$ ist ein Spaltenvektor, der die Abschwächungskoeffizienten der durchlaufenden Schichten enthält und $\vec{I}$ ist ein Spaltenvektor mit $I_i = \ln(I_0/N_i)$. Die einzelnen $I_i$ werden in diesem Zusammenhang auch Projektionen genannt und meinen verschiedene Strahlengänge durch das zu untersuchende Material. In diesem Versuch wird zum Beispiel eine Ebene eines Würfels untersucht, der aus 27 Elementarwürfeln besteht, sodass $\vec{\mu}$ neun Einträge hat.
+
+Die Matrix $\symbf{A}$ muss nicht notwendigerweische quadratisch sein. Es ist möglich, ein überbestimmtes Gleichungssystem zu erzeugen und dieses zu lösen, um die Messgenauigkeit zu erhöhen. Unter der Bedingung, dass $\symbf{A}^T \symbf{A}$ invertierbar ist, folgt für die aus den Messwerten für die Projektionen geschätzten Abschwächungskoeffizienten
+\begin{equation}
+	\hat{\vec{\mu}} = (\symbf{A}^T \symbf{A})^{-1} \symbf{A}^T \, \vec{I}\,,
+\end{equation}
+was einer kleinste-Quadrate-Ausgleichsrechnung entspricht.
+Die Kovarianzmatrix, die auf der Hauptdiagonalen die Varianzen der geschätzten Abschwächungskoeffizienten enthält, lässt sich durch
+\begin{equation}
+	V[\hat{\vec{\mu}}] = (\symbf{A}^T \symbf{A})^{-1} \symbf{A}^T \, V[\vec{I}] \, \symbf{A} (\symbf{A}^T \symbf{A})^{-1}
+\end{equation}
+aus der Kovarianzmatrix der Projektionen $V[\vec{I}]$ bestimmen.
 
 
 
