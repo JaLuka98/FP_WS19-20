@@ -91,7 +91,7 @@ Aus den gemessenen Zählraten kann der Absorptionskoeffizient über den Zusammen
 \end{equation}
 bestimmt werden. Dabei ist $l_i$ die Strecke, die die Gammastrahlung durch den Würfel zurücklegt, $I_{0,j}$ die Nullzählrate für die entsprechende Art der Projektion und $I_i$ die Zählrate für die Projektion durch den Würfel. Der zugehörige Fehler kann mithilfe der Gauß'schen Fehlerfortpflanzung zu
 \begin{equation}
-  einguegen
+  \Delta \mu_i=\sqrt{\left(  -\frac{\Delta I_i}{l_i I_i}\right)^2 \left( \frac{\Delta N_{0,j}}{l_j N_{0,j}}\right)^2}
 \end{equation}
 bestimmt werden. Die Ergebnisse sind in Tabelle \ref{tab:ergebnisse} dargestellt.
 
@@ -114,7 +114,7 @@ bestimmt werden. Die Ergebnisse sind in Tabelle \ref{tab:ergebnisse} dargestellt
 
 Die Einzelergebnisse werden noch mit
 \begin{align}
-  \bar{\mu}&= \frac{1}{4} \sum_{i=1}^4 \mu_i \, 
+  \bar{\mu}&= \frac{1}{4} \sum_{i=1}^4 \mu_i \,
   %\Delta\bar{\mu}&=\sqrt{\frac{1}{12} \sum_{i=1}^4 (\bar{\mu}-\mu_i)^2}
 \end{align}
 gemittelt. Damit folgt für die gemittelten Absorptionskoeffizienten
@@ -123,9 +123,10 @@ gemittelt. Damit folgt für die gemittelten Absorptionskoeffizienten
   \bar{\mu_3}&=\SI{0.133(9)}{1\per \centi\metre} \,.
 \end{align*}
 Damit können den Würfeln die Materialien Messing für Würfel 2 und
-CH2O für Würfel 3 zugeordnet werden. Die Abweichungen von den Literaturwerten
+CH2O für Würfel 3 zugeordnet werden. Die Abweichungen von den Literaturwerten (siehe Tabelle \ref{tab:dicke})
 betragen $1{,}57\%$ und $14{,}75\%$.
 
+\newpage
 \subsection{Bestimmung der Materialien in einem zusammengesetzten Würfel}
 
 Für den aus verschiedenen Materialien zusammengesetzten Würfel werden die Zählraten für die in Abbildung \ref{fig:wuerfel4} dargestellten Projektionen
@@ -235,11 +236,16 @@ Nach Gleichung \eqref{eqn:mumatrix} kann dann der Vektor $\vec{\mu}$ zu
       \end{array}
       \right)
 \end{equation*}
-berechnet werden.
+berechnet werden. Die Fehler folgen aus dem Zusammenhang
 
 (FEHLER NOCH BERECHNEN!!!)
 
-So können die Materialien kleinen Würfeln, aus denen die Ebene des Würfels zusammengesetzt ist, bestimmt werden. Die Zuordnungen und die Abweichungen der Werte von den Literaturwerten ist in Tabelle \ref{tab:ergebnisse2} aufgeführt.
+\begin{equation}
+  \sigma_{\mu_i} = \left(\sqrt{\frac{\symbf{\tilde{A}}^2 \sigma_{N}^2}{N^2} + \frac{\symbf{\tilde{A}}^{2} \sigma_{I_{0}}^2}{I_{0}^2}}\right)_i \\
+  \text{mit}\:\: \symbf{\tilde{A}} = \left(\symbf{A^T} \cdot \symbf{A}\right)^{-1} \symbf{A^T}\,.
+\end{equation}
+
+So können die Materialien kleinen Würfeln, aus denen die Ebene des Würfels zusammengesetzt ist, bestimmt werden. Die Zuordnungen und die Abweichungen der Werte von den Literaturwerten (siehe Tabelle \ref{tab:dicke}) ist in Tabelle \ref{tab:ergebnisse2} aufgeführt.
 
 
 \begin{table}[htp]
@@ -263,3 +269,5 @@ So können die Materialien kleinen Würfeln, aus denen die Ebene des Würfels zu
 		\end{tabular}
 	\end{center}
 \end{table}
+
+(ZUORDNUNGEN MACHEN!!!)

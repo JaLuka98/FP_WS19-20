@@ -6,6 +6,7 @@ from scipy import optimize
 import matplotlib.pyplot as plt
 from uncertainties import ufloat
 from matrix2latex import matrix2latex
+from uncertainties import ufloat
 
 t=180
 t_0=300
@@ -132,12 +133,14 @@ m[:,3] = sigma4
 t=matrix2latex(m, headerRow=hr, format='%.2f')
 print(t)
 
+
 N0_i=np.array([N0[0], N0[0], N0[0], N0[0], N0[0], N0[0], N0[1],N0[2], N0[1], N0[1], N0[2], N0[1]])
 sigma0_i=np.array([sigma0[0],sigma0[0],sigma0[0],sigma0[0],sigma0[0],sigma0[0],sigma0[1],sigma0[2],sigma0[1],sigma0[1],sigma0[2],sigma0[1]])
 
+#N0_iges=np.array([N0ges[0], N0ges[0], N0ges[0], N0ges[0], N0ges[0], N0ges[0], N0ges[1],N0ges[2], N0ges[1], N0ges[1], N0ges[2], N0ges[1]])
 
 #print((N0_i/N4).T)
-mu= np.linalg.inv(A.T@A)@A.T@np.log((N0_i/N4)).T
+mu= np.linalg.inv(A.T@A)@A.T@np.log((N0_iges/N4ges)).T
 #####FEHLER VON MU NOCH UNBEDINGT AUSRECHNEN!!!
 
 print('mu=', mu)
