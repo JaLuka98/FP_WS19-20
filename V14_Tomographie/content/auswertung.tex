@@ -4,11 +4,9 @@
 Im Folgenden werden alle Berechnungen in Python 3.7.1, unterstützt durch das
 Paket NumPy \cite{numpy}, durchgeführt. Die Abbildungen werden mit matplotlib \cite{matplotlib} erstellt.
 
-(VIELLEICHT NOCH ERKLÄREN WAS GENAU JETZT HIER MIT DEM FEHLER IST UND WIESO DER NICHT EINFACH DIE WURZEL IST)
-
 \subsection{Untersuchung des Spektrums}
 
-Das Spektrum der Quelle ist in Abbildung \ref{fig:spektrum} dargestellt. Dort ist die Anzahl der gemessenen Ereignisse gegen die Nummer des channels, in dem sich die Eregnisse befinden, aufgetragen.
+Das Spektrum der Quelle ist in Abbildung \ref{fig:spektrum} dargestellt. Dort ist die Anzahl der gemessenen Ereignisse gegen die Nummer des Channels, in dem sich die Ereignisse befinden, aufgetragen.
 
 \begin{figure}
   \centering
@@ -23,7 +21,7 @@ Maximum die maximale Compton-Energie und anschließend den Photopeak.
 
 Die Rückstreulinie entsteht dadurch, dass der Strahler in alle Richtungen strahlt und auch an den Bleiwänden Compton-gestreute Photonen in den Detektor gelangen können. Das Compton-Kontinuum entsteht durch die Wechselwirkung der Gammaphotonen mit dem Szintillationsdetektor, wobei sie unter einem bestimmten Winkel gestreut werden und dabei Energie abgeben. Dieser Effekt findet nur bis zu einer bestimmten Energie statt, sodass eine maximale Compton-Energie zu erkennen ist.
 Der Photopeak repräsentiert schließlich die tatsächliche Energie der Gammaphotonen
-und beträgt
+und beträgt \cite{energie}
 \begin{equation*}
   E=\SI{661.7}{\kilo\eV} \,.
 \end{equation*}
@@ -33,7 +31,6 @@ Die Zählrate für die Nullmessung kann zu
 \end{equation*}
 bestimmt werden.
 
-(ZITAT)
 
 \subsection{Untersuchung eines leeren Aluminiumgehäuses}
 
@@ -224,29 +221,25 @@ Nach Gleichung \eqref{eqn:mumatrix} kann dann der Vektor $\vec{\mu}$ zu
       \right)=
   \left(
       \begin{array}{r}
-        \SI{0.014}{1\per\centi\metre} \\
-        \SI{0.099}{1\per\centi\metre} \\
-        \SI{0.156}{1\per\centi\metre} \\
-        \SI{0.135}{1\per\centi\metre} \\
-        \SI{0.143}{1\per\centi\metre} \\
-        \SI{0.068}{1\per\centi\metre} \\
-        \SI{0.166}{1\per\centi\metre} \\
-        \SI{0.027}{1\per\centi\metre} \\
-        \SI{0.079}{1\per\centi\metre} \\
+        \SI{0.043(9)}{1\per\centi\metre} \\
+        \SI{0.298(6)}{1\per\centi\metre} \\
+        \SI{0.468(9)}{1\per\centi\metre} \\
+        \SI{0.406(6)}{1\per\centi\metre} \\
+        \SI{0.430(7)}{1\per\centi\metre} \\
+        \SI{0.205(6)}{1\per\centi\metre} \\
+        \SI{0.497(9)}{1\per\centi\metre} \\
+        \SI{0.080(6)}{1\per\centi\metre} \\
+        \SI{0.238(9)}{1\per\centi\metre} \\
       \end{array}
       \right)
 \end{equation*}
 berechnet werden. Die Fehler folgen aus dem Zusammenhang
-
-(FEHLER NOCH BERECHNEN!!!)
-
 \begin{equation}
   \sigma_{\mu_i} = \left(\sqrt{\frac{\symbf{\tilde{A}}^2 \sigma_{N}^2}{N^2} + \frac{\symbf{\tilde{A}}^{2} \sigma_{I_{0}}^2}{I_{0}^2}}\right)_i \\
   \text{mit}\:\: \symbf{\tilde{A}} = \left(\symbf{A^T} \cdot \symbf{A}\right)^{-1} \symbf{A^T}\,.
 \end{equation}
 
-So können die Materialien kleinen Würfeln, aus denen die Ebene des Würfels zusammengesetzt ist, bestimmt werden. Die Zuordnungen und die Abweichungen der Werte von den Literaturwerten (siehe Tabelle \ref{tab:dicke}) ist in Tabelle \ref{tab:ergebnisse2} aufgeführt.
-
+So können die Materialien der kleinen Würfel, aus denen die Ebene des Würfels zusammengesetzt ist, bestimmt werden. Die Zuordnungen und die Abweichungen der Werte von den Literaturwerten (siehe Tabelle \ref{tab:dicke}) ist in Tabelle \ref{tab:ergebnisse2} aufgeführt.
 
 \begin{table}[htp]
 	\begin{center}
@@ -254,20 +247,18 @@ So können die Materialien kleinen Würfeln, aus denen die Ebene des Würfels zu
     \label{tab:ergebnisse2}
 		\begin{tabular}{ccc}
 		\toprule
-			{Würfel} & {Material}  & {Abweichung} \\
+			{Würfel} & {Material}  & {Abweichung in \%} \\
 			\midrule
-			1 &  & \\
-			2 &  & \\
-			3 &  & \\
-			4 &  & \\
-			5 &  & \\
-			6 &  & \\
-			7 &  & \\
-			8 &  & \\
-			9 &  & \\
+			1 & CH2O &   -62,90 \\
+			2 & Al   &   48,95\\
+			3 & Fe   &   -17,72\\
+			4 & Fe   &   -28,62\\
+			5 & Fe   &   -24,40\\
+			6 & Al   &   2,46 \\
+			7 & Fe   &   -12,62\\
+			8 & CH2O &   -30,97 \\
+			9 & Al   &   18,96\\
 		\bottomrule
 		\end{tabular}
 	\end{center}
 \end{table}
-
-(ZUORDNUNGEN MACHEN!!!)
