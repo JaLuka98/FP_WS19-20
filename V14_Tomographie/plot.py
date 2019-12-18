@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from uncertainties import ufloat
 from matrix2latex import matrix2latex
 from uncertainties import ufloat
+from uncertainties import correlated_values
 
 t=180
 t_0=300
@@ -118,7 +119,7 @@ A1 = np.matrix([[1,1,1,0,0,0,0,0,0],[0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,1,1,1]])
 A2 = np.matrix([[1,0,0,1,0,0,1,0,0],[0,1,0,0,1,0,0,1,0],[0,0,1,0,0,1,0,0,1]])
 A3 = np.matrix([[0,s2,0,s2,0,0,0,0,0],[0,0,s2,0,s2,0,s2,0,0],[0,0,0,0,0,s2,0,s2,0]])
 A4 = np.matrix([[0,0,0,s2,0,0,0,s2,0],[s2,0,0,0,s2,0,0,0,s2],[0,s2,0,0,0,s2,0,0,0]])
-A = 3*np.vstack((A1,A2,A3,A4))
+A = np.vstack((A1,A2,A3,A4))
 
 N4, sigma4=np.genfromtxt('data/wuerfel4.txt', unpack=True)
 N4/=180
@@ -140,7 +141,14 @@ sigma0_i=np.array([sigma0[0],sigma0[0],sigma0[0],sigma0[0],sigma0[0],sigma0[0],s
 #N0_iges=np.array([N0ges[0], N0ges[0], N0ges[0], N0ges[0], N0ges[0], N0ges[0], N0ges[1],N0ges[2], N0ges[1], N0ges[1], N0ges[2], N0ges[1]])
 
 #print((N0_i/N4).T)
-mu= np.linalg.inv(A.T@A)@A.T@np.log((N0_iges/N4ges)).T
-#####FEHLER VON MU NOCH UNBEDINGT AUSRECHNEN!!!
+N0_i_with_errs = unp.uarray(N0_i, sigma0_i)
+N4_with_errs = unp.uarray(N4, sigma4)
 
-print('mu=', mu)
+mu= np.linalg.inv(A.T@A)@A.T@np.log((N0_i/N4)).T
+#####FEHLER VON MU NOCH UNBEDINGT AUSRECHNEN!!!
+V_I = unp.std_devs(unp.log((N0_i_with_errs/N4_with_errs)))
+V_I = np.diag(V_I**2) # Covariance matrix has variance on main diagonal
+V_mu = np.linalg.inv(A.T@A)@A.T@V_I@A@(np.linalg.inv(A.T@A))
+sigma_mu = np.sqrt(np.diag(V_mu)) # we want the std devs
+print('mu', mu)
+print('sigma_mu', sigma_mu)
