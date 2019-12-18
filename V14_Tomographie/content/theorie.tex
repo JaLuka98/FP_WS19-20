@@ -1,7 +1,7 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-Die Tomographie nutzt als bildgebendes Verfahren die unterschiedliche Abschwächung von Strahlung in verschiedenen Materialien, die einen Körper zusammensetzen, aus, um Informationen über die Struktur Zusammensetzung des Körpers gewinnen.
+Die Tomographie nutzt als bildgebendes Verfahren die unterschiedliche Abschwächung von Strahlung in verschiedenen Materialien, aus denen ein Körper zusammengesetzt ist, aus, um Informationen über die Struktur des Körpers zu gewinnen.
 
 \subsection{Entstehung und Mechanismen der Absorption von Gammastrahlung}
 \label{subsec:theorie1}
@@ -19,7 +19,7 @@ Der Energieübertrag $\Delta E = E - E'$ in Abhängigkeit des Streuwinkels des P
 \begin{equation}
 	\frac{1}{E'} - \frac{1}{E} = \frac{1}{m_\text{e} c^2} (1-\cos\theta)
 \end{equation}
-bestimmt werden, wobei $m_\text{e}$ die Elektronenmasse und $c$ die Lichtgeschwindigkeit ist. Es ist ersichtlich, dass der Energieübertrag gegen 0 geht, wenn der Streuwinkel gegen 0 geht und maximal wird, wenn $\theta$ gegen $\SI{180}{\degree}$ geht. Somit gibt es eine Grenze an den Energieübertrag
+bestimmt werden, wobei $m_\text{e}$ die Elektronenmasse und $c$ die Lichtgeschwindigkeit ist. Es ist ersichtlich, dass der Energieübertrag gegen 0 geht, wenn der Streuwinkel gegen 0 geht und maximal wird, wenn $\theta$ gegen $\SI{180}{\degree}$ geht. Somit gibt es eine Grenze an den Energieübertrag.
 Der Compton-Effekt ist bei mittleren Energien der Photonen und kleinen Ordnungszahlen $Z$ des abschwächenden Materials dominant.
 
 Bei hohen Quantenenergien tritt insbesondere die Paarbildung auf. Dabei können aus
@@ -42,15 +42,15 @@ der Ruheenergie eines Elektrons betragen. Dies ist der Grund dafür, dass der Ef
 
 Für die Absorption von Gammastrahlung in Materie gilt das Lambert-Beersche-Gesetz:
 \begin{equation}
-	N = I_0 \exp(-\sum_i \mu_i d_i)\,.
+	N = I_0 \exp\left(-\sum_i \mu_i d_i\right)\,.
 	\label{eqn:lambertBeer}
 \end{equation}
-Dabei wird die Zählrate $N$ nach Durchlauf verschiedener Materialien mit Dicken $d_i$ und Abschwächungskoeffizienten $mu_i$ in Verbindung gesetzt, wobei $I_0$ die Zählrate ohne Absorber im Strahlengang bzw. vor dem Absorber ist.
+Dabei wird die Zählrate $N$ nach Durchlauf verschiedener Materialien mit Dicken $d_i$ und Abschwächungskoeffizienten $\mu_i$ in Verbindung gesetzt, wobei $I_0$ die Zählrate ohne Absorber im Strahlengang bzw. vor dem Absorber ist.
 Diese Gleichung lässt sich logarithmieren, um die Matrixgleichung
 \begin{equation}
 	\symbf{A} \cdot \vec{\mu} = \vec{I}
 \end{equation}
-zu erhalten, wobei die Matrix $\symbf{A}$ die Würfelgeometrie parametrisiert, $\vec{\mu} = (\mu_1, \dots, \mu_n)$ ist ein Spaltenvektor, der die Abschwächungskoeffizienten der durchlaufenden Schichten enthält und $\vec{I}$ ist ein Spaltenvektor mit $I_i = \ln(I_0/N_i)$. Die einzelnen $I_i$ werden in diesem Zusammenhang auch Projektionen genannt und meinen verschiedene Strahlengänge durch das zu untersuchende Material. In diesem Versuch wird zum Beispiel eine Ebene eines Würfels untersucht, der aus 27 Elementarwürfeln besteht, sodass $\vec{\mu}$ neun Einträge hat.
+zu erhalten, wobei die Matrix $\symbf{A}$ die Würfelgeometrie parametrisiert. $\vec{\mu} = (\mu_1, \dots, \mu_n)$ ist ein Spaltenvektor, der die Abschwächungskoeffizienten der durchlaufenden Schichten enthält und $\vec{I}$ ist ein Spaltenvektor mit $I_i = \ln(I_0/N_i)$. Die einzelnen $I_i$ werden in diesem Zusammenhang auch Projektionen genannt und meinen verschiedene Strahlengänge durch das zu untersuchende Material. In diesem Versuch wird zum Beispiel eine Ebene eines Würfels untersucht, der aus 27 Elementarwürfeln besteht, sodass $\vec{\mu}$ neun Einträge hat.
 
 Die Matrix $\symbf{A}$ muss nicht notwendigerweise quadratisch sein. Es ist möglich, ein überbestimmtes Gleichungssystem zu erzeugen und dieses zu lösen, um die Messgenauigkeit zu erhöhen. Unter der Bedingung, dass $\symbf{A}^T \symbf{A}$ invertierbar ist, folgt für die aus den Messwerten für die Projektionen geschätzten Abschwächungskoeffizienten
 \begin{equation}
