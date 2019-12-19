@@ -58,17 +58,25 @@ l=np.array([3,3,3*np.sqrt(2), 2*np.sqrt(2)])
 N0_i=np.insert(N0, 0, N0[0])
 sigma0_i=np.insert(sigma0, 0, sigma0[0])
 
-mu2=1/l*np.log(N0_i/N2)
-sigmamu2=np.sqrt((sigma2/(l*N2))**2 + (sigma0_i/(l*N0_i)**2))
+N0_i_with_errs = unp.uarray(N0_i, sigma0_i)
+N2_with_errs = unp.uarray(N2, sigma2)
 
-mittelwert=1/4*sum(mu2)
-sigmamittelwert=np.sqrt(1/12*sum(mittelwert-mu2)**2)
-sigmamittelwert=1/4*sum(sigma2)
-
-#IRGENDWAS STIMMT HIER MIT DEM MITTELWERT NOCH NICHT!!!
-
-print('mu=', mu2, '+/-', sigmamu2)
-print('Mittelwert=', mittelwert, '+/-', sigmamittelwert)
+mu2_with_errs = 1/l*unp.log(N0_i_with_errs/N2_with_errs)
+#mu2=1/l*np.log(N0_i/N2)
+#sigmamu2=np.sqrt((sigma2/(l*N2))**2 + (sigma0_i/(l*N0_i)**2))
+#
+#mittelwert=1/4*sum(mu2)
+#sigmamittelwert=np.sqrt(1/12*sum(mittelwert-mu2)**2)
+#sigmamittelwert=1/4*sum(sigma2)
+#
+##IRGENDWAS STIMMT HIER MIT DEM MITTELWERT NOCH NICHT!!!
+#
+#print('mu=', mu2, '+/-', sigmamu2)
+#print('Mittelwert=', mittelwert, '+/-', sigmamittelwert)
+print('mu=', mu2_with_errs)
+print('Mittelwert', mu2_with_errs.mean())
+mu2 = unp.nominal_values(mu2_with_errs)
+sigmamu2 = unp.std_devs(mu2_with_errs)
 
 #####################
 ######Wuerfel 3######
@@ -78,15 +86,25 @@ N3, sigma3=np.genfromtxt('data/wuerfel3.txt', unpack=True)
 N3/=180
 sigma3/=180
 
-mu3=1/l*np.log(N0_i/N3)
-sigmamu3=np.sqrt((sigma2/(l*N2))**2 + (sigma0_i/(l*N0_i))**2)
+#mu3=1/l*np.log(N0_i/N3)
+#sigmamu3=np.sqrt((sigma2/(l*N2))**2 + (sigma0_i/(l*N0_i))**2)
 
-mittelwert=1/4*sum(mu3)
-sigmamittelwert=np.sqrt(1/12*sum(mittelwert-mu3)**2)
-sigmamittelwert=1/4*sum(sigma3)
+#mittelwert=1/4*sum(mu3)
+#sigmamittelwert=np.sqrt(1/12*sum(mittelwert-mu3)**2)
+#sigmamittelwert=1/4*sum(sigma3)
 
-print('mu=', mu3, '+/-', sigmamu3)
-print('Mittelwert=', mittelwert, '+/-', sigmamittelwert)
+N0_i_with_errs = unp.uarray(N0_i, sigma0_i)
+N3_with_errs = unp.uarray(N3, sigma3)
+
+mu3_with_errs = 1/l*unp.log(N0_i_with_errs/N3_with_errs)
+
+#print('mu=', mu3, '+/-', sigmamu3)
+#print('Mittelwert=', mittelwert, '+/-', sigmamittelwert)
+
+print('mu=', mu3_with_errs)
+print('Mittelwert', mu3_with_errs.mean())
+mu3 = unp.nominal_values(mu3_with_errs)
+sigmamu3 = unp.std_devs(mu3_with_errs)
 
 hr = ['$N_2$', '','$I_2$/(1/s)', '', '$N_3$', '', '$I_3$/(1/s)', '']
 m = np.zeros((4, 8))
