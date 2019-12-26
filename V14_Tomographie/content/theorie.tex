@@ -4,12 +4,13 @@
 Die Tomographie nutzt als bildgebendes Verfahren die unterschiedliche Abschwächung von Strahlung in verschiedenen Materialien, die einen Körper zusammensetzen, aus, um Informationen über die Struktur Zusammensetzung des Körpers gewinnen.
 
 \subsection{Entstehung und Mechanismen der Absorption von Gammastrahlung}
+\label{subsec:theorie1}
 
 In diesem Versuch wird dazu Gammastrahlung verwendet. Gammastrahlung entsteht beim radioaktiven Alpha- oder Betazerfall, wenn der Tochterkern aus seinem angeregten Zustand unter Abstrahlung eines Photons relaxiert. Diese haben eine diskrete Energie mit einer geringen Breite.
 Als Beispiel kann das Nuklid $\ce{^{137}Cs}$ betrachtet werden, dass durch Betazerfall zu $\ce{^{137}Ba}$ zerfällt. In den meisten Fällen verbleibt der Bariumkern in einem angeregten Zustand und emittiert so das Gammaphoton mit einer Energie von $\SI{0.6617}{\mega\electronvolt}$.
 
 Prinzipiell sind drei verschiedene Mechanismen der Abschwächung von Gammastrahlung in Materie relevant: Bei niedrigen Energien und hohen Ordnungszahlen des Stoffes dominiert der Photoeffekt, bei dem ein Photon von einem Hüllenelektron des Absorbermaterials
-absorbiert wird, wodurch dieses seine Energie erhält. Ist die Energie des Quants dabei höher als die Bindungsenergie des Elektrons, so kann es aus dem Atom herausgelöst werden. Die Restliche Energie wird in kinetische Energie des Elektrons umgewandelt.
+absorbiert wird, wodurch dieses seine Energie erhält. Ist die Energie des Quants dabei höher als die Bindungsenergie des Elektrons, so kann es aus dem Atom herausgelöst werden. Die restliche Energie wird in kinetische Energie des Elektrons umgewandelt.
 
 Beim Compton-Effekt wird ein Photon inelastisch an einem Elektron gestreut und gibt dort einen Teil seiner Energie ab, sodass das Elektron einen Impulsübertrag erfährt.
 Verschiedene Photonen werden dabei in unterschiedliche Richtungen gestreut, was zu einer Intensitätsabnahme
@@ -51,7 +52,7 @@ Diese Gleichung lässt sich logarithmieren, um die Matrixgleichung
 \end{equation}
 zu erhalten, wobei die Matrix $\symbf{A}$ die Würfelgeometrie parametrisiert, $\vec{\mu} = (\mu_1, \dots, \mu_n)$ ist ein Spaltenvektor, der die Abschwächungskoeffizienten der durchlaufenden Schichten enthält und $\vec{I}$ ist ein Spaltenvektor mit $I_i = \ln(I_0/N_i)$. Die einzelnen $I_i$ werden in diesem Zusammenhang auch Projektionen genannt und meinen verschiedene Strahlengänge durch das zu untersuchende Material. In diesem Versuch wird zum Beispiel eine Ebene eines Würfels untersucht, der aus 27 Elementarwürfeln besteht, sodass $\vec{\mu}$ neun Einträge hat.
 
-Die Matrix $\symbf{A}$ muss nicht notwendigerweische quadratisch sein. Es ist möglich, ein überbestimmtes Gleichungssystem zu erzeugen und dieses zu lösen, um die Messgenauigkeit zu erhöhen. Unter der Bedingung, dass $\symbf{A}^T \symbf{A}$ invertierbar ist, folgt für die aus den Messwerten für die Projektionen geschätzten Abschwächungskoeffizienten
+Die Matrix $\symbf{A}$ muss nicht notwendigerweise quadratisch sein. Es ist möglich, ein überbestimmtes Gleichungssystem zu erzeugen und dieses zu lösen, um die Messgenauigkeit zu erhöhen. Unter der Bedingung, dass $\symbf{A}^T \symbf{A}$ invertierbar ist, folgt für die aus den Messwerten für die Projektionen geschätzten Abschwächungskoeffizienten
 \begin{equation}
 	\hat{\vec{\mu}} = (\symbf{A}^T \symbf{A})^{-1} \symbf{A}^T \, \vec{I}\,,
 	\label{eqn:mumatrix}
@@ -62,23 +63,3 @@ Die Kovarianzmatrix, die auf der Hauptdiagonalen die Varianzen der geschätzten 
 	V[\hat{\vec{\mu}}] = (\symbf{A}^T \symbf{A})^{-1} \symbf{A}^T \, V[\vec{I}] \, \symbf{A} (\symbf{A}^T \symbf{A})^{-1}
 \end{equation}
 aus der Kovarianzmatrix der Projektionen $V[\vec{I}]$ bestimmen.
-
-
-
-\begin{table}[htp]
-	\begin{center}
-    \caption{Massenabschwächungskoeffizienten $\sigma$ in $\si{\centi\meter\squared\per\gram}$, Dichten in $\si{\gram\per\centi\meter\cubed}$ und Absorptionsskoeffizienten $\mu$ in $\si{\per\centi\meter}$.}
-    \label{tab:dicke}
-		\begin{tabular}{cccccccc}
-		\toprule
-			Material & $\sigma_{\text{photo}}$ & $\sigma_{\text{compton}}$ & $\sigma_{\text{ges}}$ & $\rho$ & $\mu_{\text{photo}}$ & $\mu_{\text{compton}}$ & $\mu_{\text{ges}}$\\
-			\midrule
-			Al & $\num{6.565e-5}$ & $\num{7.428e-2}$ & $\num{7.435e-2}$ & $\num{2.6989}$ & $\num{1.7718e-4}$ & $\num{0.2005}$ & $\num{0.2007}$\\
-      Pb & $\num{4.337e-2}$ & $\num{6.015e-2}$ & $\num{1.035e-1}$ & $\num{11.35}$ & $\num{0.4922}$ & $\num{0.6827}$ & $\num{1.1747}$\\
-      Fe & $\num{8.723e-4}$ & $\num{7.161e-2}$ & $\num{7.248e-2}$ & $\num{7.847}$ & $\num{6.8449e-3}$ & $\num{0.5619}$ & $\num{0.5688}$\\
-      Messing & $\num{1.340e-3}$ & $\num{7.028e-2}$ & $\num{7.162e-2}$ & $\num{8.44}$ & $\num{1.1310e-2}$ & $\num{0.5932}$ & $\num{0.6045}$\\
-      CH2O & $\num{6.784e-6}$ & $\num{8.221e-2}$ & $\num{8.221e-2}$ & $\num{1.41}$ & $\num{9.5654e-6}$ & $\num{0.1159}$ & $\num{0.1159}$\\
-		\bottomrule
-		\end{tabular}
-	\end{center}
-\end{table}

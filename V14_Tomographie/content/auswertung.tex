@@ -19,8 +19,8 @@ Bei der Betrachtung von links nach rechts sind im Spektrum zunächst beim ersten
 Maximum die Rückstreulinie, danach das Compton-Kontinuum, daraufhin beim zweiten
 Maximum die maximale Compton-Energie und anschließend den Photopeak.
 
-Die Rückstreulinie entsteht dadurch, dass der Strahler in alle Richtungen strahlt und auch an den Bleiwänden Compton-gestreute Photonen in den Detektor gelangen können. Das Compton-Kontinuum entsteht durch die Wechselwirkung der Gammaphotonen mit dem Szintillationsdetektor, wobei sie unter einem bestimmten Winkel gestreut werden und dabei Energie abgeben. Dieser Effekt findet nur bis zu einer bestimmten Energie statt, sodass eine maximale Compton-Energie zu erkennen ist.
-Der Photopeak repräsentiert schließlich die tatsächliche Energie der Gammaphotonen
+Die Rückstreulinie, markiert durch 1, entsteht dadurch, dass der Strahler in alle Richtungen strahlt und auch an den Bleiwänden Compton-gestreute Photonen in den Detektor gelangen können. Das Compton-Kontinuum (2) entsteht durch die Wechselwirkung der Gammaphotonen mit dem Szintillationsdetektor, wobei sie unter einem bestimmten Winkel gestreut werden und dabei Energie abgeben. Dieser Effekt, erläutert in Kapitel \ref{subsec:theorie1}, findet nur bis zu einer bestimmten Energie statt, sodass sich die Compton-Kante (3) ergibt.
+Der Photopeak, markiert durch 4, repräsentiert schließlich die tatsächliche Energie der Gammaphotonen
 und beträgt \cite{energie}
 \begin{equation*}
   E=\SI{661.7}{\kilo\eV} \,.
@@ -31,7 +31,6 @@ Die Zählrate für die Nullmessung kann zu
 \end{equation*}
 bestimmt werden.
 
-
 \subsection{Untersuchung eines leeren Aluminiumgehäuses}
 
 Zur Untersuchung des leeren Aluminiumgehäuses wurden für die in Abbildung \ref{fig:wuerfel1} dargestellten Projektionen die Zählraten gemessen.
@@ -39,7 +38,7 @@ Zur Untersuchung des leeren Aluminiumgehäuses wurden für die in Abbildung \ref
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{images/wuerfel1.jpg}
-  \caption{Skizze der gemessenen Projektionen für das reinen Aluminiumgehäuse.}
+  \caption{Skizze der gemessenen Projektionen für das reine Aluminiumgehäuse.}
   \label{fig:wuerfel1}
 \end{figure}
 
@@ -49,9 +48,9 @@ und $I_{0,3}$ ist die Nullmessung für diagonale Messungen durch eine Nebendiago
 
 Es ergeben sich die Zählraten
 \begin{align*}
-  I_0,1&=\SI{171.83(135)}{\per\second} \,, \\
-  I_0,2&=\SI{169.63(133)}{\per\second} \,, \\
-  I_0,3&=\SI{158.78(133)}{\per\second} \,.
+  I_{0,1}&=\SI{171.83(135)}{\per\second} \,, \\
+  I_{0,2}&=\SI{169.63(133)}{\per\second} \,, \\
+  I_{0,3}&=\SI{158.78(133)}{\per\second} \,.
 \end{align*}
 
 \subsection{Bestimmung des Materials zweier homogener Würfel}
@@ -69,7 +68,7 @@ in Abbildung \ref{fig:wuerfel2} dargestellten Projektionen gemessen. Die gemesse
 	\begin{center}
     \caption{Messwerte und daraus berechnete Zählraten für die beiden homogenen Würfel.}
     \label{tab:wuerfel2}
-		\begin{tabular}{ccccc}
+		\begin{tabular}{c S[table-format=4.0,table-figures-uncertainty=2] S[table-format=2.2,table-figures-uncertainty=2] S[table-format=5.0,table-figures-uncertainty=3] S[table-format=3.2,table-figures-uncertainty=2]}
 		\toprule
 			{Projektion} & {$N_2$}  & {$I_2$/(1/s)}  & {$N_3$}  & {$I_3$/(1/s)}\\
 			\midrule
@@ -94,9 +93,9 @@ bestimmt werden. Die Ergebnisse sind in Tabelle \ref{tab:ergebnisse} dargestellt
 
 \begin{table}[htp]
 	\begin{center}
-    \caption{Berechnete Werte für die Absorptionskoeffizienten}
+    \caption{Berechnete Werte für die Absorptionskoeffizienten.}
     \label{tab:ergebnisse}
-		\begin{tabular}{ccccc}
+		\begin{tabular}{c S[table-format=0.3,table-figures-uncertainty=1] S[table-format=0.3,table-figures-uncertainty=1]}
 		\toprule
 		{Projektion} &{$\mu_2$/(1/cm)} & {$\mu_3$/(1/cm)}\\
 			\midrule
@@ -116,8 +115,8 @@ Die Einzelergebnisse werden noch mit
 \end{align}
 gemittelt. Damit folgt für die gemittelten Absorptionskoeffizienten
 \begin{align*}
-  \bar{\mu_2}&= \SI{0.614(42)}{1\per \centi\metre}\,, \\
-  \bar{\mu_3}&=\SI{0.133(9)}{1\per \centi\metre} \,.
+  \bar{\mu}_2&= \SI{0.614(42)}{1\per \centi\metre}\,, \\
+  \bar{\mu}_3&=\SI{0.133(9)}{1\per \centi\metre} \,.
 \end{align*}
 Damit können den Würfeln die Materialien Messing für Würfel 2 und
 CH2O für Würfel 3 zugeordnet werden. Die Abweichungen von den Literaturwerten (siehe Tabelle \ref{tab:dicke})
@@ -141,7 +140,7 @@ gemessen. Die gemessenen Werte sind in Tabelle \ref{tab:wuerfel4} aufgeführt.
     \caption{Messwerte für die verschiedenen gemessenen Projektionen, sowie die daraus berechnete
     Zählrate.}
     \label{tab:wuerfel4}
-		\begin{tabular}{ccccc}
+		\begin{tabular}{c S[table-format=5.0,table-figures-uncertainty=3] S[table-format=3.2,table-figures-uncertainty=2]}
 		\toprule
 			{Projektion} &{$N_4$}  & {$I_4$/(1/s)} \\
 			\midrule
@@ -183,25 +182,30 @@ Die zugehörige Matrix lautet dann
   \right)\,.
 \end{equation}
 
-Für die Intensitäten gilt
+%Für die Intensitäten gilt
+%\begin{equation*}
+%  \vec{I}=   \left(
+%    \begin{array}{r}
+%      \ln\left(\frac{N_{0,1}}{N_{4,1}} \right) \\
+%      \ln\left(\frac{N_{0,1}}{N_{4,2}} \right) \\
+%      \ln\left(\frac{N_{0,1}}{N_{4,3}} \right) \\
+%      \ln\left(\frac{N_{0,1}}{N_{4,4}} \right) \\
+%      \ln\left(\frac{N_{0,1}}{N_{4,5}} \right) \\
+%      \ln\left(\frac{N_{0,1}}{N_{4,6}} \right) \\
+%      \ln\left(\frac{N_{0,2}}{N_{4,7}} \right) \\
+%      \ln\left(\frac{N_{0,3}}{N_{4,8}} \right) \\
+%      \ln\left(\frac{N_{0,2}}{N_{4,9}} \right) \\
+%      \ln\left(\frac{N_{0,2}}{N_{4,10}} \right) \\
+%      \ln\left(\frac{N_{0,3}}{N_{4,11}} \right) \\
+%      \ln\left(\frac{N_{0,2}}{N_{4,12}} \right) \\
+%    \end{array}
+%    \right) \,.
+%\end{equation*}
+Der Intensitätsvektor $\vec{I}$ wird aus den Einträgen
 \begin{equation*}
-  \vec{I}=   \left(
-    \begin{array}{r}
-      \ln\left(\frac{N_{0,1}}{N_{4,1}} \right) \\
-      \ln\left(\frac{N_{0,1}}{N_{4,2}} \right) \\
-      \ln\left(\frac{N_{0,1}}{N_{4,3}} \right) \\
-      \ln\left(\frac{N_{0,1}}{N_{4,4}} \right) \\
-      \ln\left(\frac{N_{0,1}}{N_{4,5}} \right) \\
-      \ln\left(\frac{N_{0,1}}{N_{4,6}} \right) \\
-      \ln\left(\frac{N_{0,2}}{N_{4,7}} \right) \\
-      \ln\left(\frac{N_{0,3}}{N_{4,8}} \right) \\
-      \ln\left(\frac{N_{0,2}}{N_{4,9}} \right) \\
-      \ln\left(\frac{N_{0,2}}{N_{4,10}} \right) \\
-      \ln\left(\frac{N_{0,3}}{N_{4,11}} \right) \\
-      \ln\left(\frac{N_{0,2}}{N_{4,12}} \right) \\
-    \end{array}
-    \right) \,.
+  \ln\left(\frac{N_{0,1}}{N_{4,i}}\right)
 \end{equation*}
+gebildet.
 
 Nach Gleichung \eqref{eqn:mumatrix} kann dann der Vektor $\vec{\mu}$ zu
 \begin{equation*}
@@ -221,17 +225,18 @@ Nach Gleichung \eqref{eqn:mumatrix} kann dann der Vektor $\vec{\mu}$ zu
       \right)=
   \left(
       \begin{array}{r}
-        \SI{0.043(9)}{1\per\centi\metre} \\
-        \SI{0.298(6)}{1\per\centi\metre} \\
-        \SI{0.468(9)}{1\per\centi\metre} \\
-        \SI{0.406(6)}{1\per\centi\metre} \\
-        \SI{0.430(7)}{1\per\centi\metre} \\
-        \SI{0.205(6)}{1\per\centi\metre} \\
-        \SI{0.497(9)}{1\per\centi\metre} \\
-        \SI{0.080(6)}{1\per\centi\metre} \\
-        \SI{0.238(9)}{1\per\centi\metre} \\
+        \SI{0.043(9)}{} \\
+        \SI{0.298(6)}{} \\
+        \SI{0.468(9)}{} \\
+        \SI{0.406(6)}{} \\
+        \SI{0.430(7)}{} \\
+        \SI{0.205(6)}{} \\
+        \SI{0.497(9)}{} \\
+        \SI{0.080(6)}{} \\
+        \SI{0.238(9)}{} \\
       \end{array}
       \right)
+      \SI{}{\per\centi\meter}
 \end{equation*}
 berechnet werden. Die Fehler folgen aus dem Zusammenhang
 \begin{equation}
@@ -240,6 +245,27 @@ berechnet werden. Die Fehler folgen aus dem Zusammenhang
 \end{equation}
 
 So können die Materialien der kleinen Würfel, aus denen die Ebene des Würfels zusammengesetzt ist, bestimmt werden. Die Zuordnungen und die Abweichungen der Werte von den Literaturwerten (siehe Tabelle \ref{tab:dicke}) ist in Tabelle \ref{tab:ergebnisse2} aufgeführt.
+Die Literaturwerte für die Massenabschwächungskoeffizienten sind \cite{datenbank} entnommen, während die Dichte der Messinglegierung aus \cite{messing} abgelesen wird.
+Es ist zu beachten, dass CH2O nur das Monomer des Polymers Delrin ist, jedoch konnten auch nach gründlicher Recherche keine Werte für Delrin gefunden werden. Diese Ungenauigkeit sollte allerdings gegenüber den bereits vorhandenen Messungenauigkeiten vernachlässigbar sein.
+
+
+\begin{table}[htp]
+	\begin{center}
+    \caption{Massenabschwächungskoeffizienten $\sigma$ in $\si{\centi\meter\squared\per\gram}$, Dichten in $\si{\gram\per\centi\meter\cubed}$ und Absorptionsskoeffizienten $\mu$ in $\si{\per\centi\meter}$ für die möglichen Materialien, aus denen die Elementarwürfel bestehen können.}
+    \label{tab:dicke}
+		\begin{tabular}{cccccccc}
+		\toprule
+			Material & $\sigma_{\text{photo}}$ & $\sigma_{\text{compton}}$ & $\sigma_{\text{ges}}$ & $\rho$ & $\mu_{\text{photo}}$ & $\mu_{\text{compton}}$ & $\mu_{\text{ges}}$\\
+			\midrule
+			Al & $\num{6.565e-5}$ & $\num{7.428e-2}$ & $\num{7.435e-2}$ & $\num{2.6989}$ & $\num{1.7718e-4}$ & $\num{0.2005}$ & $\num{0.2007}$\\
+      Pb & $\num{4.337e-2}$ & $\num{6.015e-2}$ & $\num{1.035e-1}$ & $\num{11.35}$ & $\num{0.4922}$ & $\num{0.6827}$ & $\num{1.1747}$\\
+      Fe & $\num{8.723e-4}$ & $\num{7.161e-2}$ & $\num{7.248e-2}$ & $\num{7.847}$ & $\num{6.8449e-3}$ & $\num{0.5619}$ & $\num{0.5688}$\\
+      Messing & $\num{1.340e-3}$ & $\num{7.028e-2}$ & $\num{7.162e-2}$ & $\num{8.44}$ & $\num{1.1310e-2}$ & $\num{0.5932}$ & $\num{0.6045}$\\
+      CH2O & $\num{6.784e-6}$ & $\num{8.221e-2}$ & $\num{8.221e-2}$ & $\num{1.41}$ & $\num{9.5654e-6}$ & $\num{0.1159}$ & $\num{0.1159}$\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
 
 \begin{table}[htp]
 	\begin{center}
