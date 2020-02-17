@@ -17,15 +17,17 @@ Das Spektrum der Quelle ist in Abbildung \ref{fig:spektrum} dargestellt. Dort is
 
 Bei der Betrachtung von links nach rechts sind im Spektrum zunächst beim ersten
 Maximum die Rückstreulinie, danach das Compton-Kontinuum, daraufhin beim zweiten
-Maximum die maximale Compton-Energie und anschließend den Photopeak.
+Maximum die maximale Compton-Energie und anschließend der Photopeak zu sehen.
 
-Die Rückstreulinie, markiert durch 1, entsteht dadurch, dass der Strahler in alle Richtungen strahlt und auch an den Bleiwänden Compton-gestreute Photonen in den Detektor gelangen können. Das Compton-Kontinuum (2) entsteht durch die Wechselwirkung der Gammaphotonen mit dem Szintillationsdetektor, wobei sie unter einem bestimmten Winkel gestreut werden und dabei Energie abgeben. Dieser Effekt, erläutert in Kapitel \ref{subsec:theorie1}, findet nur bis zu einer bestimmten Energie statt, sodass sich die Compton-Kante (3) ergibt.
+Die Rückstreulinie, markiert durch 1, entsteht dadurch, dass der Strahler in alle Richtungen strahlt und auch an den Bleiwänden Compton-gestreute Photonen in den Detektor gelangen können. Das Compton-Kontinuum (2) entsteht durch die Wechselwirkung der Gammaphotonen mit dem Szintillationsdetektor, wobei sie unter einem bestimmten Winkel gestreut werden und dabei Energie abgeben. Dieser Effekt wurde bereits in Kapitel \ref{subsec:theorie1} erläutert. Er findet nur bis zu einer bestimmten Energie statt, sodass sich die Compton-Kante (3) ergibt.
 Der Photopeak, markiert durch 4, repräsentiert schließlich die tatsächliche Energie der Gammaphotonen
 und beträgt \cite{energie}
 \begin{equation*}
   E=\SI{661.7}{\kilo\eV} \,.
 \end{equation*}
-Die Zählrate für die Nullmessung kann zu
+Der Peak lässt sich der Gammaenergie zuordnen, da diese diskret ist.
+
+Die Zählrate für die Nullmessung ohne Würfel im Strahlengang kann zu
 \begin{equation*}
   I_0=\SI{184.08(87)}{\per \second}
 \end{equation*}
@@ -54,6 +56,7 @@ Es ergeben sich die Zählraten
 \end{align*}
 
 \subsection{Bestimmung des Materials zweier homogener Würfel}
+\label{subsec:wuerfel}
 Zur Bestimmung des Materials zweier homogener Würfel werden die Zählraten für die
 in Abbildung \ref{fig:wuerfel2} dargestellten Projektionen gemessen. Die gemessenen Werte befinden sich in Tabelle \ref{tab:wuerfel2}.
 
@@ -99,10 +102,10 @@ bestimmt werden. Die Ergebnisse sind in Tabelle \ref{tab:ergebnisse} dargestellt
 		\toprule
 		{Projektion} &{$\mu_2$/(1/cm)} & {$\mu_3$/(1/cm)}\\
 			\midrule
-			1 & 0,609 \pm 0,006 & 0,136 \pm 0,006\\
-			2 & 0,636 \pm 0,006 & 0,134 \pm 0,006\\
-			3 & 0,554 \pm 0,005 & 0,128 \pm 0,005\\
-			4 & 0,656 \pm 0,007 & 0,133 \pm 0,007\\
+			1 & 0,609 \pm 0,006 & 0,136 \pm 0,004\\
+			2 & 0,636 \pm 0,006 & 0,134 \pm 0,004\\
+			3 & 0,554 \pm 0,005 & 0,128 \pm 0,003\\
+			4 & 0,656 \pm 0,007 & 0,133 \pm 0,004\\
 		\bottomrule
 		\end{tabular}
 	\end{center}
@@ -115,11 +118,11 @@ Die Einzelergebnisse werden noch mit
 \end{align}
 gemittelt. Damit folgt für die gemittelten Absorptionskoeffizienten
 \begin{align*}
-  \bar{\mu}_2&= \SI{0.614(42)}{1\per \centi\metre}\,, \\
-  \bar{\mu}_3&=\SI{0.133(9)}{1\per \centi\metre} \,.
+  \bar{\mu}_2&= \SI{0.614(3)}{1\per \centi\metre}\,, \\
+  \bar{\mu}_3&=\SI{0.133(2)}{1\per \centi\metre} \,.
 \end{align*}
 Damit können den Würfeln die Materialien Messing für Würfel 2 und
-CH2O für Würfel 3 zugeordnet werden. Die Abweichungen von den Literaturwerten (siehe Tabelle \ref{tab:dicke})
+\ce{CH2O} für Würfel 3 zugeordnet werden. Die Abweichungen von den Literaturwerten (siehe Tabelle \ref{tab:dicke})
 betragen $1{,}57\%$ und $14{,}75\%$.
 
 \newpage
@@ -203,7 +206,7 @@ Die zugehörige Matrix lautet dann
 %\end{equation*}
 Der Intensitätsvektor $\vec{I}$ wird aus den Einträgen
 \begin{equation*}
-  \ln\left(\frac{N_{0,1}}{N_{4,i}}\right)
+  \ln\left(\frac{N_{0,j}}{N_{4,i}}\right)
 \end{equation*}
 gebildet.
 
@@ -226,11 +229,11 @@ Nach Gleichung \eqref{eqn:mumatrix} kann dann der Vektor $\vec{\mu}$ zu
   \left(
       \begin{array}{r}
         \SI{0.043(9)}{} \\
-        \SI{0.298(6)}{} \\
+        \SI{0.298(7)}{} \\
         \SI{0.468(9)}{} \\
-        \SI{0.406(6)}{} \\
-        \SI{0.430(7)}{} \\
-        \SI{0.205(6)}{} \\
+        \SI{0.406(7)}{} \\
+        \SI{0.430(8)}{} \\
+        \SI{0.205(7)}{} \\
         \SI{0.497(9)}{} \\
         \SI{0.080(6)}{} \\
         \SI{0.238(9)}{} \\
@@ -244,9 +247,10 @@ berechnet werden. Die Fehler folgen aus dem Zusammenhang
   \text{mit}\:\: \symbf{\tilde{A}} = \left(\symbf{A^T} \cdot \symbf{A}\right)^{-1} \symbf{A^T}\,.
 \end{equation}
 
-So können die Materialien der kleinen Würfel, aus denen die Ebene des Würfels zusammengesetzt ist, bestimmt werden. Die Zuordnungen und die Abweichungen der Werte von den Literaturwerten (siehe Tabelle \ref{tab:dicke}) ist in Tabelle \ref{tab:ergebnisse2} aufgeführt.
+So können die Materialien der kleinen Würfel, aus denen die Ebene des Würfels zusammengesetzt ist, bestimmt werden. Zunächst werden die Zuordnungen lediglich anhand des Vergleichs der berechneten Werte mit den Theoriewerten vorgenommen. Die
+Zuordnungen und die Abweichungen der Werte von den Literaturwerten (siehe Tabelle \ref{tab:dicke}) ist in Tabelle \ref{tab:ergebnisse2} aufgeführt.
 Die Literaturwerte für die Massenabschwächungskoeffizienten sind \cite{datenbank} entnommen, während die Dichte der Messinglegierung aus \cite{messing} abgelesen wird.
-Es ist zu beachten, dass CH2O nur das Monomer des Polymers Delrin ist, jedoch konnten auch nach gründlicher Recherche keine Werte für Delrin gefunden werden. Diese Ungenauigkeit sollte allerdings gegenüber den bereits vorhandenen Messungenauigkeiten vernachlässigbar sein.
+Es ist zu beachten, dass \ce{CH2O} nur das Monomer des Polymers Delrin ist, jedoch konnten auch nach gründlicher Recherche keine Werte für Delrin gefunden werden. Diese Ungenauigkeit sollte allerdings gegenüber den bereits vorhandenen Messungenauigkeiten vernachlässigbar sein.
 
 
 \begin{table}[htp]
@@ -261,7 +265,7 @@ Es ist zu beachten, dass CH2O nur das Monomer des Polymers Delrin ist, jedoch ko
       Pb & $\num{4.337e-2}$ & $\num{6.015e-2}$ & $\num{1.035e-1}$ & $\num{11.35}$ & $\num{0.4922}$ & $\num{0.6827}$ & $\num{1.1747}$\\
       Fe & $\num{8.723e-4}$ & $\num{7.161e-2}$ & $\num{7.248e-2}$ & $\num{7.847}$ & $\num{6.8449e-3}$ & $\num{0.5619}$ & $\num{0.5688}$\\
       Messing & $\num{1.340e-3}$ & $\num{7.028e-2}$ & $\num{7.162e-2}$ & $\num{8.44}$ & $\num{1.1310e-2}$ & $\num{0.5932}$ & $\num{0.6045}$\\
-      CH2O & $\num{6.784e-6}$ & $\num{8.221e-2}$ & $\num{8.221e-2}$ & $\num{1.41}$ & $\num{9.5654e-6}$ & $\num{0.1159}$ & $\num{0.1159}$\\
+      \ce{CH2O} & $\num{6.784e-6}$ & $\num{8.221e-2}$ & $\num{8.221e-2}$ & $\num{1.41}$ & $\num{9.5654e-6}$ & $\num{0.1159}$ & $\num{0.1159}$\\
 		\bottomrule
 		\end{tabular}
 	\end{center}
@@ -269,21 +273,49 @@ Es ist zu beachten, dass CH2O nur das Monomer des Polymers Delrin ist, jedoch ko
 
 \begin{table}[htp]
 	\begin{center}
-    \caption{Zuordnung der Materialien zu den Würfeln.}
+    \caption{Zuordnung der Materialien zu den Würfeln lediglich anhand des Vergleichs der Theoriewerte mit den berechneten Werten.}
     \label{tab:ergebnisse2}
 		\begin{tabular}{ccc}
 		\toprule
 			{Würfel} & {Material}  & {Abweichung in \%} \\
 			\midrule
-			1 & CH2O &   -62,90 \\
+			1 & \ce{CH2O} &   -62,90 \\
 			2 & Al   &   48,95\\
 			3 & Fe   &   -17,72\\
 			4 & Fe   &   -28,62\\
 			5 & Fe   &   -24,40\\
 			6 & Al   &   2,46 \\
 			7 & Fe   &   -12,62\\
-			8 & CH2O &   -30,97 \\
+			8 & \ce{CH2O} &   -30,97 \\
 			9 & Al   &   18,96\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+Da aus der Versuchsanleitung bekannt ist, dass die Würfel nur aus den zwei in Kapitel
+\ref{subsec:wuerfel} bestimmten Materialien Messing und \ce{CH2O} bestehen, können die
+Materialien der Elementarwürfel noch genauer bestimmt werden. So ergeben sich die in
+Tabelle \ref{tab:ergebnisse3} aufgeführten Zuordnungen.
+
+\begin{table}[htp]
+	\begin{center}
+    \caption{Zuordnung der Materialien zu den Würfeln mit der zusätzlichen Einschränkung auf die Materialien Messing und \ce{CH2O}.}
+    \label{tab:ergebnisse3}
+		\begin{tabular}{ccc}
+		\toprule
+			{Würfel} & {Material}  & {Abweichung in \%} \\
+			\midrule
+			1 & \ce{CH2O}      &   -62,90 \\
+			2 & CH20      &   157,12\\
+			3 & Messing   &   -22,58\\
+			4 & Messing   &   -32,84\\
+			5 & Messing   &   -28,87\\
+			6 & CH20      &   76,88 \\
+			7 & Messing   &   -17,78\\
+			8 & \ce{CH2O}      &   -30,97 \\
+			9 & CH20      &   105,35\\
 		\bottomrule
 		\end{tabular}
 	\end{center}
