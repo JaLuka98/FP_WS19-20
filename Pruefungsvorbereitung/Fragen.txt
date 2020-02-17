@@ -1,0 +1,71 @@
+V16-Rutherford:
+	- Wie lautet die Rutherford Formel?
+	- Wie lautet die Bethe Bloch Formel (Proportionalitäten)?
+	- Welche Annahmen machen diese Formeln?
+	- Was ist ein diff. WQ, was ein totaler?
+	- Warum ist es kein Problem, dass der diff. WQ bei Rutherford divergiert?
+	- Welches Isotop verwenden wir in diesem Versuch? Wie zerfällt es? Welche Energie hat das 		  Alpateilchen?
+	- Wie berechnet man die Unsicherheiten der Messungen?
+	- Warum verwendet man Gold für solche Experimente?
+
+	- Skizzieren Sie den Versuchsaufbau.
+	- Was ist ein Surface Barrier Detektor?
+	- Wie schauen wir uns das Signal an?
+	- Wie evakuieren wir den Versuchsaufbau?
+	- Auf welche Spannung regeln wir den Surface Barrier Detektor?
+	- Welche Messreihen machen wir?
+	- Wie dick ist laut Herstellerangaben die Goldfolie im zweiten Teil der Durchführung?
+	- Bis wohin kommen wir mit der Evakuierung?
+	- Wie verfahren wir mit der Diskriminatorschwelle?
+	- Wozu vermessen wir die dickere Goldfolie?
+	- Was ist der letzte Teil der Durchführung?
+
+	- Wie groß ist die Anstiegszeit des Stromimpulses?
+	- Erklären Sie die Auswertung zur Messung der Foliendicke
+	- Warum ist es nötig, den Raumwinkel zu korrigieren? Wie bestimmt man die Aktivität experimentell und theoretisch?
+	- Mit welcher Formel bestimmen Sie experimentell den diff. WQ?
+	- Erläutern Sie das Phänomen der Mehrfachstreuung
+	- Erklären Sie die Z-Abhängigkeit des Parameters I/Ndeltax
+
+	- Erläutern Sie mögliche Messunsicherheiten und Fehlerquellen!
+
+
+V48-Dipolrelaxation:
+	- Was sind Ionenkristalle? Welche Verbindung betrachten wir in diesem Versuch?
+	- Wie kann man elektrische Dipole in einem Ionenkristall erzeugen?
+	- Warum gibt es nur diskrete Ausrichtungen des Dipolmoments im Festkörper?
+	- Erläutern Sie die Diffusion des Dipols im Festkörper. Erklären Sie dazu die Begriffe Aktivierungsenergie und Relaxationszeit.
+	- Erläutern Sie grundlegend die Messstrategie
+	- Erste Herleitung des Depolarisationsstroms:
+		- Wie groß ist der Bruchteil der ausgerichteten Dipole im elektrischen Feld?
+		- Wie können wir diese Funktion nähern?
+		- Stellen Sie den Ansatz für die Depolarisationsstromdichte auf.
+		- Erhalten Sie die Relaxationsrate pro Volumen und pro Zeit aus einer ...-Gleichung
+		- Fügen Sie alles zusammen und nähern Sie ggf.
+	- Zeichnen Sie den Kurvenverlauf hin. Woher kann ein zweites Maximum stammen?
+	- Warum können wir die Stromstärke messen, aber mit der Stromdichte rechnen?	
+	- Zweite Herleitung:
+		- Stellen Sie eine Relaxationsgleichung für die Polarisation der Probe auf
+		- Verbinden Sie dies mit einem Strom und stellen Sie nach der Relaxationszeit um
+		- Fügen Sie zuletzt die Definition der Relaxationszeit ein.
+	- Warum ist es nicht praktikabel, die Relaxationszeit mit der zweiten Methode zu messen?
+	- Was machlt man stattdessen?
+
+	- Skizzieren Sie schematisch den Aufbau
+	- Warum evakuieren wir den Rezipienten?
+	- Mit was kühlen wir und bei welchen Temperaturen befinden wir uns ca.?
+	- Erläutern Sie, wie man elektrisch vorgeht bei diesem Versuch
+	- Welche Messreihen werden aufgenommen?
+	- Wie groß sind die gemessenen Ströme?
+
+	- Wie können wir eine durchschnittliche Heizrate ermitteln?
+	- Erläutern Sie die Untergrundkorrektur. Warum ist diese nötig?
+	- Was sind die Ursachen dieses Untergrundes?
+	- Skizzieren Sie den experimentell besimmten Strom in Abhängigkeit der Temperatur
+	- Für welche Heizrate erwarten Sie bessere Ergebnisse?
+	- Erläutern Sie die experimentelle Auswertung mit der ersten Methode. Welche Messwerte werden berücksichtigt?
+	- In welcher Größenordnung sind die experimentell bestimmten Aktivierungsenergien?
+	- Erläutern Sie die zweite Auswertung.
+	- In welcher Größenordnung bewegt sich dann die Relaxationszeit, die man dadurch bestmmt?
+
+	- Erläutern Sie mögliche systematische Fehler und Ungenauigkeiten
