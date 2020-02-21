@@ -1,3 +1,22 @@
+V14-Tomographie:
+	- Was verstehen wir unter Tomographie?
+	- Welches Nuklid verwenden wir? Wie zerfällt es, welche Energie?
+	- Benennen Sie die drei Arten der Abschwächung von Gammastrahlung in Materie und ihre Proportionalitäten
+	- Welches Gesetz gilt für die Abschwächung von Gamma in Materie?
+	- Wie kann man das mathematisch formulieren (Erinnerung: Kleinste Quadrate?)
+
+	- Stellen Sie den Versuchsaufbau schematisch dar
+	- Erläutern Sie das Messprinzip mit dem Szintillationsdetektor
+	- Was ist ein Vielkanalanalysator?
+	- Wie lange messen wir grob?
+	- Welche Materialien untersuchen wir in diesem Versuch?
+	
+	- Malen Sie das Spektrum hin und erklären Sie es!
+	- Geben Sie eine Abschätzung der Zählraten
+	- Erläutern Sie das Messverfahren konkret am Beispiel eines homogenen Würfels
+	- Schreiben Sie beispielhaft eine Matrix für ein paar Projektionen hin
+	- Beurteilen Sie mögliche Messungenauigkeiten.
+
 V16-Rutherford:
 	- Wie lautet die Rutherford Formel?
 	- Wie lautet die Bethe Bloch Formel (Proportionalitäten)?
@@ -29,6 +48,42 @@ V16-Rutherford:
 
 	- Erläutern Sie mögliche Messunsicherheiten und Fehlerquellen!
 
+
+V21-Optikale Pumpierung:
+	- Beschreiben Sie neben den Quantenzahlen den Schritt zur Hyperfeinstruktur und skizzieren Sie an einem Beispiel (z.B. 87-Rb mit I=3/2)
+	- Erläutern Sie den Zeeman-Effekt dort und die Lande-Faktoren g_F und g_J
+	- Erläutern Sie das Prinzip des optischen Pumpens am Beispiel des Alkalidubletts
+	- Skizzieren Sie die Transparenz der Dampfzelle in Abhängigkeit des angelegten magnetischen Feldes. Wie lautet die Gleichung für die Resonanz des B-Feldes?
+	- Warum beachten wir keine spontane Emission zwischen den Zeeman-aufgespaltenen Niveaus?
+	- Warum beträgt die Transparenz um 0 herum 0?
+	- Beschreiben Sie den quadratischen Zeeman-Effekt
+	- Beschreiben Sie die transienten Effekte
+
+	- Skizzieren Sie den Aufbau
+	- Wie erhalten wir rechtszirkular polarisiertes Licht?
+	- Erläutern Sie, welche Magnetfelder vorhanden sind und wie man das Erdmagnetfeld kompensiert!
+	- Wie nehmen wir die erste Messreihe auf? Wie ist die Verschaltung mit dem Oszilloskop?
+	- Erläutern Sie die Messung der transienten Effekte
+
+	- Wie groß ist circa die Vertikalkomponente des Magnetfeldes?
+	- Wie bestimmen wir die Lande-Faktoren und die Horizontalkomponente des Magnetfeldes?
+	- Wie können wir aus den bestimmten Lande-Faktoren die Kernspins erhalten?
+	- Wie lässt sich auf einfachem Wege des Isotopenverhältnis erhalten?
+	- Spielt der quadratische Zeeman-Effekt in diesem Versuch eine Rolle?
+	- 
+Skizzieren sie grob die Auswertung der Rabi-Oszillationen
+V27-Zeeman:
+	- Erläutern Sie die Quantenzahlen und die LS Kopplung, jj Kopplung
+	- Wie werden die Energieniveaus im externen Feld aufgespalten?
+	- Welche Auswahlregeln gelten? Erläutern Sie das mit Polarisation
+	- Erläutern Sie normalen und anomalen Zeeman an Beispielen
+	- Rote und blaue Cadmium Linien? Welche Lande Faktoren werden erwartet
+	- Skizzieren Sie den Versuchsaufbau
+	- Erklären Sie die Lummer-Gehrcke Platte und ihre Eigenschaften
+	- Wie sehen die Bilder aus und wie lautet die Masterformel?
+	- Wie parametrisieren wir das Magnetfeld?
+	- Erläutern Sie die Auswertung für die rote und für die blaue Linie. Was bestimmen wir letzendlich?
+	- Beurteilen Sie die Genauigkeiten des Versuchs
 
 V48-Dipolrelaxation:
 	- Was sind Ionenkristalle? Welche Verbindung betrachten wir in diesem Versuch?
